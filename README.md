@@ -22,11 +22,13 @@ The following instructions assume you are signed in with a Discord account.
 2. Type `cd create-discord-bot/` and `npm install`.
 3. In the root of the `src` folder, open the `config.json` file and add your bot's token:
 
-```
+```js
 {
   "token": "YOUR_DISCORD_BOT_TOKEN_HERE",
   "prefix": "!"
 }
 ```
 
-4. Type `npm start` or `node src/index.js` to run.
+#### Run Bot
+
+1. Type `npm start` or `node src/index.js` to run. You're ready to add your own commands! 
