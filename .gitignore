@@ -2,5 +2,4 @@
 node_modules
 
 # privy to me
-# uncomment the line below if uploading to a public repository
-# src/config.json
+src/config.json
