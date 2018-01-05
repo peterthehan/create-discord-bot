@@ -1,0 +1,10 @@
+{
+  "name": "create-discord-bot",
+  "version": "1.0.0",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
