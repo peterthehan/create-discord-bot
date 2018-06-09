@@ -1,6 +1,11 @@
 const config = require('../config.json');
 
 module.exports = (message) => {
+  // uncomment for self bot
+  // if (message.author.id !== message.client.user.id) {
+  //   return;
+  // }
+
   // ignore bot messages and messages not from guild text channels
   if (message.author.bot || message.channel.type !== 'text') {
     return;
