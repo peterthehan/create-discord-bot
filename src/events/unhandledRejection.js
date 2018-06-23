@@ -1,3 +1,3 @@
-module.exports = (error) => {
+module.exports = error => {
   console.log(error);
-}
+};

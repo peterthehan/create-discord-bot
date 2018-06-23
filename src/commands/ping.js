@@ -1,15 +1,14 @@
 exports.run = (message, args) => {
-  let e = { description: 'Pinging...', };
-
   message.channel
-    .send({ embed: e, })
+    .send({ embed: { description: 'Pinging...' } })
     .then(newMessage => {
-      e = {
-        title: 'Pong! 🏓',
-        description: `${newMessage.createdTimestamp - message.createdTimestamp} ms`,
-      };
-
-      newMessage.edit({ embed: e, });
+      newMessage.edit({
+        embed: {
+          title: 'Pong! 🏓',
+          description: `${newMessage.createdTimestamp -
+            message.createdTimestamp} ms`
+        }
+      });
     })
     .catch(error => console.log(error));
-}
+};

@@ -1,7 +1,9 @@
-const requireEvent = (event) => require(`../events/${event}`);
+const requireEvent = event => require(`../events/${event}`);
 
-module.exports = (client) => {
+module.exports = client => {
   client.on('message', requireEvent('message'));
   client.on('ready', () => requireEvent('ready')(client));
-  process.on('unhandledRejection', (error) => requireEvent('unhandledRejection')(error));
+  process.on('unhandledRejection', error =>
+    requireEvent('unhandledRejection')(error)
+  );
 };
