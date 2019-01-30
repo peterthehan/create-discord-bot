@@ -8,27 +8,31 @@ Create Discord bots using a simple template.
 
 The following instructions assume you are signed in with a Discord account.
 
-1. Go to Discord's [My Apps](https://discordapp.com/developers/applications/me) page.
-2. Create a new app.
-3. Click the `Create a Bot User` button and confirm.
-4. You can create an invitation link for your bot with `https://discordapp.com/oauth2/authorize?client_id=YOUR_DISCORD_BOT_CLIENT_ID_HERE&scope=bot`.
-5. Click `click to reveal` to view your bot's token.
+1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
+2. Create a new application.
+3. Add a bot user to your app.
+4. Invite your bot to your server via [https://discordapp.com/oauth2/authorize?client_id=DISCORD_BOT_CLIENT_ID_HERE&scope=bot](https://discordapp.com/oauth2/authorize?client_id=DISCORD_BOT_CLIENT_ID_HERE&scope=bot).
+5. Click `Click to Reveal Token` to view your bot's token.
 
->Keep your Discord bot token and any file containing it **private**!
+> Keep your Discord bot token and any file containing it **private**!
 
 #### Get Bot
 
 1. Type `git clone https://github.com/Johj/create-discord-bot.git`.
 2. Type `cd create-discord-bot/` and `npm install`.
-3. In the root of the `src` folder, open the `config.json` file and add your bot's token:
+3. Navigate to `src/config.json` and add your bot's token:
 
 ```js
 {
-  "token": "YOUR_DISCORD_BOT_TOKEN_HERE",
-  "prefix": "!"
+  "token": "DISCORD_BOT_TOKEN_HERE",
+  "prefix": ".",
+  "commandDelimiter": "\n",
+  "commandLimit": "5"
 }
 ```
 
 #### Run Bot
 
-1. Type `npm start` or `node src/index.js` to run. You're ready to add your own commands! 
+1. Type `npm start` or `node src/index.js` to run.
+2. Verify the bot is working by using the `.ping` command in the server you invited the bot.
+3. You're ready to add your own commands!
