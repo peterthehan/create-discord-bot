@@ -1,5 +1,6 @@
-# packages
+# npm
 node_modules
+package-lock.json
 
-# privy to me
+# private
 src/config.json

@@ -2,7 +2,7 @@
   "name": "create-discord-bot",
   "version": "1.0.0",
   "dependencies": {
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.4.2"
   },
   "scripts": {
     "start": "node src/index.js"

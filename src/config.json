@@ -1,4 +1,6 @@
 {
   "token": "",
-  "prefix": "!"
+  "prefix": ".",
+  "commandDelimiter": "\n",
+  "commandLimit": "5"
 }

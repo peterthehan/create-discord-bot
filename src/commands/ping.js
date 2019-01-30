@@ -1,5 +1,5 @@
 exports.run = (message, args) => {
-  message.channel
+  return message.channel
     .send({ embed: { description: 'Pinging...' } })
     .then(newMessage => {
       newMessage.edit({

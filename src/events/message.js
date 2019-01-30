@@ -1,56 +1,59 @@
-const config = require('../config.json');
+const { prefix, commandDelimiter, commandLimit } = require('../config');
 
-module.exports = message => {
-  // uncomment for self bot
-  // if (message.author.id !== message.client.user.id) {
-  //   return;
-  // }
-
+const processCommand = (message, content) => {
   // ignore bot messages
   if (message.author.bot) {
     return;
   }
 
-  // ignore messages not from guild text channels
+  // ignore non-guild text channel messages
   // if (message.channel.type !== 'text') {
   //   return;
   // }
 
-  const mentionRegExp = RegExp(`^<@!?${message.client.user.id}>`);
-  const noPrefix = !config.prefix || !message.content.startsWith(config.prefix);
-  const noMention = !mentionRegExp.test(message.content);
+  const botMentionPrefixRegExp = new RegExp(`^<@!?${message.client.user.id}>`);
+  const noPrefix = !prefix || !content.startsWith(prefix);
+  const noBotMentionPrefix = !botMentionPrefixRegExp.test(content);
 
   // ignore if not a command
-  if (noPrefix && noMention) {
+  if (noPrefix && noBotMentionPrefix) {
     return;
   }
 
   // parse message into command and arguments
   let args;
   let command;
-  if (noMention) {
-    args = message.content.split(' ');
+  if (noBotMentionPrefix) {
+    args = content.split(' ').filter(Boolean);
     command = args
       .shift()
-      .slice(config.prefix.length)
+      .slice(prefix.length)
       .toLowerCase();
   } else {
-    args = message.content
-      .replace(mentionRegExp, '')
-      .trim()
-      .split(' ');
+    args = content
+      .replace(botMentionPrefixRegExp, '')
+      .split(' ')
+      .filter(Boolean);
     command = args.shift().toLowerCase();
   }
 
-  // check if command file exists
-  try {
+  return () => {
     console.log(
       (message.channel.type === 'text'
         ? `${message.guild.name}#${message.channel.name}|`
-        : '') + `${message.author.tag}: ${message.content}`
+        : '') + `${message.author.tag}: ${content}`
     );
-    require(`../commands/${command}`).run(message, args);
-  } catch (error) {
-    console.log(error);
-  }
+    return require(`../commands/${command}`).run(message, args);
+  };
+};
+
+module.exports = message => {
+  message.content
+    .split(commandDelimiter)
+    .slice(0, commandLimit)
+    .map(content => processCommand(message, content))
+    .reduce(
+      (currentPromise, nextPromise) => currentPromise.then(nextPromise),
+      Promise.resolve()
+    );
 };

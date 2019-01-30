@@ -1,10 +1,9 @@
-const Discord = require('discord.js');
-const config = require('./config.json');
+const { Client } = require('discord.js');
+const { token } = require('./config');
 
 // create bot
-const client = new Discord.Client();
+const client = new Client();
+client.login(token);
 
 // load event handlers
-require('./util/loadEvents.js')(client);
-
-client.login(config.token);
+require('./util/loadEvents')(client);
