@@ -9,6 +9,5 @@ exports.run = (message, args) => {
             message.createdTimestamp} ms`
         }
       });
-    })
-    .catch(error => console.log(error));
+    });
 };
