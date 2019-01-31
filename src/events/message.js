@@ -1,16 +1,6 @@
 const { prefix, commandDelimiter, commandLimit } = require('../config');
 
-const processCommand = (message, content) => {
-  // ignore bot messages
-  if (message.author.bot) {
-    return;
-  }
-
-  // ignore non-guild text channel messages
-  // if (message.channel.type !== 'text') {
-  //   return;
-  // }
-
+const processCommand = (message, content, isLastCommand) => {
   const botMentionPrefixRegExp = new RegExp(`^<@!?${message.client.user.id}>`);
   const noPrefix = !prefix || !content.startsWith(prefix);
   const noBotMentionPrefix = !botMentionPrefixRegExp.test(content);
@@ -38,20 +28,49 @@ const processCommand = (message, content) => {
   }
 
   return () => {
+    command = require(`../commands/${command}`);
+
+    // ignore if args is empty
+    if (command.failIfEmptyArgs && !args.length) {
+      return;
+    }
+
     console.log(
       (message.channel.type === 'text'
         ? `${message.guild.name}#${message.channel.name}|`
         : '') + `${message.author.tag}: ${content}`
     );
-    return require(`../commands/${command}`).run(message, args);
+
+    return command.run(message, args, isLastCommand).then(() => {
+      if (isLastCommand && command.deleteInvoke) {
+        message.delete();
+      }
+    });
   };
 };
 
 module.exports = message => {
-  message.content
-    .split(commandDelimiter)
-    .slice(0, commandLimit)
-    .map(content => processCommand(message, content))
+  // ignore bot messages
+  if (message.author.bot) {
+    return;
+  }
+
+  // ignore non-guild text channel messages
+  // if (message.channel.type !== 'text') {
+  //   return;
+  // }
+
+  // if any of the conditions fail, treat the entire message as one command
+  const contents =
+    !commandDelimiter.length || !commandLimit.length || commandLimit <= 1
+      ? [message.content]
+      : message.content.split(commandDelimiter).slice(0, commandLimit);
+
+  // process the contents synchronously
+  contents
+    .map((content, index) =>
+      processCommand(message, content, index === contents.length - 1)
+    )
     .reduce(
       (currentPromise, nextPromise) => currentPromise.then(nextPromise),
       Promise.resolve()
