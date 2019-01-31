@@ -42,7 +42,7 @@ const processCommand = (message, content, isLastCommand) => {
     );
 
     return command.run(message, args, isLastCommand).then(() => {
-      if (isLastCommand && command.deleteInvoke) {
+      if (isLastCommand && command.deleteCommand) {
         message.delete();
       }
     });
