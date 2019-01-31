@@ -1,10 +1,30 @@
 {
   "name": "create-discord-bot",
   "version": "1.0.0",
-  "dependencies": {
-    "discord.js": "^11.4.2"
+  "description": "Create Discord bots using a simple template.",
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "homepage": "https://github.com/Johj/create-discord-bot",
+  "bugs": {
+    "url": "https://github.com/Johj/create-discord-bot/issues",
+    "email": "peter.han.9493@gmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Peter Han",
+    "email": "peter.han.9493@gmail.com",
+    "url": "https://github.com/Johj"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Johj/create-discord-bot.git"
   },
   "scripts": {
     "start": "node src/index.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2"
   }
 }
