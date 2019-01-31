@@ -41,7 +41,7 @@ const processCommand = (message, content, isLastCommand) => {
         : '') + `${message.author.tag}: ${content}`
     );
 
-    return command.run(message, args, isLastCommand).then(() => {
+    return command.run(message, args).then(() => {
       if (isLastCommand && command.deleteCommand) {
         message.delete();
       }
