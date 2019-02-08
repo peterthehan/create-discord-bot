@@ -31,7 +31,7 @@ const processCommand = (message, content, isLastCommand) => {
     command = require(`../commands/${command}`);
 
     // ignore if args is empty
-    if (command.failIfEmptyArgs && !args.length) {
+    if (command.returnOnEmptyArgs && !args.length) {
       return;
     }
 
