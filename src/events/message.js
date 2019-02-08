@@ -27,26 +27,25 @@ const processCommand = (message, content, isLastCommand) => {
     command = args.shift().toLowerCase();
   }
 
-  return () => {
-    command = require(`../commands/${command}`);
+  command = require(`../commands/${command}`);
 
-    // ignore if args is empty
-    if (command.returnOnEmptyArgs && !args.length) {
-      return;
-    }
+  // ignore if args is empty
+  if (command.returnOnEmptyArgs && !args.length) {
+    return;
+  }
 
-    console.log(
-      (message.channel.type === 'text'
-        ? `${message.guild.name}#${message.channel.name}|`
-        : '') + `${message.author.tag}: ${content}`
-    );
+  console.log(
+    (message.channel.type === 'text'
+      ? `${message.guild.name}#${message.channel.name}|`
+      : '') + `${message.author.tag}: ${content}`
+  );
 
-    return command.run(message, args).then(() => {
+  return () =>
+    command.run(message, args).then(() => {
       if (isLastCommand && command.deleteCommand) {
         message.delete();
       }
     });
-  };
 };
 
 module.exports = message => {
