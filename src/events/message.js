@@ -1,6 +1,6 @@
 const { prefix, commandDelimiter, commandLimit } = require('../config');
 
-const processCommand = (message, content, isLastCommand) => {
+const processCommand = (message, content) => {
   const botMentionPrefixRegExp = new RegExp(`^<@!?${message.client.user.id}>`);
   const noPrefix = !prefix || !content.startsWith(prefix);
   const noBotMentionPrefix = !botMentionPrefixRegExp.test(content);
@@ -10,24 +10,19 @@ const processCommand = (message, content, isLastCommand) => {
     return;
   }
 
-  // parse message into command and arguments
-  let args;
-  let command;
-  if (noBotMentionPrefix) {
-    args = content.split(' ').filter(Boolean);
-    command = args
-      .shift()
-      .slice(prefix.length)
-      .toLowerCase();
-  } else {
-    args = content
-      .replace(botMentionPrefixRegExp, '')
-      .split(' ')
-      .filter(Boolean);
-    command = args.shift().toLowerCase();
-  }
+  // parse content into command and arguments
+  const args = content
+    .replace(noBotMentionPrefix ? prefix : botMentionPrefixRegExp, '')
+    .split(' ')
+    .filter(Boolean);
+  let command = args.shift();
 
-  command = require(`../commands/${command}`);
+  // ignore if command does not exist
+  try {
+    command = require(`../commands/${command.toLowerCase()}`);
+  } catch {
+    return;
+  }
 
   // ignore if args is empty
   if (command.returnOnEmptyArgs && !args.length) {
@@ -40,12 +35,7 @@ const processCommand = (message, content, isLastCommand) => {
       : '') + `${message.author.tag}: ${content}`
   );
 
-  return () =>
-    command.run(message, args).then(() => {
-      if (isLastCommand && command.deleteCommand) {
-        message.delete();
-      }
-    });
+  return [() => command.run(message, args), command.deleteCommand];
 };
 
 module.exports = message => {
@@ -59,19 +49,36 @@ module.exports = message => {
   //   return;
   // }
 
-  // if any of the conditions fail, treat the entire message as one command
+  // if at least one config setting is bad, treat content as one command
   const contents =
     !commandDelimiter.length || !commandLimit.length || commandLimit <= 1
       ? [message.content]
       : message.content.split(commandDelimiter).slice(0, commandLimit);
 
-  // process the contents synchronously
-  contents
-    .map((content, index) =>
-      processCommand(message, content, index === contents.length - 1)
-    )
+  // process contents
+  const responses = contents
+    .map(content => processCommand(message, content))
+    .filter(Boolean);
+
+  // ignore if content had no commands
+  if (!responses.length) {
+    return;
+  }
+
+  // if at least one command asks to delete, delete it
+  const deleteCommand = responses.some(response => response[1]);
+
+  // send messages synchronously
+  responses
+    .map(response => response[0])
+    .filter(Boolean)
     .reduce(
-      (currentPromise, nextPromise) => currentPromise.then(nextPromise),
+      (promiseChain, nextPromise) => promiseChain.then(nextPromise),
       Promise.resolve()
-    );
+    )
+    .then(() => {
+      if (deleteCommand) {
+        message.delete();
+      }
+    });
 };
