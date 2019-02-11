@@ -1,8 +1,8 @@
 module.exports = {
   returnOnEmptyArgs: false,
   deleteCommand: false,
-  run: message => {
-    return message.channel
+  run: message =>
+    message.channel
       .send({ embed: { description: 'Pinging...' } })
       .then(newMessage => {
         newMessage.edit({
@@ -12,6 +12,5 @@ module.exports = {
               message.createdTimestamp} ms`
           }
         });
-      });
-  }
+      })
 };
