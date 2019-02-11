@@ -15,11 +15,11 @@ const processCommand = (message, content) => {
     .replace(noBotMentionPrefix ? prefix : botMentionPrefixRegExp, '')
     .split(' ')
     .filter(Boolean);
-  let command = args.shift();
+  let command = args.shift().toLowerCase();
 
   // ignore if command does not exist
   try {
-    command = require(`../commands/${command.toLowerCase()}`);
+    command = require(`../commands/${command}`);
   } catch {
     return;
   }
