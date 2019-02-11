@@ -60,7 +60,7 @@ module.exports = message => {
     .map(content => processCommand(message, content))
     .filter(Boolean);
 
-  // ignore if content had no commands
+  // ignore if content had no or bad commands
   if (!responses.length) {
     return;
   }
