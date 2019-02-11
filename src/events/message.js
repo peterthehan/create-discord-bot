@@ -65,9 +65,6 @@ module.exports = async message => {
     return;
   }
 
-  // if at least one command asks to delete, delete it
-  const deleteCommand = responses.some(response => response[1]);
-
   // send messages synchronously
   await responses
     .map(response => response[0])
@@ -76,6 +73,9 @@ module.exports = async message => {
       (promiseChain, nextPromise) => promiseChain.then(nextPromise),
       Promise.resolve()
     );
+
+  // if at least one command asks to delete, delete it
+  const deleteCommand = responses.some(response => response[1]);
   if (deleteCommand) {
     message.delete();
   }
