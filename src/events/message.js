@@ -38,7 +38,7 @@ const processCommand = (message, content) => {
   return [() => command.run(message, args), command.deleteCommand];
 };
 
-module.exports = message => {
+module.exports = async message => {
   // ignore bot messages
   if (message.author.bot) {
     return;
@@ -69,16 +69,14 @@ module.exports = message => {
   const deleteCommand = responses.some(response => response[1]);
 
   // send messages synchronously
-  responses
+  await responses
     .map(response => response[0])
     .filter(Boolean)
     .reduce(
       (promiseChain, nextPromise) => promiseChain.then(nextPromise),
       Promise.resolve()
-    )
-    .then(() => {
-      if (deleteCommand) {
-        message.delete();
-      }
-    });
+    );
+  if (deleteCommand) {
+    message.delete();
+  }
 };
