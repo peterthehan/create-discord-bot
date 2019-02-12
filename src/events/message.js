@@ -60,7 +60,7 @@ module.exports = async message => {
     .map(content => processCommand(message, content))
     .filter(Boolean);
 
-  // ignore if content had no or bad commands
+  // ignore if all of content has no or bad commands
   if (!responses.length) {
     return;
   }
