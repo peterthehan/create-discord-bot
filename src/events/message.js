@@ -68,7 +68,6 @@ module.exports = async message => {
   // send messages synchronously
   await responses
     .map(response => response[0])
-    .filter(Boolean)
     .reduce(
       (promiseChain, nextPromise) => promiseChain.then(nextPromise),
       Promise.resolve()
