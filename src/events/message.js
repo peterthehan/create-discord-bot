@@ -25,7 +25,7 @@ const processCommand = (message, content) => {
   }
 
   // ignore if args is empty
-  if (command.returnOnEmptyArgs && !args.length) {
+  if (command.requireArgs && !args.length) {
     return;
   }
 
