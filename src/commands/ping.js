@@ -1,5 +1,5 @@
 module.exports = {
-  returnOnEmptyArgs: false,
+  requireArgs: false,
   deleteCommand: false,
   run: message =>
     message.channel
