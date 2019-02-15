@@ -1,6 +1,6 @@
 # Create Discord Bot
 
-Create Discord bots using a simple template.
+Create Discord bots using a simple framework.
 
 ## Setup
 
