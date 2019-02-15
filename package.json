@@ -4,7 +4,8 @@
   "description": "Create Discord bots using a simple template.",
   "keywords": [
     "discord",
-    "bot"
+    "bot",
+    "framework"
   ],
   "homepage": "https://github.com/Johj/create-discord-bot",
   "bugs": {
