@@ -11,10 +11,10 @@ const processCommand = (message, content) => {
   }
 
   // parse content into command and arguments
-  const args = content
+  let args = content
     .replace(noBotMentionPrefix ? prefix : botMentionPrefixRegExp, '')
-    .split(' ')
-    .filter(Boolean);
+    .trim()
+    .split(' ');
   let command = args.shift().toLowerCase();
 
   // ignore if command does not exist
@@ -32,7 +32,10 @@ const processCommand = (message, content) => {
 
   return [
     () => {
-      // ignore if args is empty
+      if (command.removeFalsyArgs) {
+        args = args.filter(Boolean);
+      }
+
       if (command.requireArgs && !args.length) {
         return;
       }
@@ -60,7 +63,6 @@ module.exports = async message => {
       ? [message.content]
       : message.content.split(commandDelimiter).slice(0, commandLimit);
 
-  // process contents
   const responses = contents
     .map(content => processCommand(message, content))
     .filter(Boolean);
