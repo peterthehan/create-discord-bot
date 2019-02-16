@@ -1,4 +1,5 @@
 module.exports = {
+  removeFalsyArgs: false,
   requireArgs: false,
   deleteCommand: false,
   run: message =>
