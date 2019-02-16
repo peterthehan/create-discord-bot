@@ -24,18 +24,23 @@ const processCommand = (message, content) => {
     return;
   }
 
-  // ignore if args is empty
-  if (command.requireArgs && !args.length) {
-    return;
-  }
-
   console.log(
     (message.channel.type === 'text'
       ? `${message.guild.name}#${message.channel.name}|`
       : '') + `${message.author.tag}: ${content}`
   );
 
-  return [() => command.run(message, args), command.deleteCommand];
+  return [
+    () => {
+      // ignore if args is empty
+      if (command.requireArgs && !args.length) {
+        return;
+      }
+
+      return command.run(message, args);
+    },
+    command.deleteCommand
+  ];
 };
 
 module.exports = async message => {
