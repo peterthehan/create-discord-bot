@@ -26,6 +26,6 @@
     "start": "node src/index.js"
   },
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "git://github.com/discordjs/discord.js.git#master"
   }
 }
