@@ -3,6 +3,6 @@ const { token } = require('./config');
 
 const client = new Client();
 
-require('./util/loadEvents')(client);
+require('./util/loadListeners')(client);
 
 client.login(token);
