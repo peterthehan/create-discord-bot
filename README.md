@@ -2,11 +2,7 @@
 
 Create Discord bots using a simple framework.
 
-## Setup
-
-#### Discord Bot Setup
-
-The following instructions assume you are signed in with a Discord account.
+### Discord Bot Setup
 
 1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
 2. Create a new application.
@@ -14,14 +10,18 @@ The following instructions assume you are signed in with a Discord account.
 4. Invite your bot to your server via [https://discordapp.com/oauth2/authorize?client_id=DISCORD_BOT_CLIENT_ID_HERE&scope=bot](https://discordapp.com/oauth2/authorize?client_id=DISCORD_BOT_CLIENT_ID_HERE&scope=bot).
 5. Click `Click to Reveal Token` to view your bot's token.
 
-> Keep your Discord bot token and any file containing it **private**!
+> Keep your token and any file containing it **private**!
 
-#### Get Bot
+### Get Bot
 
-1. Type `git clone https://github.com/Johj/create-discord-bot.git`.
-2. Type `cd create-discord-bot/` and `npm install`.
-3. Navigate to `src/config.json` and add your bot's token:
+1.
+```sh
+git clone https://github.com/Johj/create-discord-bot.git
+cd create-discord-bot/
+npm install
+```
 
+2. Navigate to `src/config.json`:
 ```js
 {
   "token": "DISCORD_BOT_TOKEN_HERE",
@@ -31,8 +31,8 @@ The following instructions assume you are signed in with a Discord account.
 }
 ```
 
-#### Run Bot
+### Run Bot
 
-1. Type `npm start` or `node src/index.js` to run.
-2. Verify the bot is working by using the `.ping` command in the server you invited the bot.
+1. Type `npm start` to run.
+2. Verify the bot is working by using the `ping` command.
 3. You're ready to add your own commands!
