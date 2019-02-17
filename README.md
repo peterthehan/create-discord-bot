@@ -34,4 +34,5 @@ npm install
 
 1. Type `npm start`.
 2. Verify the bot is working by using the `ping` command.
-3. You're ready to add your own commands!
+
+You're ready to add your own commands! 🎉
