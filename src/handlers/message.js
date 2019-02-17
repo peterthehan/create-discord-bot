@@ -1,4 +1,5 @@
 const { prefix, commandDelimiter, commandLimit } = require('../config');
+const serializer = require('../util/serializer');
 
 const processCommand = (message, content) => {
   const botMentionPrefixRegExp = new RegExp(`^<@!?${message.client.user.id}>`);
@@ -73,12 +74,7 @@ module.exports = async message => {
   }
 
   // send messages synchronously
-  await responses
-    .map(response => response[0])
-    .reduce(
-      (promiseChain, nextPromise) => promiseChain.then(nextPromise),
-      Promise.resolve()
-    );
+  await serializer(responses.map(response => response[0]));
 
   // if at least one command asks to delete, delete it
   const deleteCommand = responses.some(response => response[1]);
