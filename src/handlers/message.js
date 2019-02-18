@@ -1,4 +1,5 @@
 const { prefix, commandDelimiter, commandLimit } = require('../config');
+const aliases = require('../data/aliases');
 const serializer = require('../util/serializer');
 
 const processCommand = (message, content) => {
@@ -17,6 +18,10 @@ const processCommand = (message, content) => {
     .trim()
     .split(' ');
   let command = args.shift().toLowerCase();
+
+  if (command in alias) {
+    command = alias[command];
+  }
 
   // ignore if command does not exist
   try {
