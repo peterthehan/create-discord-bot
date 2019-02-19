@@ -24,7 +24,9 @@
     "url": "https://github.com/Johj/create-discord-bot.git"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "prod": "set NODE_ENV=production&&npm start",
+    "dev": "set NODE_ENV=development&&npm start"
   },
   "dependencies": {
     "discord.js": "git://github.com/discordjs/discord.js.git#master"

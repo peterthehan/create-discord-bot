@@ -22,20 +22,19 @@ cd create-discord-bot/
 npm install
 ```
 
-2. Navigate to [src/config.json](https://github.com/Johj/create-discord-bot/blob/master/src/config.json) and add:
+2. Navigate to [config.json](https://github.com/Johj/create-discord-bot/blob/master/config.json) and add:
 
 ```js
 {
-  "token": "DISCORD_BOT_TOKEN_HERE",
-  "prefix": ".",
-  "commandDelimiter": "\n",
-  "commandLimit": "5"
+  "TOKEN": "DISCORD_BOT_TOKEN_HERE"
 }
 ```
 
+> Navigate to [src/config.js](https://github.com/Johj/create-discord-bot/blob/master/src/config.json) to view the other bot presets.
+
 ## Run Bot
 
-1. Type `npm start`.
+1. Type `npm run dev`.
 2. Verify the bot is working by using the `ping` command.
 
 You're ready to add your own commands! 🎉

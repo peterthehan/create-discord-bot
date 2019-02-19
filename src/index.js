@@ -5,4 +5,7 @@ const client = new Client();
 
 require('./util/loadListeners')(client);
 
-client.login(token);
+client.login(token).catch(error => {
+  console.log(error);
+  process.exit(1);
+});

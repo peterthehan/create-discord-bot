@@ -19,8 +19,8 @@ const processCommand = (message, content) => {
     .split(' ');
   let command = args.shift().toLowerCase();
 
-  if (command in alias) {
-    command = alias[command];
+  if (command in aliases) {
+    command = aliases[command];
   }
 
   // ignore if command does not exist
