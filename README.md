@@ -30,7 +30,7 @@ npm install
 }
 ```
 
-> Navigate to [src/config.js](https://github.com/Johj/create-discord-bot/blob/master/src/config.json) to view the other bot presets.
+> Navigate to [src/config.js](https://github.com/Johj/create-discord-bot/blob/master/src/config.js) to view the other bot presets.
 
 ## Run Bot
 
