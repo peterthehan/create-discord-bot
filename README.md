@@ -22,7 +22,8 @@ cd create-discord-bot/
 npm install
 ```
 
-2. Navigate to [config.json](https://github.com/Johj/create-discord-bot/blob/master/config.json) and add:
+2. Find [example.config.json](https://github.com/Johj/create-discord-bot/blob/master/example.config.json) and rename the file to `config.json`.
+3. Open the file and add:
 
 ```js
 {
