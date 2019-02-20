@@ -6,6 +6,6 @@ const client = new Client();
 require('./util/loadListeners')(client);
 
 client.login(token).catch(error => {
-  console.log(error);
+  console.error(error);
   process.exit(1);
 });
