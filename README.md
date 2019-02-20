@@ -17,12 +17,12 @@ Create Discord bots using a simple framework.
 1. Type:
 
 ```sh
-git clone https://github.com/Johj/create-discord-bot.git
+git clone https://github.com/peterthehan/create-discord-bot.git
 cd create-discord-bot/
 npm install
 ```
 
-2. Find [example.config.json](https://github.com/Johj/create-discord-bot/blob/master/example.config.json) and rename the file to `config.json`.
+2. Find [example.config.json](https://github.com/peterthehan/create-discord-bot/blob/master/example.config.json) and rename the file to `config.json`.
 3. Open the file and add:
 
 ```js
@@ -31,7 +31,7 @@ npm install
 }
 ```
 
-> Navigate to [src/config.js](https://github.com/Johj/create-discord-bot/blob/master/src/config.js) to view the other bot presets.
+> Navigate to [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/config.js) to view the other bot presets.
 
 ## Run Bot
 
