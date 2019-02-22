@@ -1,34 +1,33 @@
 const { prefix, commandDelimiter, commandLimit } = require('../config');
-const aliases = require('../data/aliases');
+const getBotMentionPrefixRegExp = require('../util/getBotMentionPrefixRegExp');
 const serializer = require('../util/serializer');
+const startsWithBotMention = require('../util/startsWithBotMention');
+const startsWithPrefix = require('../util/startsWithPrefix');
 
-const processCommand = (message, content) => {
-  const botMentionPrefixRegExp = new RegExp(`^<@!?${message.client.user.id}>`);
-  const noPrefix = !prefix || !content.startsWith(prefix);
-  const noBotMentionPrefix = !botMentionPrefixRegExp.test(content);
+const parseMessageContent = ({ content }) =>
+  !commandDelimiter.length || !commandLimit.length || commandLimit <= 1
+    ? [content]
+    : content.split(commandDelimiter).slice(0, commandLimit);
 
-  // ignore if not a command
-  if (noPrefix && noBotMentionPrefix) {
-    return;
-  }
-
-  // parse content into command and arguments
+const processCommand = ({ message, content }) => {
   let args = content
-    .replace(noBotMentionPrefix ? prefix : botMentionPrefixRegExp, '')
+    .replace(
+      startsWithBotMention(message, content)
+        ? getBotMentionPrefixRegExp(message)
+        : prefix,
+      ''
+    )
     .trim()
     .split(' ');
   let command = args.shift().toLowerCase();
 
-  if (command in aliases) {
-    command = aliases[command];
-  }
+  command =
+    message.client.commands.get(command) ||
+    message.client.commands.find(
+      cmd => cmd.aliases && cmd.aliases.includes(command)
+    );
 
-  // ignore if command does not exist
-  try {
-    command = require(`../commands/${command}`);
-  } catch {
-    return;
-  }
+  if (!command) return;
 
   console.log(
     (message.channel.type === 'text'
@@ -36,54 +35,29 @@ const processCommand = (message, content) => {
       : '') + `${message.author.tag}: ${content}`
   );
 
-  return [
-    () => {
-      if (command.removeFalsyArgs) {
-        args = args.filter(Boolean);
-      }
-
-      if (command.requireArgs && !args.length) {
-        return;
-      }
+  return {
+    fn: () => {
+      if (command.guildOnly && message.channel.type !== 'text') return;
+      if (command.removeFalsyArgs) args = args.filter(Boolean);
+      if (command.requireArgs && !args.length) return;
 
       return command.run(message, args);
     },
-    command.deleteCommand
-  ];
+    deleteCommand: command.deleteCommand
+  };
 };
 
 module.exports = async message => {
-  // ignore bot messages
-  if (message.author.bot) {
-    return;
-  }
+  if (message.author.bot) return;
 
-  // ignore non-guild text channel messages
-  // if (message.channel.type !== 'text') {
-  //   return;
-  // }
-
-  // if at least one config setting is bad, treat content as one command
-  const contents =
-    !commandDelimiter.length || !commandLimit.length || commandLimit <= 1
-      ? [message.content]
-      : message.content.split(commandDelimiter).slice(0, commandLimit);
-
-  const responses = contents
-    .map(content => processCommand(message, content))
+  const responses = parseMessageContent(message)
+    .map(content => ({ message, content }))
+    .filter(startsWithPrefix)
+    .map(processCommand)
     .filter(Boolean);
+  if (!responses.length) return;
 
-  // ignore if all of content has no or bad commands
-  if (!responses.length) {
-    return;
-  }
-
-  // send messages synchronously
-  await serializer(responses.map(response => response[0]));
-
-  // if at least one command asks to delete, delete it
-  const deleteCommand = responses.some(response => response[1]);
-  if (deleteCommand) {
+  await serializer(responses.map(r => r.fn));
+  if (message.channel.type === 'text' && responses.some(r => r.deleteCommand))
     message.delete();
-  }
 };
