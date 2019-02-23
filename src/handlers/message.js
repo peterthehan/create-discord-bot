@@ -1,5 +1,7 @@
 const { prefix, commandDelimiter, commandLimit } = require('../config');
 const getBotMentionPrefixRegExp = require('../util/getBotMentionPrefixRegExp');
+const getCommand = require('../util/getCommand');
+const hasPermission = require('../util/hasPermission');
 const serializer = require('../util/serializer');
 const startsWithBotMention = require('../util/startsWithBotMention');
 const startsWithPrefix = require('../util/startsWithPrefix');
@@ -19,14 +21,7 @@ const processCommand = ({ message, content }) => {
     )
     .trim()
     .split(' ');
-  let command = args.shift().toLowerCase();
-
-  command =
-    message.client.commands.get(command) ||
-    message.client.commands.find(
-      cmd => cmd.aliases && cmd.aliases.includes(command)
-    );
-
+  const command = getCommand(message, args.shift().toLowerCase());
   if (!command) return;
 
   console.log(
@@ -58,6 +53,10 @@ module.exports = async message => {
   if (!responses.length) return;
 
   await serializer(responses.map(r => r.fn));
-  if (message.channel.type === 'text' && responses.some(r => r.deleteCommand))
+  if (
+    message.channel.type === 'text' &&
+    hasPermission(message, 'MANAGE_MESSAGES') &&
+    responses.some(r => r.deleteCommand)
+  )
     message.delete();
 };
