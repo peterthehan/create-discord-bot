@@ -1,6 +1,4 @@
-const { prefix } = require('../config');
-const startsWithBotMention = require('./startsWithBotMention');
+const getPrefixRegExp = require('./getPrefixRegExp');
 
 module.exports = ({ message, content }) =>
-  (Boolean(prefix) && content.startsWith(prefix)) ||
-  startsWithBotMention(message, content);
+  getPrefixRegExp(message).test(content);

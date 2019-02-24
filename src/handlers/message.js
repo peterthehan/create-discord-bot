@@ -1,9 +1,8 @@
-const { prefix, commandDelimiter, commandLimit } = require('../config');
-const getBotMentionPrefixRegExp = require('../util/getBotMentionPrefixRegExp');
+const { commandDelimiter, commandLimit } = require('../config');
 const getCommand = require('../util/getCommand');
+const getPrefixRegExp = require('../util/getPrefixRegExp');
 const hasPermission = require('../util/hasPermission');
 const serializer = require('../util/serializer');
-const startsWithBotMention = require('../util/startsWithBotMention');
 const startsWithPrefix = require('../util/startsWithPrefix');
 
 const parseMessageContent = ({ content }) =>
@@ -12,15 +11,7 @@ const parseMessageContent = ({ content }) =>
     : content.split(commandDelimiter).slice(0, commandLimit);
 
 const processCommand = ({ message, content }) => {
-  let args = content
-    .replace(
-      startsWithBotMention(message, content)
-        ? getBotMentionPrefixRegExp(message)
-        : prefix,
-      ''
-    )
-    .trim()
-    .split(' ');
+  let args = content.replace(getPrefixRegExp(message), '').split(' ');
   const command = getCommand(message, args.shift().toLowerCase());
   if (!command) return;
 
