@@ -30,6 +30,6 @@
     "start": "node src/index.js"
   },
   "dependencies": {
-    "discord.js": "git://github.com/discordjs/discord.js.git#master"
+    "discord.js": "github:discordjs/discord.js#master"
   }
 }
