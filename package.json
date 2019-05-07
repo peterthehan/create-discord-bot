@@ -19,14 +19,15 @@
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
+  "bin": {
+    "create-discord-bot": "./src/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/peterthehan/create-discord-bot.git"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "prod": "set NODE_ENV=production&&npm start",
-    "dev": "set NODE_ENV=development&&npm start"
+    "start": "node src/index.js"
   },
   "dependencies": {
     "discord.js": "git://github.com/discordjs/discord.js.git#master"
