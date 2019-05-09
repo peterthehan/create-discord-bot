@@ -2,7 +2,7 @@
 
 Create Discord bots using a simple framework.
 
-## Set up Bot
+## Create Bot
 
 1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
 2. Create a new application.
