@@ -32,3 +32,10 @@ Create Discord bots using a simple framework.
 2. Verify the bot is working by using the `.ping` command.
 
 🎉 You're ready to add your own commands! 🎉
+
+## Examples
+
+The following bots have been made using this framework:
+- https://github.com/peterthehan/discord-audit-log-bot
+- https://github.com/peterthehan/discord-reaction-role-bot
+- https://github.com/peterthehan/discord-region-role-bot
