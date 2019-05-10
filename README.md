@@ -24,7 +24,7 @@ Create Discord bots using a simple framework.
 }
 ```
 
-> Navigate to [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/config.js) to view the other bot presets.
+> Open [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/config.js) to view the other bot settings.
 
 ## Run Bot
 
