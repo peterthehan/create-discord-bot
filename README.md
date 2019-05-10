@@ -16,7 +16,7 @@ Create Discord bots using a simple framework.
 
 1. Run `git clone https://github.com/peterthehan/create-discord-bot.git && cd create-discord-bot/ && npm install`.
 2. Rename [example.config.json](https://github.com/peterthehan/create-discord-bot/blob/master/example.config.json) to `config.json`.
-3. Open the file and add:
+3. Open the file and add your bot token:
 
 ```js
 {
