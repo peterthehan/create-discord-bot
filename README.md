@@ -41,7 +41,7 @@ The following bots have been made using this framework:
 - https://github.com/peterthehan/discord-reaction-role-bot
 - https://github.com/peterthehan/discord-region-role-bot
 
-Visit for more help!
+Visit for more help or information!
 
 <a href="https://discord.gg/WjEFnzC">
   <img src="https://discordapp.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord Server"/>
