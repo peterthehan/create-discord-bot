@@ -1,4 +1,4 @@
-const { commandDelimiter, commandLimit } = require('../config');
+const { commandDelimiter, commandLimit, owners } = require('../config');
 const getCommand = require('../util/getCommand');
 const getPrefixRegExp = require('../util/getPrefixRegExp');
 const hasPermission = require('../util/hasPermission');
@@ -23,6 +23,7 @@ const processCommand = ({ message, content }) => {
 
   return {
     fn: () => {
+      if (command.ownersOnly && !owners.includes(message.author.id)) return;
       if (command.guildOnly && message.channel.type !== 'text') return;
       if (command.removeFalsyArgs) args = args.filter(Boolean);
       if (command.requireArgs && !args.length) return;
