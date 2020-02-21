@@ -1,5 +1,3 @@
-module.exports = (message, command) =>
-  message.client.commands.get(command) ||
-  message.client.commands.find(
-    cmd => cmd.aliases && cmd.aliases.includes(command)
-  );
+module.exports = (message, commandIdentifier) =>
+  message.client.commands.get(commandIdentifier) ||
+  message.client.commands.find(cmd => cmd.aliases.includes(commandIdentifier));

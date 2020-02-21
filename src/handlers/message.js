@@ -1,54 +1,79 @@
-const { commandDelimiter, commandLimit, owners } = require('../config');
+const {
+  prefixes,
+  commandDelimiter,
+  commandLimit,
+  owners
+} = require('../config');
+const { addCooldown, isInCooldownCache } = require('../caches/cooldownCache');
 const getCommand = require('../util/getCommand');
-const getPrefixRegExp = require('../util/getPrefixRegExp');
 const hasPermission = require('../util/hasPermission');
+const isText = require('../util/isText');
 const serializer = require('../util/serializer');
-const startsWithPrefix = require('../util/startsWithPrefix');
 
-const parseMessageContent = ({ content }) =>
-  !commandDelimiter.length || !commandLimit.length || commandLimit <= 1
+const getPrefixRegExp = message =>
+  new RegExp(
+    !prefixes.length
+      ? `^<@!?${message.client.user.id}>\\s*`
+      : `^(<@!?${message.client.user.id}>|[${prefixes.join('')}])\\s*`
+  );
+
+const parseMessage = ({ content }) =>
+  !commandDelimiter || !commandLimit || commandLimit <= 1
     ? [content]
     : content.split(commandDelimiter).slice(0, commandLimit);
 
-const processCommand = ({ message, content }) => {
-  let args = content.replace(getPrefixRegExp(message), '').split(' ');
+const startsWithPrefix = ({ message, content }) =>
+  getPrefixRegExp(message).test(content);
+
+const parseContent = ({ message, content }) => {
+  const args = content.replace(getPrefixRegExp(message), '').split(/ +/);
   const command = getCommand(message, args.shift().toLowerCase());
-  if (!command) return;
+  return { message, command, args };
+};
 
-  console.log(
-    (message.channel.type === 'text'
-      ? `${message.guild.name}#${message.channel.name}|`
-      : '') + `${message.author.tag}: ${content}`
-  );
+const isExecutable = ({ message, command, args }) =>
+  command &&
+  (!command.ownersOnly || owners.includes(message.author.id)) &&
+  (!command.guildOnly || isText(message.channel)) &&
+  (!command.requireArgs || args.length) &&
+  !command.disabled &&
+  !isInCooldownCache(message.author, command);
 
-  return {
-    fn: () => {
-      if (command.ownersOnly && !owners.includes(message.author.id)) return;
-      if (command.guildOnly && message.channel.type !== 'text') return;
-      if (command.removeFalsyArgs) args = args.filter(Boolean);
-      if (command.requireArgs && !args.length) return;
+const createExecutable = ({ message, command, args }) => ({
+  executable: async () => {
+    addCooldown(message.author, command);
+    return command.messageExecute(message, args);
+  },
+  deleteCommand: command.deleteCommand
+});
 
-      return command.run(message, args);
-    },
-    deleteCommand: command.deleteCommand
-  };
+const deleteCommand = (message, payload) => {
+  if (
+    isText(message.channel) &&
+    hasPermission(message, 'MANAGE_MESSAGES') &&
+    payload.some(i => i.deleteCommand)
+  ) {
+    message.delete();
+  }
 };
 
 module.exports = async message => {
   if (message.author.bot) return;
 
-  const responses = parseMessageContent(message)
+  const payload = parseMessage(message)
     .map(content => ({ message, content }))
     .filter(startsWithPrefix)
-    .map(processCommand)
-    .filter(Boolean);
-  if (!responses.length) return;
+    .map(parseContent)
+    .filter(isExecutable)
+    .map(createExecutable);
+  if (!payload.length) return;
 
-  await serializer(responses.map(r => r.fn));
-  if (
-    message.channel.type === 'text' &&
-    hasPermission(message, 'MANAGE_MESSAGES') &&
-    responses.some(r => r.deleteCommand)
-  )
-    message.delete();
+  console.log(
+    isText(message.channel)
+      ? `${message.guild.name}#${message.channel.name}|${message.author.tag}: ${message.content}`
+      : `${message.author.tag}: ${message.content}`
+  );
+
+  await serializer(payload.map(i => i.executable));
+  deleteCommand(message, payload);
 };

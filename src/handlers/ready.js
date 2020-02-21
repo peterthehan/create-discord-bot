@@ -1,3 +1,5 @@
-module.exports = client => {
-  console.log(`${client.user.tag}: Ready`);
+const { name } = require('../../package');
+
+module.exports = async client => {
+  console.log(`${name}|${client.user.tag}: Ready`);
 };

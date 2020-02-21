@@ -1,7 +1,8 @@
 module.exports = {
   token: ('TOKEN' in process.env ? process.env : require('../config')).TOKEN,
-  prefix: '.',
+  prefixes: ['.'],
   commandDelimiter: '\n',
-  commandLimit: '5',
-  owners: ['206161807491072000']
+  commandLimit: 3,
+  owners: ['206161807491072000'],
+  events: ['message']
 };
