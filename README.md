@@ -7,8 +7,11 @@ Create Discord bots using a simple framework.
 1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
 2. Create a new application.
 3. Add a bot user to your app.
-4. Invite your bot to a server using [https://discordapp.com/oauth2/authorize?client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE&scope=bot](https://discordapp.com/oauth2/authorize?client_id=DISCORD_BOT_CLIENT_ID&scope=bot).
-5. `Click to Reveal Token` to view your bot token.
+4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE&scope=bot](https://discordapp.com/oauth2/authorize?client_id=DISCORD_BOT_CLIENT_ID&scope=bot)
+
+> A Discord bot's client ID is not the same as the bot's token!
+
+5. `Click to Reveal Token` to view your bot token. You will need this later.
 
 > Keep this token and any file containing it **private**! If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your old token.
 
@@ -29,7 +32,9 @@ Create Discord bots using a simple framework.
 ## Run Bot
 
 1. `npm start`
-2. The bot should go from offline to online. Verify the bot is working by using the `.ping` command.
+2. The bot should go from offline to online. Verify the bot is working by using the `ping` command.
+
+> The default command prefix is `.`.
 
 🎉 You're ready to create your own Discord bot! 🎉
 
