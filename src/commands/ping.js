@@ -1,7 +1,7 @@
 module.exports = {
   name: 'ping',
   aliases: ['p', 'pong'],
-  ownersOnly: true,
+  ownersOnly: false,
   guildOnly: false,
   requireArgs: false,
   deleteCommand: false,
