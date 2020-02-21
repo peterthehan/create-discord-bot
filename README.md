@@ -7,7 +7,7 @@ Create Discord bots using a simple framework.
 1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
 2. Create a new application.
 3. Add a bot user to your app.
-4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE&scope=bot](https://discordapp.com/oauth2/authorize?client_id=DISCORD_BOT_CLIENT_ID&scope=bot)
+4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE](https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE)
 
 > A Discord bot's client ID is not the same as the bot's token!
 
