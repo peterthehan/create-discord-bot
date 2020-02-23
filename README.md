@@ -11,7 +11,7 @@ Create Discord bots using a simple framework.
 
 > A Discord bot's client ID is not the same as the bot's token!
 
-5. `Click to Reveal Token` to view your bot token. You will need this later.
+5. `Click to Reveal Token` to view your bot token. You will need this in the next section.
 
 > Keep this token and any file containing it **private**! If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your old token.
 
@@ -27,14 +27,12 @@ Create Discord bots using a simple framework.
 }
 ```
 
-> You can configure [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/config.js) to your own preferences later.
-
 ## Run Bot
 
 1. `npm start`
 2. The bot should go from offline to online. Verify the bot is working by using the `ping` command.
 
-> The default command prefix is `.`.
+> The default command prefix is `.`. You can configure your own bot settings in [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/config.js).
 
 🎉 You're ready to create your own Discord bot! 🎉
 
