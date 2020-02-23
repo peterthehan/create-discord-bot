@@ -42,6 +42,7 @@ The following bots have been made using this framework:
 
 - https://github.com/peterthehan/discord-audit-log-bot
 - https://github.com/peterthehan/discord-birthday-role-bot
+- https://github.com/peterthehan/discord-emoji-log-bot
 - https://github.com/peterthehan/discord-reaction-role-bot
 - https://github.com/peterthehan/discord-region-role-bot
 
