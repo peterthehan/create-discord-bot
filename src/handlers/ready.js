@@ -1,5 +1,4 @@
-const { name } = require('../../package');
-
-module.exports = async client => {
-  console.log(`${name}|${client.user.tag}: Ready`);
+module.exports = async (client, readyHandlers) => {
+  console.log(__dirname, 'ready');
+  readyHandlers.forEach(readyHandler => readyHandler(client));
 };
