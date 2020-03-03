@@ -1,3 +1,5 @@
 module.exports = async client => {
-  console.log(__dirname, 'ready');
+  console.log('command: ready');
+
+  require('../util/loadCommands')(client);
 };

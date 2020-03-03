@@ -1,3 +1,3 @@
 module.exports = async (messageReaction, user) => {
-  console.log(__dirname, 'messageReactionAdd');
+  console.log('foobar: messageReactionAdd');
 };

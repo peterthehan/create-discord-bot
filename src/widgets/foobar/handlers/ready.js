@@ -1,3 +1,3 @@
 module.exports = async client => {
-  console.log(__dirname, 'ready');
+  console.log('foobar: ready');
 };

@@ -1,3 +1,3 @@
 module.exports = async message => {
-  console.log(__dirname, 'message');
+  console.log('foobar: message');
 };
