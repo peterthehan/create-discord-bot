@@ -6,31 +6,30 @@ const getFileNames = filePath =>
     .readdirSync(path.resolve(__dirname, filePath))
     .map(fileName => fileName.replace('.js', ''));
 
-const getWidgetHandlers = () => {
-  return getFileNames('../widgets')
-    .flatMap(widgetName => {
-      const widgetHandlerFilePath = `../widgets/${widgetName}/handlers`;
+const getHandlerFilePath = widgetName => `../widgets/${widgetName}/handlers`;
 
-      return getFileNames(widgetHandlerFilePath).map(widgetHandlerName => ({
-        widgetHandlerName,
-        widgetHandler: require(`${widgetHandlerFilePath}/${widgetHandlerName}`)
-      }));
-    })
-    .reduce((widgetHandlers, { widgetHandlerName, widgetHandler }) => {
-      if (!(widgetHandlerName in widgetHandlers)) {
-        widgetHandlers[widgetHandlerName] = [];
-      }
+const getHandlers = handlerFilePath =>
+  getFileNames(handlerFilePath).map(handlerName => ({
+    handlerName,
+    handler: require(`${handlerFilePath}/${handlerName}`)
+  }));
 
-      widgetHandlers[widgetHandlerName].push(widgetHandler);
+const groupByHandlerName = (handlerMap, { handlerName, handler }) => {
+  (handlerMap[handlerName] = handlerMap[handlerName] || []).push(handler);
 
-      return widgetHandlers;
-    }, {});
+  return handlerMap;
 };
+
+const getWidgetHandlerMap = () =>
+  getFileNames('../widgets')
+    .map(getHandlerFilePath)
+    .flatMap(getHandlers)
+    .reduce(groupByHandlerName, { ready: [] });
 
 const loadHandler = handler => require(`../handlers/${handler}`);
 
 module.exports = client => {
-  const widgetHandlers = getWidgetHandlers();
+  const widgetHandlers = getWidgetHandlerMap();
 
   process.on('unhandledRejection', console.warn);
   getFileNames('../handlers').forEach(handler => {
