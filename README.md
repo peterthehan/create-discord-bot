@@ -1,6 +1,6 @@
 # Create Discord Bot
 
-Create Discord bots using a simple framework.
+Create Discord bots using a simple widget-based framework.
 
 ## Create Bot
 
@@ -32,13 +32,13 @@ Create Discord bots using a simple framework.
 1. `npm start`
 2. The bot should go from offline to online. Verify the bot is working by using the `ping` command.
 
-> The default command prefix is `.`. You can configure your own bot settings in [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/config.js).
+> The default command prefix is `.`. You can configure your own bot settings in [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/config.js).
 
 🎉 You're ready to create your own Discord bot! 🎉
 
 ## Examples
 
-The following bots have been made using this framework:
+The following widgets have been made using this framework:
 
 - https://github.com/peterthehan/discord-active-role-bot
 - https://github.com/peterthehan/discord-audit-log-bot
