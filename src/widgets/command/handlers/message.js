@@ -59,6 +59,7 @@ const deleteCommand = (message, payload) => {
 
 module.exports = async message => {
   if (message.author.bot) return;
+  if (message.system) return;
 
   const payload = parseMessage(message)
     .map(content => ({ message, content }))
