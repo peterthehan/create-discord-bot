@@ -5,7 +5,7 @@ const { token } = require('./config');
 
 const client = new Client();
 
-require('./util/loadWidgets')(client);
+require('./util/loadWidgetListeners')(client);
 
 client.login(token).catch(error => {
   console.error(error);

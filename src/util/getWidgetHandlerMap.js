@@ -20,28 +20,8 @@ const groupByHandlerName = (handlerMap, { handlerName, handler }) => {
   return handlerMap;
 };
 
-const getWidgetHandlerMap = () =>
+module.exports = () =>
   getFileNames('../widgets')
     .map(getHandlerFilePath)
     .flatMap(getHandlers)
     .reduce(groupByHandlerName, { ready: [] });
-
-const loadHandler = handler => require(`../handlers/${handler}`);
-
-module.exports = client => {
-  const widgetHandlers = getWidgetHandlerMap();
-
-  process.on('unhandledRejection', console.warn);
-  getFileNames('../handlers').forEach(handler => {
-    const widgetHandler =
-      handler in widgetHandlers ? widgetHandlers[handler] : [];
-
-    if (handler === 'ready') {
-      client.once(handler, () => loadHandler(handler)(client, widgetHandler));
-    } else {
-      client.on(handler, (...eventArguments) =>
-        loadHandler(handler)(...eventArguments, widgetHandler)
-      );
-    }
-  });
-};
