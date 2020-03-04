@@ -1,12 +1,14 @@
 {
   "name": "create-discord-bot",
-  "version": "1.0.0",
-  "description": "Create Discord bots using a simple template.",
+  "version": "2.0.0",
+  "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
     "bot",
     "discord-bot",
-    "framework"
+    "framework",
+    "template",
+    "widget"
   ],
   "homepage": "https://github.com/peterthehan/create-discord-bot",
   "bugs": {
@@ -27,7 +29,7 @@
     "url": "https://github.com/peterthehan/create-discord-bot.git"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node ./src/index.js"
   },
   "dependencies": {
     "discord.js": "github:discordjs/discord.js#master"
