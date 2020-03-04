@@ -35,7 +35,7 @@ Create Discord bots using a simple widget-based framework.
 
 1. `npm start` to start the bot.
 
-> The bot should go from offline to online. Verify the bot is working by using the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/ping.js) command.
+> The bot should go from offline to online. Verify the bot is working by using the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/commands/ping.js) command.
 
 > The default command prefix is `.`. You can configure the [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget's settings in [src/widgets/command/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/config.js).
 
@@ -45,7 +45,7 @@ Create Discord bots using a simple widget-based framework.
 
 ### Design
 
-`create-discord-bot` comes with a [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget. Simply follow the design of the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/ping.js) command to start building your own commands.
+`create-discord-bot` comes with a [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget. Simply follow the design of the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/commands/ping.js) command to start building your own commands.
 
 Widgets **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder and each widget **must** have a `handlers` folder containing **only** event handler files. In other words, a file tree diagram of these requirements would look like:
 
