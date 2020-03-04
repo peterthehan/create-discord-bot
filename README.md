@@ -67,7 +67,7 @@ widgets
 
 ### Examples
 
-The following widgets can be used in this framework by putting them into the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder:
+The following widgets can be used by this framework by putting them in the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder:
 
 - https://github.com/peterthehan/discord-active-role-bot
 - https://github.com/peterthehan/discord-audit-log-bot
