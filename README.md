@@ -53,16 +53,16 @@ For example:
 
 ```
 widgets
-├───<widgetProject1>
+├───widgetProject1
 │   ├───handlers
-|   |   ├───<eventHandler1*>
-|   |   ├───<eventHandler2>
-|   |   └───<etc>
-├───<widgetProject2>
+|   |   ├───eventHandler1.js*
+|   |   ├───eventHandler2.js
+|   |   └───etc
+├───widgetProject2
 │   ├───handlers
-|   |   ├───<eventHandler1>
-|   |   ├───<eventHandler2>
-|   |   └───<etc>
+|   |   ├───eventHandler1.js
+|   |   ├───eventHandler2.js
+|   |   └───etc
 ```
 
 > \*: All event handler files must be named exactly the same as the event emitted found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
