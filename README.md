@@ -63,7 +63,7 @@ widgets
 |   |   └───some other handler
 ```
 
-> \*: All event handler files must be named exactly the same as the event emitted found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
+> \*: All event handler files must be named exactly the same as the emitted events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
 
 ### Examples
 
