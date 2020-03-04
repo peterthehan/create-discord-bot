@@ -13,7 +13,7 @@ Create Discord bots using a simple widget-based framework.
 
 > A Discord bot's client ID is not the same as the bot's token!
 
-5. `Click to Reveal Token` to view your bot token, you will need this in the next section.
+5. Find your bot token, you will need this in the next section.
 
 > Keep this token and any file containing it **private**! If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
