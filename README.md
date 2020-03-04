@@ -19,9 +19,9 @@ Create Discord bots using a simple widget-based framework.
 
 ### Get Bot
 
-1. Download the project: `git clone https://github.com/peterthehan/create-discord-bot.git`
-2. Navigate into the project: `cd create-discord-bot/`
-3. Install project dependencies: `npm install`
+1. `git clone https://github.com/peterthehan/create-discord-bot.git` to download the project.
+2. `cd create-discord-bot/` to navigate into the project.
+3. `npm install` to install project dependencies.
 4. Rename [example.token.json](https://github.com/peterthehan/create-discord-bot/blob/master/example.token.json) to `token.json`.
 5. Open the file and add the bot token found in the previous section:
 
