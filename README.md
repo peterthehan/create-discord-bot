@@ -47,7 +47,7 @@ Create Discord bots using a simple widget-based framework.
 
 `create-discord-bot` comes with a [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget. Simply follow the design of the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/commands/ping.js) command to start building your own commands.
 
-Widgets **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder and each widget **must** have a `handlers` folder containing **only** event handler files. In other words, a file tree diagram of these requirements would look like:
+Each widget **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder and **must** have a `handlers` folder containing **only** event handler files. In other words, a file tree diagram of these requirements would look like:
 
 ```
 widgets
