@@ -2,7 +2,9 @@
 
 Create Discord bots using a simple widget-based framework.
 
-## Create Bot
+## Bot Setup
+
+### Create Bot
 
 1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
 2. Create a new application.
@@ -11,15 +13,17 @@ Create Discord bots using a simple widget-based framework.
 
 > A Discord bot's client ID is not the same as the bot's token!
 
-5. `Click to Reveal Token` to view your bot token. You will need this in the next section.
+5. `Click to Reveal Token` to view your bot token, you will need this in the next section.
 
 > Keep this token and any file containing it **private**! If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your old token.
 
-## Get Bot
+### Get Bot
 
-1. `git clone https://github.com/peterthehan/create-discord-bot.git && cd create-discord-bot/ && npm install`
-2. Rename [example.config.json](https://github.com/peterthehan/create-discord-bot/blob/master/example.config.json) to `config.json`.
-3. Open the file and add your bot token:
+1. Download the project: `git clone https://github.com/peterthehan/create-discord-bot.git`
+2. Navigate into the project: `cd create-discord-bot/`
+3. Install project dependencies: `npm install`
+4. Rename [example.token.json](https://github.com/peterthehan/create-discord-bot/blob/master/example.token.json) to `token.json`.
+5. Open the file and add the bot token found in the previous section:
 
 ```js
 {
@@ -27,16 +31,43 @@ Create Discord bots using a simple widget-based framework.
 }
 ```
 
-## Run Bot
+### Run Bot
 
-1. `npm start`
-2. The bot should go from offline to online. Verify the bot is working by using the `ping` command.
+1. Start the bot: `npm start`
 
-> The default command prefix is `.`. You can configure your own bot settings in [src/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/config.js).
+> The bot should go from offline to online. Verify the bot is working by using the `ping` command.
 
-🎉 You're ready to create your own Discord bot! 🎉
+> The default command prefix is `.`. You can configure the `command` widget's settings in [src/widgets/command/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/config.js).
 
-## Examples
+🎉 You're ready to create your own widgets! 🎉
+
+## Widgets Setup
+
+### Design
+
+`create-discord-bot` comes with a [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget. Simply follow the design of the `ping` command to start building your own commands.
+
+Widgets **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder and each widget **must** have a `handlers` folder.
+
+For example:
+
+```
+widgets
+├───<widgetProject1>
+│   ├───handlers
+|   |   ├───<eventHandler1*>
+|   |   ├───<eventHandler2>
+|   |   └───<etc>
+├───<widgetProject2>
+│   ├───handlers
+|   |   ├───<eventHandler1>
+|   |   ├───<eventHandler2>
+|   |   └───<etc>
+```
+
+> \*: All event handler files must be named exactly the same as the event emitted found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
+
+### Examples
 
 The following widgets have been made using this framework:
 
