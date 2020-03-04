@@ -35,9 +35,9 @@ Create Discord bots using a simple widget-based framework.
 
 1. `npm start` to start the bot.
 
-> The bot should go from offline to online. Verify the bot is working by using the `ping` command.
+> The bot should go from offline to online. Verify the bot is working by using the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/ping.js) command.
 
-> The default command prefix is `.`. You can configure the `command` widget's settings in [src/widgets/command/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/config.js).
+> The default command prefix is `.`. You can configure the [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget's settings in [src/widgets/command/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/config.js).
 
 🎉 You're ready to create your own widgets! 🎉
 
@@ -45,7 +45,7 @@ Create Discord bots using a simple widget-based framework.
 
 ### Design
 
-`create-discord-bot` comes with a [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget. Simply follow the design of the `ping` command to start building your own commands.
+`create-discord-bot` comes with a [command](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/) widget. Simply follow the design of the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/command/ping.js) command to start building your own commands.
 
 Widgets **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder and each widget **must** have a `handlers` folder. In other words, a file tree diagram of these requirements would look like:
 
@@ -67,7 +67,7 @@ widgets
 
 ### Examples
 
-The following widgets have been made using this framework:
+The following widgets can be used in this framework:
 
 - https://github.com/peterthehan/discord-active-role-bot
 - https://github.com/peterthehan/discord-audit-log-bot
