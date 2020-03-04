@@ -33,7 +33,7 @@ Create Discord bots using a simple widget-based framework.
 
 ### Run Bot
 
-1. Start the bot: `npm start`
+1. `npm start` to start the bot.
 
 > The bot should go from offline to online. Verify the bot is working by using the `ping` command.
 
