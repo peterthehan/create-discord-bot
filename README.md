@@ -9,13 +9,13 @@ Create Discord bots using a simple widget-based framework.
 1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
 2. Create a new application.
 3. Add a bot user to your app.
-4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE](https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE)
-
-> A Discord bot's client ID is not the same as the bot's token!
-
-5. Find your bot token, you will need this in the next section.
+4. Find your bot token, you will need this in the next section.
 
 > Keep this token and any file containing it **private**! If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
+
+5. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE](https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE)
+
+> A Discord bot's client ID is not the same as its token!
 
 ### Get Bot
 
