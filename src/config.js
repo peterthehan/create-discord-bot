@@ -1,3 +1,3 @@
 module.exports = {
-  token: ('TOKEN' in process.env ? process.env : require('../token')).TOKEN
+  token: process.env.TOKEN || require('../token').TOKEN
 };
