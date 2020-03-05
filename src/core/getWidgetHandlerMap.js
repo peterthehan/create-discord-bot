@@ -4,7 +4,7 @@ const path = require('path');
 const getFileNames = filePath =>
   fs
     .readdirSync(path.resolve(__dirname, filePath))
-    .map(fileName => fileName.replace('.js', ''));
+    .map(fileName => fileName.replace(/\.[^/.]+$/, ''));
 
 const getHandlerFilePath = widgetName => `../widgets/${widgetName}/handlers`;
 
