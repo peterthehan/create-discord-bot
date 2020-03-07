@@ -51,16 +51,16 @@ Each widget **must** live under the [src/widgets](https://github.com/peterthehan
 
 ```
 widgets
-├───widgetProject1
+├───widget1
 │   ├───handlers
 |   |   ├───eventHandler1.js*
 |   |   ├───eventHandler2.js
-|   |   └───some other handler
-├───widgetProject2
+|   |   └───other event handlers
+├───widget2
 │   ├───handlers
 |   |   ├───eventHandler1.js
 |   |   ├───eventHandler2.js
-|   |   └───some other handler
+|   |   └───other event handlers
 ```
 
 > \*: All event handler files must be named exactly the same as the emitted events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
