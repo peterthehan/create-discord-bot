@@ -1,15 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 
-const getFileNames = filePath =>
+const getFilenames = filePath =>
   fs
     .readdirSync(path.resolve(__dirname, filePath))
-    .map(fileName => fileName.replace(/\.[^/.]+$/, ''));
+    .map(filename => filename.replace(/\.[^/.]+$/, ''));
 
 const getHandlerFilePath = widgetName => `../widgets/${widgetName}/handlers`;
 
 const getHandlers = handlerFilePath =>
-  getFileNames(handlerFilePath).map(handlerName => ({
+  getFilenames(handlerFilePath).map(handlerName => ({
     handlerName,
     handler: require(`${handlerFilePath}/${handlerName}`)
   }));
@@ -21,7 +21,7 @@ const groupByHandlerName = (handlerMap, { handlerName, handler }) => {
 };
 
 module.exports = () =>
-  getFileNames('../widgets')
+  getFilenames('../widgets')
     .map(getHandlerFilePath)
     .flatMap(getHandlers)
     .reduce(groupByHandlerName, { ready: [] });
