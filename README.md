@@ -66,7 +66,7 @@ widgets
 > \*: All event handler files must be named exactly the same as the emitted events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/peterthehan/create-discord-bot/master/assets/diagram.png" />
+  <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/diagram.png" />
 </div>
 
 ### Examples
