@@ -80,7 +80,6 @@ The following widgets can be used by this framework by moving them into the [src
 - https://github.com/peterthehan/discord-birthday-role-bot
 - https://github.com/peterthehan/discord-emoji-log-bot
 - https://github.com/peterthehan/discord-reaction-role-bot
-- https://github.com/peterthehan/discord-region-role-bot
 
 Visit for more help or information!
 
