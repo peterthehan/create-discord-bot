@@ -1,5 +1,7 @@
 # Create Discord Bot
 
+[![Discord](https://discordapp.com/api/guilds/258167954913361930/embed.png)](https://discord.gg/WjEFnzC) [![Ko-fi](https://img.shields.io/badge/donate-Ko--fi-29ABE0.svg)](https://ko-fi.com/peterthehan) [![Patreon](https://img.shields.io/badge/donate-Patreon-F96854.svg)](https://www.patreon.com/bePatron?u=33175931) [![Twitter Follow](https://img.shields.io/twitter/follow/peterthehan.svg?style=social)](https://twitter.com/peterthehan)
+
 Create Discord bots using a simple widget-based framework.
 
 ## Bot Setup
