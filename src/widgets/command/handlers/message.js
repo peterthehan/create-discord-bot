@@ -14,7 +14,7 @@ const getPrefixRegExp = message =>
   new RegExp(
     !prefixes.length
       ? `^<@!?${message.client.user.id}>\\s*`
-      : `^(<@!?${message.client.user.id}>|[${prefixes.join('')}])\\s*`
+      : `^(<@!?${message.client.user.id}>|(${prefixes.join('|')}))\\s*`
   );
 
 const parseMessage = ({ content }) =>
