@@ -59,7 +59,7 @@ qoa.prompt(questions).then((answers) => {
   console.log(`Writing token.json...`);
   const newToken = { ...appToken, TOKEN };
   fs.writeFileSync(
-    path.join(directory, "./src/token.json"),
+    path.join(directory, "./token.json"),
     JSON.stringify(newToken, null, 2)
   );
 
