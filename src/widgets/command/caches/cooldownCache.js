@@ -1,10 +1,10 @@
-const { owners } = require('../config');
+const { ownerIds } = require("../config");
 
 const cooldownCache = {};
 
 module.exports = {
   addCooldown: (author, command) => {
-    if (owners.includes(author.id)) return;
+    if (ownerIds.includes(author.id)) return;
 
     if (!(command.name in cooldownCache)) {
       cooldownCache[command.name] = {};
@@ -17,7 +17,7 @@ module.exports = {
     );
   },
   isInCooldownCache: (author, command) => {
-    if (owners.includes(author.id)) return false;
+    if (ownerIds.includes(author.id)) return false;
     if (!(command.name in cooldownCache)) return false;
     if (!(author.id in cooldownCache[command.name])) return false;
 
@@ -29,5 +29,5 @@ module.exports = {
       `Please wait ${cooldownRemaining}s before reusing the \`${command.name}\` command.`
     );
     return true;
-  }
+  },
 };

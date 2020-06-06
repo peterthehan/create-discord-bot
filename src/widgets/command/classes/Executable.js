@@ -1,4 +1,4 @@
-const { owners } = require("../config");
+const { ownerIds } = require("../config");
 const { addCooldown, isInCooldownCache } = require("../caches/cooldownCache");
 const log = require("../util/log");
 
@@ -12,7 +12,7 @@ module.exports = class Executable {
   isExecutable() {
     return (
       this.command &&
-      (!this.command.ownersOnly || owners.includes(this.message.author.id)) &&
+      (!this.command.ownersOnly || ownerIds.includes(this.message.author.id)) &&
       (!this.command.guildOnly || this.message.channel.type === "text") &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&

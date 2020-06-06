@@ -1,4 +1,4 @@
 module.exports = {
-  prefixes: ["!!"],
-  owners: ["206161807491072000"],
+  prefixes: ["."],
+  ownerIds: ["206161807491072000"],
 };
