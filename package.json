@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
@@ -15,23 +15,19 @@
     "url": "https://github.com/peterthehan/create-discord-bot/issues",
     "email": "peter.han.9493@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peterthehan/create-discord-bot.git"
+  },
   "license": "MIT",
   "author": {
     "name": "Peter Han",
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
-  "bin": {
-    "create-discord-bot": "./src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/peterthehan/create-discord-bot.git"
-  },
-  "scripts": {
-    "start": "node ./src/index.js"
-  },
+  "bin": "index.js",
   "dependencies": {
-    "discord.js": "github:discordjs/discord.js#master"
+    "fs-extra": "^9.0.1",
+    "qoa": "^0.2.0"
   }
 }

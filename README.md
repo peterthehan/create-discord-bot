@@ -15,23 +15,14 @@ Create Discord bots using a simple widget-based framework.
 
 > Keep this token and any file containing it **private**! If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
-5. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE](https://discordapp.com/oauth2/authorize?scope=bot&client_id=COPY_PASTE_YOUR_DISCORD_BOT_CLIENT_ID_HERE)
+5. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER](https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER)
 
 > A Discord bot's client ID is not the same as its token!
 
 ### Get Bot
 
-1. `git clone https://github.com/peterthehan/create-discord-bot.git` to download the project.
-2. `cd create-discord-bot/` to navigate into the project.
-3. `npm install` to install project dependencies.
-4. Rename [example.token.json](https://github.com/peterthehan/create-discord-bot/blob/master/example.token.json) to `token.json`.
-5. Open the file and add the bot token found in the previous section:
-
-```js
-{
-  "TOKEN": "COPY_PASTE_YOUR_DISCORD_BOT_TOKEN_HERE"
-}
-```
+1. `npx peterthehan/create-discord-bot`
+2. Follow the CLI instructions.
 
 ### Run Bot
 
