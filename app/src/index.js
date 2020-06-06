@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { Client } = require("discord.js");
 const { token } = require("./config");
 
