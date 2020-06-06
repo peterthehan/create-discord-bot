@@ -24,6 +24,10 @@ Create Discord bots using a simple widget-based framework.
 1. `npx peterthehan/create-discord-bot`
 2. Follow the CLI instructions.
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/npx-demo.gif" />
+</div>
+
 ### Run Bot
 
 1. `npm start` to start the bot.
