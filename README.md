@@ -53,6 +53,10 @@ Each widget **must** live under the [src/widgets](https://github.com/peterthehan
 
 ```
 widgets
+├───command
+│   ├───handlers
+|   |   ├───ready.js
+|   |   └───message.js
 ├───widget1
 │   ├───handlers
 |   |   ├───eventHandler1.js*
