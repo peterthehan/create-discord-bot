@@ -1,5 +1,5 @@
-const { ownerIds } = require("../config");
-const { addCooldown, isInCooldownCache } = require("../caches/cooldownCache");
+const CooldownCache = require("./CooldownCache");
+const isOwner = require("../util/isOwner");
 const log = require("../util/log");
 
 module.exports = class Executable {
@@ -12,17 +12,17 @@ module.exports = class Executable {
   isExecutable() {
     return (
       this.command &&
-      (!this.command.ownersOnly || ownerIds.includes(this.message.author.id)) &&
+      (!this.command.ownersOnly || isOwner(this.message.author)) &&
       (!this.command.guildOnly || this.message.channel.type === "text") &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&
-      !isInCooldownCache(this.message.author, this.command)
+      !CooldownCache.isInCooldown(this.message.author, this.command)
     );
   }
 
   async execute() {
     log(this.message);
-    addCooldown(this.message.author, this.command);
+    CooldownCache.setCooldown(this.message.author, this.command);
     return this.command.messageExecute(this.message, this.args);
   }
 
