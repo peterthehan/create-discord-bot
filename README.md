@@ -71,7 +71,7 @@ widgets
   <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/diagram.png" />
 </div>
 
-### Examples
+### Widgets
 
 The following widgets can be used by this framework by moving them into the [src/widgets](https://github.com/peterthehan/create-discord-bot/blob/master/src/widgets/) folder:
 
@@ -80,6 +80,11 @@ The following widgets can be used by this framework by moving them into the [src
 - https://github.com/peterthehan/discord-birthday-role-bot
 - https://github.com/peterthehan/discord-emoji-log-bot
 - https://github.com/peterthehan/discord-reaction-role-bot
+
+## Troubleshooting
+
+- Check if you have the latest LTS version of Node.js (v12.x.x) using `node -v`.
+- If the app outputs an error for `Cannot find module <...>`, try `npm install` again.
 
 Visit for more help or information!
 
