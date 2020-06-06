@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const { Client } = require('discord.js');
-const { token } = require('./config');
+const { Client } = require("discord.js");
+const { token } = require("./config");
 
 const client = new Client();
 
-require('./core/loadWidgetListeners')(client);
+require("./core/loadWidgetListeners")(client);
 
-client.login(token).catch(error => {
+client.login(token).catch((error) => {
   console.error(error);
   process.exit(1);
 });
