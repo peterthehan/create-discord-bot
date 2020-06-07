@@ -12,12 +12,12 @@ const appToken = { TOKEN: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 const package = require(path.join(__dirname, "./package.json"));
 const packageNameAndVersion = `${package.name} v${package.version}`;
 
-console.log(
-  `This utility will walk you through creating a ${package.name} application.\n`
-);
-console.log("Press ENTER to use the default.");
-console.log("Press ^C at any time to quit.\n");
-console.log(packageNameAndVersion);
+console.log(`This utility will walk you through creating a ${package.name} application.
+
+Press ENTER to use the default.
+Press ^C at any time to quit.
+
+${packageNameAndVersion}`);
 
 const questions = [
   {
@@ -67,8 +67,8 @@ qoa.prompt(questions).then((answers) => {
   process.chdir(directory);
   execSync(`npm i --loglevel=error`);
 
-  console.log("Done!");
-  console.log(`Start by running:
+  console.log(`Done!
+Start by running:
   
 \t$ cd ${name}/
 \t$ npm start`);
