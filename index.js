@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require("fs-extra");
+const { execSync } = require("child_process");
 const path = require("path");
-const execSync = require("child_process").execSync;
+const fs = require("fs-extra");
 const qoa = require("qoa");
 
 const appDirectory = path.join(__dirname, "./app");
