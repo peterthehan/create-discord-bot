@@ -4,6 +4,7 @@ const { execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs-extra");
 const qoa = require("qoa");
+const validate = require("validate-npm-package-name");
 
 const appDirectory = path.join(__dirname, "app");
 const appPackage = require(path.join(appDirectory, "package.json"));
@@ -36,9 +37,15 @@ qoa.prompt(questions).then((answers) => {
   const name = answers.name.length ? answers.name : appPackage.name;
   const token = answers.token.length ? answers.token : appToken.token;
 
+  const validationResult = validate(name);
+  if (!validationResult.validForNewPackages && validationResult.errors) {
+    console.error(`Error: ${validationResult.errors.join(", ")}.`);
+    return;
+  }
+
   const directory = path.resolve(name);
   if (fs.existsSync(directory)) {
-    console.error(`Error: Directory '${directory}' already exists.`);
+    console.error(`Error: directory '${directory}' already exists.`);
     return;
   }
 

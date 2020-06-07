@@ -29,6 +29,7 @@
   "bin": "index.js",
   "dependencies": {
     "fs-extra": "^9.0.1",
-    "qoa": "^0.2.0"
+    "qoa": "^0.2.0",
+    "validate-npm-package-name": "^3.0.0"
   }
 }
