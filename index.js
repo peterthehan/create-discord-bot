@@ -48,8 +48,8 @@ qoa.prompt(questions).then((answers) => {
   console.log(`Creating boilerplate...`);
   fs.copySync(appDirectory, directory);
   fs.writeFileSync(
-    path.join(directory, "./.gitignore"),
-    fs.readFileSync(path.join(appDirectory, "./.gitignore"))
+    path.join(directory, ".gitignore"),
+    fs.readFileSync(path.join(appDirectory, ".gitignore"))
   );
 
   console.log(`Updating package.json...`);
