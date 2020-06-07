@@ -53,14 +53,14 @@ qoa.prompt(questions).then((answers) => {
   const newPackage = { ...appPackage, name, description };
   fs.writeFileSync(
     path.join(directory, "./package.json"),
-    JSON.stringify(newPackage, null, 2)
+    `${JSON.stringify(newPackage, null, 2)}\n`
   );
 
   console.log(`Writing token.json...`);
   const newToken = { ...appToken, TOKEN };
   fs.writeFileSync(
     path.join(directory, "./token.json"),
-    JSON.stringify(newToken, null, 2)
+    `${JSON.stringify(newToken, null, 2)}\n`
   );
 
   console.log(`Installing modules...`);
