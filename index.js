@@ -7,7 +7,7 @@ const qoa = require("qoa");
 
 const appDirectory = path.join(__dirname, "app");
 const appPackage = require(path.join(appDirectory, "package.json"));
-const appToken = { TOKEN: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
+const appToken = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 
 const package = require(path.join(__dirname, "package.json"));
 const packageNameAndVersion = `${package.name} v${package.version}`;
@@ -27,14 +27,14 @@ const questions = [
   },
   {
     type: "secure",
-    query: `Discord bot token: (${appToken.TOKEN})`,
-    handle: "TOKEN",
+    query: `Discord bot token: (${appToken.token})`,
+    handle: "token",
   },
 ];
 
 qoa.prompt(questions).then((answers) => {
   const name = answers.name.length ? answers.name : appPackage.name;
-  const TOKEN = answers.TOKEN.length ? answers.TOKEN : appToken.TOKEN;
+  const token = answers.token.length ? answers.token : appToken.token;
 
   const directory = path.resolve(name);
   if (fs.existsSync(directory)) {
@@ -57,7 +57,7 @@ qoa.prompt(questions).then((answers) => {
   );
 
   console.log("Writing token.json...");
-  const newToken = { ...appToken, TOKEN };
+  const newToken = { ...appToken, token };
   fs.writeFileSync(
     path.join(directory, "token.json"),
     `${JSON.stringify(newToken, null, 2)}\n`
