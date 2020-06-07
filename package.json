@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
@@ -25,9 +25,11 @@
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
+  "main": "index.js",
   "bin": "index.js",
   "dependencies": {
     "fs-extra": "^9.0.1",
-    "qoa": "^0.2.0"
+    "qoa": "^0.2.0",
+    "validate-npm-package-name": "^3.0.0"
   }
 }
