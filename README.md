@@ -72,7 +72,7 @@ src
 │  |  |  └──message.js
 │  ├──widget1
 │  │  ├──handlers
-│  |  |  ├──messageReactionAdd.js*
+│  |  |  ├──messageReactionAdd.js
 │  |  |  ├──messageUpdate.js
 │  |  |  └──other event handlers
 │  ├──widget2
@@ -99,7 +99,7 @@ The following widgets can be used by this framework by adding them into the [src
 ## Troubleshooting
 
 - Try `node -v` to check if you have the latest LTS version of Node.js (v12.x.x).
-- Try `npm install` if the application outputs an error for `Cannot find module <...>`.
+- Try `npm install` if running the application outputs `Error: Cannot find module '...'`.
 
 Visit for more help or information!
 

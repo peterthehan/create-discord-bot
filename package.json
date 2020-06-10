@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
@@ -29,9 +29,19 @@
   },
   "main": "index.js",
   "bin": "index.js",
+  "scripts": {
+    "bot": "node ./app/src/index.js",
+    "check": "prettier --no-config --check .",
+    "format": "prettier --no-config --write .",
+    "start": "node ./index.js",
+    "utility": "node ./index.js"
+  },
   "dependencies": {
     "fs-extra": "^9.0.1",
     "qoa": "^0.2.0",
     "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
   }
 }
