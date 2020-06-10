@@ -4,75 +4,91 @@
 
 Create Discord bots using a simple widget-based framework.
 
-## Bot Setup
+<div align="center">
+  <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/npx-demo.gif" title="npx demo" alt="npx demo" />
+</div>
 
-### Create Bot
+## Table of contents
 
-1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications/).
+- [Getting started](https://github.com/peterthehan/create-discord-bot/#getting-started)
+  - [Setup bot](https://github.com/peterthehan/create-discord-bot/#setup-bot)
+  - [Create bot](https://github.com/peterthehan/create-discord-bot/#create-bot)
+- [Documentation](https://github.com/peterthehan/create-discord-bot/#documentation)
+  - [Command design](https://github.com/peterthehan/create-discord-bot/#command-design)
+  - [Widget design](https://github.com/peterthehan/create-discord-bot/#widget-design)
+- [Widgets](https://github.com/peterthehan/create-discord-bot/#widgets)
+- [Troubleshooting](https://github.com/peterthehan/create-discord-bot/#troubleshooting)
+
+## Getting started
+
+### Setup bot
+
+1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications).
 2. Create a new application.
-3. Add a bot user to your app.
-4. Find your bot token, you will need this in the next section.
 
-> Keep this token and any file containing it **private**! If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
+> Take note of your bot's client ID. You will need this to invite your bot to a server.
 
-5. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER](https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER)
+3. Go to the bot tab and add a bot user to your application.
 
-> A Discord bot's client ID is not the same as its token!
+> Take note of your bot's token. You will need this in the next section.
 
-### Get Bot
+4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER](https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER)
 
-1. `npx peterthehan/create-discord-bot`
-2. Follow the CLI instructions.
+> A Discord bot's client ID is not the same as its token. Keep your token and any file containing it **private**. If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/npx-demo.gif" />
-</div>
-
-### Run Bot
-
-1. `npm start` to start the bot.
-
-> The bot should go from offline to online. Verify the bot is working by using the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/app/src/widgets/command/commands/ping.js) command.
-
-> The default command prefix is `.`. You can configure the [command](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets/command) widget's settings in [src/widgets/command/config.js](https://github.com/peterthehan/create-discord-bot/blob/master/app/src/widgets/command/config.js).
-
-🎉 You're ready to create your own widgets! 🎉
-
-## Widgets Setup
-
-### Design
-
-`create-discord-bot` comes with a [command](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets/command) widget. Simply follow the design of the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/app/src/widgets/command/commands/ping.js) command to start building your own commands.
-
-Each widget **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder and **must** have a `handlers` folder containing **only** event handler files. In other words, a file tree diagram of these requirements would look like:
+### Create bot
 
 ```
-widgets
-├───command
-│   ├───handlers
-|   |   ├───ready.js
-|   |   └───message.js
-├───widget1
-│   ├───handlers
-|   |   ├───eventHandler1.js*
-|   |   ├───eventHandler2.js
-|   |   └───other event handlers
-├───widget2
-│   ├───handlers
-|   |   ├───eventHandler1.js
-|   |   ├───eventHandler2.js
-|   |   └───other event handlers
+npx peterthehan/create-discord-bot
+cd my-discord-bot
+npm start
 ```
 
-> \*: All event handler files must be named exactly the same as the emitted events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
+Verify the bot is working by using the `.ping` command.
+
+🎉 You're ready to create your own Discord bot! 🎉
+
+## Documentation
+
+### Command design
+
+`create-discord-bot` includes a [command](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets/command) widget. Follow the design of the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/app/src/widgets/command/commands/ping.js) command to start building your own commands.
+
+### Widget design
+
+- All widgets **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder.
+- All widgets **must** have a `handlers` folder.
+- A `handlers` folder can **only** contain event handler files.
+- All event handler files **must** be named exactly the same as the events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
+
+An example file tree diagram of these requirements could look like:
+
+```
+src
+├──widgets
+│  ├──command
+│  │  ├──handlers
+│  |  |  ├──ready.js
+│  |  |  └──message.js
+│  ├──widget1
+│  │  ├──handlers
+│  |  |  ├──messageReactionAdd.js*
+│  |  |  ├──messageUpdate.js
+│  |  |  └──other event handlers
+│  ├──widget2
+│  │  ├──handlers
+│  |  |  ├──typingStart.js
+│  |  |  ├──userUpdate.js
+|  |  |  └──other event handlers
+```
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/diagram.png" />
+  <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/widget-diagram.png" title="Widget diagram" alt="Widget diagram" />
 </div>
 
-### Widgets
+## Widgets
 
-The following widgets can be used by this framework by moving them into the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder:
+The following widgets can be used by this framework by adding them into the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder:
 
 - https://github.com/peterthehan/discord-active-role-bot
 - https://github.com/peterthehan/discord-audit-log-bot
@@ -82,11 +98,11 @@ The following widgets can be used by this framework by moving them into the [src
 
 ## Troubleshooting
 
-- Check if you have the latest LTS version of Node.js (v12.x.x) using `node -v`.
-- If the app outputs an error for `Cannot find module <...>`, try `npm install` again.
+- Try `node -v` to check if you have the latest LTS version of Node.js (v12.x.x).
+- Try `npm install` if the application outputs an error for `Cannot find module <...>`.
 
 Visit for more help or information!
 
 <a href="https://discord.gg/WjEFnzC">
-  <img src="https://discordapp.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord Server"/>
+  <img src="https://discordapp.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord server invite" alt="Discord server invite" />
 </a>
