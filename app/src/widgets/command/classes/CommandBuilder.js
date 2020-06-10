@@ -11,47 +11,47 @@ module.exports = class CommandBuilder {
     this.messageExecute = async () => {};
   }
 
-  name(name) {
+  setName(name) {
     this.name = name;
     return this;
   }
 
-  aliases(aliases) {
+  setAliases(aliases) {
     this.aliases = aliases;
     return this;
   }
 
-  ownersOnly(ownersOnly) {
+  setOwnersOnly(ownersOnly) {
     this.ownersOnly = ownersOnly;
     return this;
   }
 
-  guildOnly(guildOnly) {
+  setGuildOnly(guildOnly) {
     this.guildOnly = guildOnly;
     return this;
   }
 
-  requireArgs(requireArgs) {
+  setRequireArgs(requireArgs) {
     this.requireArgs = requireArgs;
     return this;
   }
 
-  deletable(deletable) {
+  setDeletable(deletable) {
     this.deletable = deletable;
     return this;
   }
 
-  cooldown(cooldown) {
+  setCooldown(cooldown) {
     this.cooldown = cooldown;
     return this;
   }
 
-  disabled(disabled) {
+  setDisabled(disabled) {
     this.disabled = disabled;
     return this;
   }
 
-  messageExecute(messageExecute) {
+  setMessageExecute(messageExecute) {
     this.messageExecute = messageExecute;
     return this;
   }
