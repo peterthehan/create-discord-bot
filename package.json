@@ -29,9 +29,19 @@
   },
   "main": "index.js",
   "bin": "index.js",
+  "scripts": {
+    "prettier:check": "prettier --no-config --check .",
+    "prettier:format": "prettier --no-config --write .",
+    "start": "node ./index.js",
+    "start:bot": "node ./app/src/index.js",
+    "start:utility": "node ./index.js"
+  },
   "dependencies": {
     "fs-extra": "^9.0.1",
     "qoa": "^0.2.0",
     "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
   }
 }
