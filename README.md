@@ -90,11 +90,11 @@ src
 
 The following widgets can be used by this framework by adding them into the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder:
 
-- https://github.com/peterthehan/discord-active-role-bot
-- https://github.com/peterthehan/discord-audit-log-bot
-- https://github.com/peterthehan/discord-birthday-role-bot
-- https://github.com/peterthehan/discord-emoji-log-bot
-- https://github.com/peterthehan/discord-reaction-role-bot
+- [https://github.com/peterthehan/discord-active-role-bot](https://github.com/peterthehan/discord-active-role-bot)
+- [https://github.com/peterthehan/discord-audit-log-bot](https://github.com/peterthehan/discord-audit-log-bot)
+- [https://github.com/peterthehan/discord-birthday-role-bot](https://github.com/peterthehan/discord-birthday-role-bot)
+- [https://github.com/peterthehan/discord-emoji-log-bot](https://github.com/peterthehan/discord-emoji-log-bot)
+- [https://github.com/peterthehan/discord-reaction-role-bot](https://github.com/peterthehan/discord-reaction-role-bot)
 
 ## Troubleshooting
 
