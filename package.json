@@ -8,7 +8,9 @@
     "discord-bot",
     "framework",
     "template",
-    "widget"
+    "widget",
+    "nodejs",
+    "discordjs"
   ],
   "homepage": "https://github.com/peterthehan/create-discord-bot",
   "bugs": {
