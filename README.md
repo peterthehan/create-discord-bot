@@ -10,14 +10,14 @@ Create Discord bots using a simple widget-based framework.
 
 ## Table of contents
 
-- [Getting started](https://github.com/peterthehan/create-discord-bot/#getting-started)
-  - [Setup bot](https://github.com/peterthehan/create-discord-bot/#setup-bot)
-  - [Create bot](https://github.com/peterthehan/create-discord-bot/#create-bot)
-- [Documentation](https://github.com/peterthehan/create-discord-bot/#documentation)
-  - [Command design](https://github.com/peterthehan/create-discord-bot/#command-design)
-  - [Widget design](https://github.com/peterthehan/create-discord-bot/#widget-design)
-- [Widgets](https://github.com/peterthehan/create-discord-bot/#widgets)
-- [Troubleshooting](https://github.com/peterthehan/create-discord-bot/#troubleshooting)
+- [Getting started](#getting-started)
+  - [Setup bot](#setup-bot)
+  - [Create bot](#create-bot)
+- [Documentation](#documentation)
+  - [Command design](#command-design)
+  - [Widget design](#widget-design)
+- [Widgets](#widgets)
+- [Troubleshooting](#troubleshooting)
 
 ## Getting started
 
@@ -52,11 +52,11 @@ Verify the bot is working by using the `.ping` command.
 
 ### Command design
 
-`create-discord-bot` includes a [command](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets/command) widget. Follow the design of the [ping](https://github.com/peterthehan/create-discord-bot/blob/master/app/src/widgets/command/commands/ping.js) command to start building your own commands.
+`create-discord-bot` includes a [command](./app/src/widgets/command) widget. Follow the design of the [ping](./app/src/widgets/command/commands/ping.js) command to start building your own commands.
 
 ### Widget design
 
-- All widgets **must** live under the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder.
+- All widgets **must** live under the [src/widgets](./app/src/widgets) folder.
 - All widgets **must** have a `handlers` folder.
 - A `handlers` folder can **only** contain event handler files.
 - All event handler files **must** be named exactly the same as the events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
@@ -88,7 +88,7 @@ src
 
 ## Widgets
 
-The following widgets can be used by this framework by adding them into the [src/widgets](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/widgets) folder:
+The following widgets can be used by this framework by adding them into the [src/widgets](./app/src/widgets) folder:
 
 - [https://github.com/peterthehan/discord-active-role-bot](https://github.com/peterthehan/discord-active-role-bot)
 - [https://github.com/peterthehan/discord-audit-log-bot](https://github.com/peterthehan/discord-audit-log-bot)
