@@ -3,8 +3,9 @@ const isOwner = require("../util/isOwner");
 const log = require("../util/log");
 
 module.exports = class Executable {
-  constructor(message, command, args) {
+  constructor(message, user, command, args) {
     this.message = message;
+    this.user = user;
     this.command = command;
     this.args = args;
   }
@@ -12,17 +13,17 @@ module.exports = class Executable {
   isExecutable() {
     return (
       this.command &&
-      (!this.command.ownersOnly || isOwner(this.message.author)) &&
+      (!this.command.ownersOnly || isOwner(this.user)) &&
       (!this.command.guildOnly || this.message.channel.type === "text") &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&
-      !CooldownCache.isInCooldown(this.message.author, this.command)
+      !CooldownCache.isInCooldown(this.user, this.command)
     );
   }
 
   async execute() {
     log(this.message);
-    CooldownCache.setCooldown(this.message.author, this.command);
+    CooldownCache.setCooldown(this.user, this.command);
     return this.command.messageExecute(this.message, this.args);
   }
 

@@ -22,6 +22,6 @@ module.exports = () => {
     const commandString = args.shift().toLowerCase();
     const command = this.getCommand(commandString);
 
-    return new Executable(this, command, args);
+    return new Executable(this, this.author, command, args);
   };
 };
