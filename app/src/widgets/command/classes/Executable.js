@@ -1,6 +1,5 @@
 const CooldownCache = require("./CooldownCache");
 const isOwner = require("../util/isOwner");
-const log = require("../util/log");
 
 module.exports = class Executable {
   constructor(message, user, command, args) {
@@ -8,6 +7,17 @@ module.exports = class Executable {
     this.user = user;
     this.command = command;
     this.args = args;
+  }
+
+  log() {
+    const logMessage = [
+      ...(this.message.channel.type === "text"
+        ? [this.message.guild, `#${this.message.channel.name}`]
+        : ["DM"]),
+      `${this.user.tag}: ${this.message.content}`,
+    ];
+
+    console.log(logMessage.join(" | "));
   }
 
   isExecutable() {
@@ -22,7 +32,7 @@ module.exports = class Executable {
   }
 
   async execute() {
-    log(this.message, this.user);
+    this.log();
     CooldownCache.setCooldown(this.user, this.command);
     return this.command.execute(this.message, this.user, this.args);
   }
