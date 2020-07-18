@@ -8,7 +8,7 @@ module.exports = class CommandBuilder {
     this.deletable = false;
     this.cooldown = Infinity;
     this.disabled = true;
-    this.messageExecute = async () => {};
+    this.execute = async () => {};
   }
 
   setName(name) {
@@ -51,8 +51,8 @@ module.exports = class CommandBuilder {
     return this;
   }
 
-  setMessageExecute(messageExecute) {
-    this.messageExecute = messageExecute;
+  setExecute(execute) {
+    this.execute = execute;
     return this;
   }
 
@@ -66,7 +66,7 @@ module.exports = class CommandBuilder {
       deletable: this.deletable,
       cooldown: this.cooldown,
       disabled: this.disabled,
-      messageExecute: this.messageExecute,
+      execute: this.execute,
     };
   }
 };

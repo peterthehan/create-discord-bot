@@ -24,7 +24,7 @@ module.exports = class Executable {
   async execute() {
     log(this.message);
     CooldownCache.setCooldown(this.user, this.command);
-    return this.command.messageExecute(this.message, this.args);
+    return this.command.execute(this.message, this.user, this.args);
   }
 
   isDeletable() {
