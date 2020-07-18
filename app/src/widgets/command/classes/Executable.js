@@ -22,7 +22,7 @@ module.exports = class Executable {
   }
 
   async execute() {
-    log(this.message);
+    log(this.message, this.user);
     CooldownCache.setCooldown(this.user, this.command);
     return this.command.execute(this.message, this.user, this.args);
   }
