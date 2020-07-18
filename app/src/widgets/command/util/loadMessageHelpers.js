@@ -13,9 +13,7 @@ module.exports = () => {
   Message.prototype.getCommand = function (commandString) {
     return (
       this.client.commands.get(commandString) ||
-      this.client.commands.find((command) =>
-        command.aliases.includes(commandString)
-      )
+      this.client.commands.find((command) => command.aliases.has(commandString))
     );
   };
 

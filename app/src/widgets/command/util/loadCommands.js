@@ -7,7 +7,7 @@ const getCommands = () => {
   fs.readdirSync(path.resolve(__dirname, "../commands"))
     .filter((file) => file.endsWith(".js"))
     .forEach((file) => {
-      const command = require(`../commands/${file}`);
+      const command = require(`../commands/${file}`).build();
       commands.set(command.name, command);
     });
 

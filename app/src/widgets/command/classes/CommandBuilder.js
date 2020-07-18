@@ -59,7 +59,7 @@ module.exports = class CommandBuilder {
   build() {
     return {
       name: this.name,
-      aliases: this.aliases,
+      aliases: new Set(this.aliases),
       ownersOnly: this.ownersOnly,
       guildOnly: this.guildOnly,
       requireArgs: this.requireArgs,
