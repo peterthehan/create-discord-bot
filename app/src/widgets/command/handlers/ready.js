@@ -1,7 +1,7 @@
 module.exports = async (client) => {
   console.log("command: ready");
 
-  require("../util/loadPrefixRegExp")(client);
-  require("../util/loadCommands")(client);
-  require("../util/loadMessageHelpers")();
+  require("../loaders/loadPrefixRegExp")(client);
+  require("../loaders/loadCommands")(client);
+  require("../loaders/loadMessageHelpers")();
 };
