@@ -3,7 +3,7 @@ module.exports = async (message) => {
     return;
   }
 
-  const executable = message.getExecutable();
+  const executable = message.createExecutable();
   if (!executable.isExecutable()) {
     return;
   }

@@ -17,7 +17,7 @@ module.exports = () => {
     );
   };
 
-  Message.prototype.getExecutable = function () {
+  Message.prototype.createExecutable = function () {
     const args = this.content.replace(this.client.prefixRegExp, "").split(/ +/);
     const commandString = args.shift().toLowerCase();
     const command = this.getCommand(commandString);
