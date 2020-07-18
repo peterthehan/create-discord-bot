@@ -9,9 +9,13 @@ module.exports = class Executable {
     this.args = args;
   }
 
+  isTextChannel() {
+    return this.message.channel.type === "text";
+  }
+
   log() {
     const logMessage = [
-      ...(this.message.channel.type === "text"
+      ...(this.isTextChannel()
         ? [this.message.guild, `#${this.message.channel.name}`]
         : ["DM"]),
       `${this.user.tag}: ${this.message.content}`,
@@ -24,7 +28,7 @@ module.exports = class Executable {
     return (
       this.command &&
       (!this.command.ownersOnly || isOwner(this.user)) &&
-      (!this.command.guildOnly || this.message.channel.type === "text") &&
+      (!this.command.guildOnly || this.isTextChannel()) &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&
       !CooldownCache.isInCooldown(this.user, this.command)
