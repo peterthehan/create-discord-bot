@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { Collection } = require("discord.js");
 
-const getCommands = () => {
+module.exports = (client) => {
   const commands = new Collection();
   fs.readdirSync(path.resolve(__dirname, "../commands"))
     .filter((file) => file.endsWith(".js"))
@@ -11,9 +11,5 @@ const getCommands = () => {
       commands.set(command.name, command);
     });
 
-  return commands;
-};
-
-module.exports = (client) => {
-  client.commands = getCommands();
+  client.commands = commands;
 };
