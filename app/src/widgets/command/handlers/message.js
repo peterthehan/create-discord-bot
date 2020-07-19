@@ -1,5 +1,9 @@
 module.exports = async (message) => {
-  if (!message.isUserMessage() || !message.isCommand()) {
+  if (
+    !message.author.isUser() ||
+    !message.isUserMessage() ||
+    !message.isCommand()
+  ) {
     return;
   }
 

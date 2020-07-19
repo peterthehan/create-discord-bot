@@ -1,5 +1,4 @@
 const CooldownCache = require("./CooldownCache");
-const isOwner = require("../util/isOwner");
 
 module.exports = class Executable {
   constructor(message, user, command, args) {
@@ -23,7 +22,7 @@ module.exports = class Executable {
   isExecutable() {
     return (
       this.command &&
-      (!this.command.ownersOnly || isOwner(this.user)) &&
+      (!this.command.ownersOnly || this.user.isOwner()) &&
       (!this.command.guildOnly || this.message.isFromTextChannel()) &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&

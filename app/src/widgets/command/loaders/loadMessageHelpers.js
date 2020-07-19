@@ -7,7 +7,7 @@ module.exports = () => {
   };
 
   Message.prototype.isUserMessage = function () {
-    return !this.author.bot && !this.system;
+    return !this.system;
   };
 
   Message.prototype.isCommand = function () {

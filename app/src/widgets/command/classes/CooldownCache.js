@@ -1,5 +1,3 @@
-const isOwner = require("../util/isOwner");
-
 const cooldownCache = {};
 
 const getCooldownKey = (author, command) => {
@@ -17,7 +15,7 @@ const getCooldownRemaining = (expirationDate) => {
 
 module.exports = class CooldownCache {
   static setCooldown(author, command) {
-    if (isOwner(author)) {
+    if (author.isOwner()) {
       return;
     }
 
@@ -34,7 +32,7 @@ module.exports = class CooldownCache {
   }
 
   static isInCooldown(author, command) {
-    if (isOwner(author)) {
+    if (author.isOwner()) {
       return false;
     }
 
