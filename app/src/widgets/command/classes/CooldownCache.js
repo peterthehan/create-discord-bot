@@ -1,11 +1,12 @@
 const cooldownCache = {};
 
+const MAX_DELAY = Math.pow(2, 31) - 1;
+
 const getCooldownKey = (author, command) => {
   return `${author.id}-${command.name}`;
 };
 
 const getCooldownInSeconds = (cooldown) => {
-  const MAX_DELAY = Math.pow(2, 31) - 1;
   return Math.min(cooldown * 1000, MAX_DELAY);
 };
 
@@ -43,6 +44,7 @@ module.exports = class CooldownCache {
 
     const cooldownRemaining = getCooldownRemaining(cooldownCache[key]);
     author.send(`${command.name} cooldown: ${cooldownRemaining}s remaining`);
+
     return true;
   }
 };
