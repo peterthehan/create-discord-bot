@@ -9,10 +9,12 @@ module.exports = class Executable {
   }
 
   log() {
+    const timestamp = new Date().toISOString();
     const logMessage = [
-      ...(this.message.isFromTextChannel()
-        ? [this.message.guild, `#${this.message.channel.name}`]
-        : ["DM"]),
+      `${timestamp.substring(0, 10)} ${timestamp.substring(11, 19)}`,
+      this.message.isFromTextChannel()
+        ? `${this.message.guild} #${this.message.channel.name}`
+        : "DM",
       `${this.user.tag}: ${this.message.content}`,
     ];
 
