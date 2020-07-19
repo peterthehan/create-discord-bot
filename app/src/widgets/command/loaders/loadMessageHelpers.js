@@ -2,6 +2,10 @@ const { Message } = require("discord.js");
 const Executable = require("../classes/Executable");
 
 module.exports = () => {
+  Message.prototype.isFromTextChannel = function () {
+    return this.channel.type === "text";
+  };
+
   Message.prototype.isUserMessage = function () {
     return !this.author.bot && !this.system;
   };
