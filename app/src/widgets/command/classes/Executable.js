@@ -1,5 +1,3 @@
-const CooldownCache = require("./CooldownCache");
-
 module.exports = class Executable {
   constructor(message, user, command, args) {
     this.message = message;
@@ -28,13 +26,13 @@ module.exports = class Executable {
       (!this.command.guildOnly || this.message.isFromTextChannel()) &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&
-      !CooldownCache.isInCooldown(this.user, this.command)
+      !this.user.isOnCooldown(this.command)
     );
   }
 
   async execute() {
     this.log();
-    CooldownCache.setCooldown(this.user, this.command);
+    this.user.startCooldown(this.command);
     return this.command.execute(this.message, this.user, this.args);
   }
 

@@ -15,7 +15,7 @@ const getCooldownRemaining = (expirationDate) => {
 };
 
 module.exports = class CooldownCache {
-  static setCooldown(author, command) {
+  static startCooldown(author, command) {
     if (author.isOwner()) {
       return;
     }
@@ -32,7 +32,7 @@ module.exports = class CooldownCache {
     setTimeout(() => delete cooldownCache[key], cooldownInSeconds);
   }
 
-  static isInCooldown(author, command) {
+  static isOnCooldown(author, command) {
     if (author.isOwner()) {
       return false;
     }
@@ -43,7 +43,7 @@ module.exports = class CooldownCache {
     }
 
     const cooldownRemaining = getCooldownRemaining(cooldownCache[key]);
-    author.send(`${command.name} cooldown: ${cooldownRemaining}s remaining`);
+    author.send(`${command.name}: ${cooldownRemaining}s cooldown remaining`);
 
     return true;
   }
