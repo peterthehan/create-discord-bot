@@ -1,11 +1,12 @@
 const cooldownCache = {};
 
-const getCooldownKey = (author, command) => {
-  return `${author.id}-${command.name}`;
+const MAX_DELAY = Math.pow(2, 31) - 1;
+
+const getCooldownKey = (user, command) => {
+  return `${user.id}-${command.name}`;
 };
 
 const getCooldownInSeconds = (cooldown) => {
-  const MAX_DELAY = Math.pow(2, 31) - 1;
   return Math.min(cooldown * 1000, MAX_DELAY);
 };
 
@@ -14,12 +15,12 @@ const getCooldownRemaining = (expirationDate) => {
 };
 
 module.exports = class CooldownCache {
-  static setCooldown(author, command) {
-    if (author.isOwner()) {
+  static startCooldown(user, command) {
+    if (user.isOwner()) {
       return;
     }
 
-    const key = getCooldownKey(author, command);
+    const key = getCooldownKey(user, command);
     if (key in cooldownCache) {
       return;
     }
@@ -31,18 +32,19 @@ module.exports = class CooldownCache {
     setTimeout(() => delete cooldownCache[key], cooldownInSeconds);
   }
 
-  static isInCooldown(author, command) {
-    if (author.isOwner()) {
+  static isOnCooldown(user, command) {
+    if (user.isOwner()) {
       return false;
     }
 
-    const key = getCooldownKey(author, command);
+    const key = getCooldownKey(user, command);
     if (!(key in cooldownCache)) {
       return false;
     }
 
     const cooldownRemaining = getCooldownRemaining(cooldownCache[key]);
-    author.send(`${command.name} cooldown: ${cooldownRemaining}s remaining`);
+    user.send(`${command.name}: ${cooldownRemaining}s cooldown remaining`);
+
     return true;
   }
 };

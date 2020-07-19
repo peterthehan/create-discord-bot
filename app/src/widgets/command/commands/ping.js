@@ -10,5 +10,5 @@ module.exports = new CommandBuilder()
   .setCooldown(10)
   .setDisabled(false)
   .setExecute(async (message, user, args) => {
-    message.channel.send(`🏓 ${Math.round(message.client.ws.ping)} ms`);
+    await message.channel.send(`🏓 ${Math.round(message.client.ws.ping)} ms`);
   });

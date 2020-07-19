@@ -1,5 +1,3 @@
-const CooldownCache = require("./CooldownCache");
-
 module.exports = class Executable {
   constructor(message, user, command, args) {
     this.message = message;
@@ -9,10 +7,12 @@ module.exports = class Executable {
   }
 
   log() {
+    const timestamp = new Date().toISOString();
     const logMessage = [
-      ...(this.message.isFromTextChannel()
-        ? [this.message.guild, `#${this.message.channel.name}`]
-        : ["DM"]),
+      `${timestamp.substring(0, 10)} ${timestamp.substring(11, 19)}`,
+      this.message.isFromTextChannel()
+        ? `${this.message.guild} #${this.message.channel.name}`
+        : "DM",
       `${this.user.tag}: ${this.message.content}`,
     ];
 
@@ -26,14 +26,14 @@ module.exports = class Executable {
       (!this.command.guildOnly || this.message.isFromTextChannel()) &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&
-      !CooldownCache.isInCooldown(this.user, this.command)
+      !this.user.isOnCooldown(this.command)
     );
   }
 
   async execute() {
     this.log();
-    CooldownCache.setCooldown(this.user, this.command);
-    return this.command.execute(this.message, this.user, this.args);
+    this.user.startCooldown(this.command);
+    return await this.command.execute(this.message, this.user, this.args);
   }
 
   isDeletable() {

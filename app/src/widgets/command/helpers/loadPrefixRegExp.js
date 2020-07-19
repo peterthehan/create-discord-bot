@@ -7,17 +7,13 @@ const escapeConfigPrefix = (prefix) => {
     .join("");
 };
 
-const getPrefixRegExp = (client) => {
+module.exports = (client) => {
   const botMentionPrefix = `<@!?${client.user.id}>`;
   const configPrefixes = prefixes
     .filter((prefix) => prefix !== "")
     .map(escapeConfigPrefix);
 
-  return new RegExp(
+  client.prefixRegExp = new RegExp(
     `^(${[botMentionPrefix, ...configPrefixes].join("|")})\\s*`
   );
-};
-
-module.exports = (client) => {
-  client.prefixRegExp = getPrefixRegExp(client);
 };
