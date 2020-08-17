@@ -98,6 +98,7 @@ The following widgets can be used by this framework by adding them into the [src
 
 ## Troubleshooting
 
+- Use Git Bash instead of the Command Prompt (cmd.exe) if you are on Windows.
 - Try `node -v` to check if you have the latest LTS version of Node.js (v12.x.x).
 - Try `npm install` if running the application outputs `Error: Cannot find module '...'`.
 
