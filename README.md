@@ -14,8 +14,8 @@ Create Discord bots using a simple widget-based framework.
   - [Setup bot](#setup-bot)
   - [Create bot](#create-bot)
 - [Documentation](#documentation)
-  - [Command design](#command-design)
-  - [Widget design](#widget-design)
+  - [Command widget](#command-widget)
+  - [Widget conventions](#widget-conventions)
 - [Widgets](#widgets)
 - [Troubleshooting](#troubleshooting)
 
@@ -50,11 +50,11 @@ Verify the bot is working by using the `.ping` command.
 
 ## Documentation
 
-### Command design
+### Command widget
 
 `create-discord-bot` includes a [command](./app/src/widgets/command) widget. Follow the design of the [ping](./app/src/widgets/command/commands/ping.js) command to start building your own commands.
 
-### Widget design
+### Widget conventions
 
 - All widgets **must** live under the [src/widgets](./app/src/widgets) folder.
 - All widgets **must** have a `handlers` folder.
