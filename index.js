@@ -98,7 +98,14 @@ qoa
           client.once("ready", () => {
             console.log(`Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`)
           })
-          client.login(token);
+          client.login(token).catch((e) => {
+            if (e == "Error [TOKEN_INVALID]: An invalid token was provided.") {
+              console.log("Cannot generate invite link! Invalid Bot Token");
+              return;
+            } else {
+              console.error(e);
+            }
+          });
         }
       },
       {
