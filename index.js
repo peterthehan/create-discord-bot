@@ -2,10 +2,10 @@
 
 const { execSync } = require("child_process");
 const path = require("path");
+const Discord = require("discord.js");
 const fs = require("fs-extra");
 const qoa = require("qoa");
 const validate = require("validate-npm-package-name");
-const Discord = require("discord.js");
 
 const appDirectory = path.join(__dirname, "app");
 const appPackage = require(path.join(appDirectory, "package.json"));
@@ -92,10 +92,10 @@ qoa
         },
       },
       {
-        message: "Generating invite link...",
+        message: "Generating bot invite link...",
         action: () => {
           const client = new Discord.Client();
-          client.on("ready", () => {
+          client.once("ready", () => {
             console.log(`Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`)
           })
           client.login(token);
