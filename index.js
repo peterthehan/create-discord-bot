@@ -80,7 +80,7 @@ qoa
           fs.writeFileSync(
             path.join(directory, "package.json"),
             `${JSON.stringify(newPackage, null, 2)}\n`
-          );
+          ); 
         },
       },
       {
@@ -140,14 +140,9 @@ qoa
       if (!isUpdate) {
         console.log("Generating bot invite link...");
         const client = new Discord.Client();
-        client.once("ready", () => {
-          console.log(
-            `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
-          );
-        });
-
         await client
           .login(token)
+          .then(() => console.log(`Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`))
           .catch(() =>
             console.warn(
               "Bot invite link was not generated due to the given invalid bot token."
