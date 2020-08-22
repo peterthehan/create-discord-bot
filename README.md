@@ -64,7 +64,7 @@ Verify the bot is working by using the `.ping` command.
 - A `handlers` folder can **only** contain event handler files.
 - All event handler files **must** be named exactly the same as the events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
 
-An example file tree diagram of these requirements could look like:
+An example file tree diagram of these requirements may look like:
 
 ```
 src
