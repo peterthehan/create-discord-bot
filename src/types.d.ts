@@ -7,9 +7,6 @@ export declare type ValidationResult = {
   validForNewPackages: boolean;
   errors?: any[];
 };
-export declare type Token = {
-  token: string;
-};
 export declare type Package = {
   name: string;
   version: string;

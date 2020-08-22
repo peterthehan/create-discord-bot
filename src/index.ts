@@ -9,9 +9,9 @@ const path = require("path");
 const qoa = require("qoa");
 const validate = require("validate-npm-package-name");
 
-const appDirectory: string = path.join("../", "app");
-const appPackage: types.Package = require(path.join(appDirectory, "package.json"));
-const appToken: types.Token = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
+const appDirectory: string = "app";
+const appPackage: types.Package = require(path.resolve(path.join(appDirectory, "package.json")));
+const appToken: { token: string; } = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 
 const utilityPackage: types.Package = require(path.join("../", "package.json"));
 const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
