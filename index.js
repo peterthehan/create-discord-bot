@@ -103,7 +103,10 @@ qoa
     ];
 
     let steps;
-    if (fs.existsSync(directory)) {
+
+    const isUpdate = fs.existsSync(directory);
+
+    if (isUpdate) {
       const updateAnswer = await qoa.prompt([
         {
           type: "confirm",
@@ -135,20 +138,22 @@ qoa
     });
 
     console.log("Generating bot invite link...");
-    const client = new Discord.Client();
-    client.once("ready", () => {
-      console.log(
-        `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
-      );
-    });
-
-    client
-      .login(token)
-      .catch(() =>
+    if (!isUpdate) {
+      const client = new Discord.Client();
+      client.once("ready", () => {
         console.log(
-          "Bot invite link was not generated due to the given invalid bot token."
-        )
-      );
+          `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
+        );
+      });
+
+      client
+        .login(token)
+        .catch(() =>
+          console.log(
+            "Bot invite link was not generated due to the given invalid bot token."
+          )
+        );
+    }
 
     console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`);
   })
