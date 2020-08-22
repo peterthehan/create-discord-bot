@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import * as types from './types';
+
 const { execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs-extra");
@@ -8,12 +10,10 @@ const validate = require("validate-npm-package-name");
 
 const appDirectory: string = path.join("../", "app");
 const appPackage: any = require(path.join(appDirectory, "package.json"));
-const appToken = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
+const appToken: types.Token = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 
 const utilityPackage: any = require(path.join("../", "package.json"));
 const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
-
-import * as types from './types';
 
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
 
