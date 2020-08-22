@@ -17,6 +17,7 @@ Create Discord bots using a simple widget-based framework.
   - [Command widget](#command-widget)
   - [Widget conventions](#widget-conventions)
 - [Widgets](#widgets)
+- [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 
 ## Getting started
@@ -33,6 +34,8 @@ Create Discord bots using a simple widget-based framework.
 > Take note of your bot's token. You will need this in the next section.
 
 4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER](https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER)
+
+> Alternatively, `npx peterthehan/create-discord-bot` will generate a bot invite link for you when you create the project for the first time and you provide a valid bot token.
 
 > A Discord bot's client ID is not the same as its token. Keep your token and any file containing it **private**. If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
@@ -61,7 +64,7 @@ Verify the bot is working by using the `.ping` command.
 - A `handlers` folder can **only** contain event handler files.
 - All event handler files **must** be named exactly the same as the events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
 
-An example file tree diagram of these requirements could look like:
+An example file tree diagram of these requirements may look like:
 
 ```
 src
@@ -95,6 +98,13 @@ The following widgets can be used by this framework by adding them into the [src
 - [https://github.com/peterthehan/discord-birthday-role-bot](https://github.com/peterthehan/discord-birthday-role-bot)
 - [https://github.com/peterthehan/discord-emoji-log-bot](https://github.com/peterthehan/discord-emoji-log-bot)
 - [https://github.com/peterthehan/discord-reaction-role-bot](https://github.com/peterthehan/discord-reaction-role-bot)
+
+## Updating
+
+Update your bot's core files to the latest version in this project by running `npx peterthehan/create-discord-bot` and using the same name as your existing Discord bot when asked for the application name. This will update:
+
+- [src/index.js](./app/src/index.js)
+- [src/core](./app/src/core)
 
 ## Troubleshooting
 

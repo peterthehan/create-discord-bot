@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.7.1",
+  "version": "3.7.2",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
@@ -39,6 +39,7 @@
     "build": "npx tsc"
   },
   "dependencies": {
+    "discord.js": "^12.3.1",
     "fs-extra": "^9.0.1",
     "qoa": "^0.2.0",
     "ts-node": "^9.0.0",
