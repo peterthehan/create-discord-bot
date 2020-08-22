@@ -96,6 +96,10 @@ The following widgets can be used by this framework by adding them into the [src
 - [https://github.com/peterthehan/discord-emoji-log-bot](https://github.com/peterthehan/discord-emoji-log-bot)
 - [https://github.com/peterthehan/discord-reaction-role-bot](https://github.com/peterthehan/discord-reaction-role-bot)
 
+## Updating
+
+By running `npx peterthehan/create-discord-bot` and using the same name as your Discord bot you can update your project to use the latest template.
+
 ## Troubleshooting
 
 - Use [Git Bash](https://git-scm.com/downloads) instead of the Command Prompt (cmd.exe) if you are on Windows.
