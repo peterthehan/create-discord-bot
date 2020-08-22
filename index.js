@@ -102,10 +102,9 @@ qoa
       },
     ];
 
-    let steps;
-
     const isUpdate = fs.existsSync(directory);
 
+    let steps;
     if (isUpdate) {
       const updateAnswer = await qoa.prompt([
         {
@@ -137,8 +136,8 @@ qoa
       }
     });
 
-    console.log("Generating bot invite link...");
     if (!isUpdate) {
+      console.log("Generating bot invite link...");
       const client = new Discord.Client();
       client.once("ready", () => {
         console.log(
@@ -149,7 +148,7 @@ qoa
       client
         .login(token)
         .catch(() =>
-          console.log(
+          console.warn(
             "Bot invite link was not generated due to the given invalid bot token."
           )
         );
