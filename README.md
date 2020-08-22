@@ -32,7 +32,7 @@ Create Discord bots using a simple widget-based framework.
 
 > Take note of your bot's token. You will need this in the next section.
 
-4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER](https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER)
+4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER](https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER) or you can follow the link that is generated.
 
 > A Discord bot's client ID is not the same as its token. Keep your token and any file containing it **private**. If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
