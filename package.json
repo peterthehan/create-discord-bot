@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.7.1",
+  "version": "3.7.2",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
