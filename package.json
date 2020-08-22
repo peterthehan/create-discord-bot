@@ -28,21 +28,23 @@
     "url": "https://github.com/peterthehan"
   },
   "main": "index.js",
-  "bin": "index.js",
+  "bin": "dist/index.js",
   "scripts": {
     "bot": "node ./app/src/index.js",
     "check": "prettier --no-config --check .",
-    "dry": "node ./index.js --dry-run",
+    "dry": "node ./dist/index.js --dry-run",
     "format": "prettier --no-config --write .",
     "start": "node ./index.js",
     "utility": "node ./index.js"
   },
   "dependencies": {
+    "@types/node": "^14.6.0",
     "fs-extra": "^9.0.1",
     "qoa": "^0.2.0",
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "typescript": "^4.0.2"
   }
 }

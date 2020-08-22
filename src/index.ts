@@ -6,11 +6,11 @@ const fs = require("fs-extra");
 const qoa = require("qoa");
 const validate = require("validate-npm-package-name");
 
-const appDirectory = path.join(__dirname, "app");
+const appDirectory = path.join("../", "app");
 const appPackage = require(path.join(appDirectory, "package.json"));
 const appToken = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 
-const utilityPackage = require(path.join(__dirname, "package.json"));
+const utilityPackage = require(path.join("../", "package.json"));
 const utilityNameAndVersion = `${utilityPackage.name} v${utilityPackage.version}`;
 
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
