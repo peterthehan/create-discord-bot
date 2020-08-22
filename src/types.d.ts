@@ -1,8 +1,8 @@
-declare type Step = {
+export declare type Step = {
   message: string;
   action: Function;
 };
-declare type ValidationResult = {
+export declare type ValidationResult = {
   validForOldPackages: boolean;
   validForNewPackages: boolean;
   errors?: any[];

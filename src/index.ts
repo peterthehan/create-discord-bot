@@ -13,6 +13,8 @@ const appToken = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 const utilityPackage: any = require(path.join("../", "package.json"));
 const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
 
+import * as types from './types';
+
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
 
 Press ENTER to use the default.
@@ -39,14 +41,14 @@ qoa
     const name: string = answers.name || appPackage.name;
     const token: string = answers.token || appToken.token;
 
-    const validationResult: ValidationResult = validate(name);
+    const validationResult: types.ValidationResult = validate(name);
     if (!validationResult.validForNewPackages && validationResult.errors) {
       throw `Error: ${validationResult.errors.join(", ")}.\nQuitting...`;
     }
 
     const directory: string = path.resolve(name);
 
-    const updateSteps: Step[] = [
+    const updateSteps: types.Step[] = [
       {
         message: `Updating core files in '${name}'...`,
         action: () => {
@@ -58,7 +60,7 @@ qoa
         },
       },
     ];
-    const cleanInstallSteps: Step[] = [
+    const cleanInstallSteps: types.Step[] = [
       {
         message: `Creating directory '${name}'...`,
         action: () => fs.mkdirSync(directory),
@@ -101,7 +103,7 @@ qoa
       },
     ];
 
-    let steps: Step[];
+    let steps: types.Step[];
     if (fs.existsSync(directory)) {
       const updateAnswer = await qoa.prompt([
         {
