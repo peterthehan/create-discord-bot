@@ -153,6 +153,8 @@ qoa
         );
     }
 
-    console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`)
+    console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`);
+
+    process.exit(0);
   })
   .catch(console.error);
