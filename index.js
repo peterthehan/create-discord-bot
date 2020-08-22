@@ -149,7 +149,7 @@ qoa
         )
         .catch(() =>
           console.warn(
-            "Bot invite link was not generated due to the given invalid bot token."
+            "Bot invite link was not generated due to the given bot token being invalid."
           )
         );
       console.log();
