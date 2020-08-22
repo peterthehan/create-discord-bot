@@ -13,11 +13,6 @@ const appToken = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 const utilityPackage: any = require(path.join("../", "package.json"));
 const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
 
-type Step = {
-  message: string;
-  action: Function;
-};
-
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
 
 Press ENTER to use the default.
