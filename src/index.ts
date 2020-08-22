@@ -36,10 +36,10 @@ qoa
   .prompt(questions)
   .then(async (answers) => {
     console.log();
-    const name = answers.name || appPackage.name;
-    const token = answers.token || appToken.token;
+    const name: string = answers.name || appPackage.name;
+    const token: string = answers.token || appToken.token;
 
-    const validationResult = validate(name);
+    const validationResult: ValidationResult = validate(name);
     if (!validationResult.validForNewPackages && validationResult.errors) {
       throw `Error: ${validationResult.errors.join(", ")}.\nQuitting...`;
     }
