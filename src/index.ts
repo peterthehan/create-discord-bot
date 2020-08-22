@@ -36,7 +36,7 @@ const questions: object[] = [
 ];
 qoa
   .prompt(questions)
-  .then(async (answers) => {
+  .then(async (answers: { name: any; token: string; }) => {
     console.log();
     const name: string = answers.name || appPackage.name;
     const token: string = answers.token || appToken.token;
