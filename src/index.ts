@@ -6,12 +6,17 @@ const fs = require("fs-extra");
 const qoa = require("qoa");
 const validate = require("validate-npm-package-name");
 
-const appDirectory = path.join("../", "app");
-const appPackage = require(path.join(appDirectory, "package.json"));
+const appDirectory: string = path.join("../", "app");
+const appPackage: any = require(path.join(appDirectory, "package.json"));
 const appToken = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 
-const utilityPackage = require(path.join("../", "package.json"));
-const utilityNameAndVersion = `${utilityPackage.name} v${utilityPackage.version}`;
+const utilityPackage: any = require(path.join("../", "package.json"));
+const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
+
+type Step = {
+  message: string,
+  action: Function
+}
 
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
 
@@ -20,7 +25,7 @@ Press ^C at any time to quit.
 
 ${utilityNameAndVersion}`);
 
-const questions = [
+const questions: object[] = [
   {
     type: "input",
     query: `Application name: (${appPackage.name})`,
@@ -44,9 +49,9 @@ qoa
       throw `Error: ${validationResult.errors.join(", ")}.\nQuitting...`;
     }
 
-    const directory = path.resolve(name);
+    const directory: string = path.resolve(name);
 
-    const updateSteps = [
+    const updateSteps: Step[] = [
       {
         message: `Updating core files in '${name}'...`,
         action: () => {
@@ -58,7 +63,7 @@ qoa
         },
       },
     ];
-    const cleanInstallSteps = [
+    const cleanInstallSteps: Step[] = [
       {
         message: `Creating directory '${name}'...`,
         action: () => fs.mkdirSync(directory),
@@ -101,7 +106,7 @@ qoa
       },
     ];
 
-    let steps;
+    let steps: Step[];
     if (fs.existsSync(directory)) {
       const updateAnswer = await qoa.prompt([
         {
@@ -124,7 +129,7 @@ qoa
     }
 
     const [, , ...args] = process.argv;
-    const isDryRun = args[0] === "--dry-run";
+    const isDryRun: boolean = args[0] === "--dry-run";
 
     steps.forEach(({ message, action }) => {
       console.log(message);
