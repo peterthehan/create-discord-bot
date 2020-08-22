@@ -1,9 +1,9 @@
 declare type Step = {
-    message: string;
-    action: Function;
+  message: string;
+  action: Function;
 };
 declare type ValidationResult = {
-    validForOldPackages: boolean;
-    validForNewPackages: boolean;
-    errors?: any[];
+  validForOldPackages: boolean;
+  validForNewPackages: boolean;
+  errors?: any[];
 };
