@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import { Client } from 'discord.js';
+import * as fs from 'fs-extra';
 import * as types from './types';
 
 const { execSync } = require("child_process");
 const path = require("path");
-const fs = require("fs-extra");
 const qoa = require("qoa");
 const validate = require("validate-npm-package-name");
 
