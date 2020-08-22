@@ -135,26 +135,24 @@ qoa
         action();
       }
     });
-
-    (async () => {
-      if (!isUpdate) {
-        console.log("Generating bot invite link...");
-        const client = new Discord.Client();
-        await client
-          .login(token)
-          .then(() =>
-            console.log(
-              `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
-            )
+    
+    if (!isUpdate) {
+      console.log("Generating bot invite link...");
+      const client = new Discord.Client();
+      await client
+        .login(token)
+        .then(() =>
+          console.log(
+            `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
           )
-          .catch(() =>
-            console.warn(
-              "Bot invite link was not generated due to the given invalid bot token."
-            )
-          );
-      }
-    })().then(() =>
-      console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`)
-    );
+        )
+        .catch(() =>
+          console.warn(
+            "Bot invite link was not generated due to the given invalid bot token."
+          )
+        );
+    }
+
+    console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`)
   })
   .catch(console.error);
