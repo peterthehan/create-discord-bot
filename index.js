@@ -80,7 +80,7 @@ qoa
           fs.writeFileSync(
             path.join(directory, "package.json"),
             `${JSON.stringify(newPackage, null, 2)}\n`
-          ); 
+          );
         },
       },
       {
@@ -142,7 +142,11 @@ qoa
         const client = new Discord.Client();
         await client
           .login(token)
-          .then(() => console.log(`Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`))
+          .then(() =>
+            console.log(
+              `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
+            )
+          )
           .catch(() =>
             console.warn(
               "Bot invite link was not generated due to the given invalid bot token."
