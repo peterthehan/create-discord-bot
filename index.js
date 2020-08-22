@@ -135,7 +135,7 @@ qoa
         action();
       }
     });
-    
+
     if (!isUpdate) {
       console.log("Generating bot invite link...");
       const client = new Discord.Client();
@@ -148,7 +148,7 @@ qoa
         )
         .catch(() =>
           console.warn(
-            "Bot invite link was not generated due to the given invalid bot token."
+            "Bot invite link was not generated ...due to the given invalid bot token."
           )
         );
     }
