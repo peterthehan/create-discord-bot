@@ -35,22 +35,31 @@ const questions = [
 ];
 qoa
   .prompt(questions)
-  .then((answers) => {
+  .then(async (answers) => {
     console.log();
     const name = answers.name || appPackage.name;
     const token = answers.token || appToken.token;
 
     const validationResult = validate(name);
     if (!validationResult.validForNewPackages && validationResult.errors) {
-      throw `Error: ${validationResult.errors.join(", ")}.`;
+      throw `Error: ${validationResult.errors.join(", ")}.\nQuitting...`;
     }
 
     const directory = path.resolve(name);
-    if (fs.existsSync(directory)) {
-      throw `Error: directory '${directory}' already exists.`;
-    }
 
-    const steps = [
+    const updateSteps = [
+      {
+        message: `Updating core files in '${name}'...`,
+        action: () => {
+          fs.copySync(`${appDirectory}/src/core`, `${directory}/src/core`);
+          fs.copySync(
+            `${appDirectory}/src/index.js`,
+            `${directory}/src/index.js`
+          );
+        },
+      },
+    ];
+    const cleanInstallSteps = [
       {
         message: `Creating directory '${name}'...`,
         action: () => fs.mkdirSync(directory),
@@ -91,33 +100,29 @@ qoa
           execSync("npm i --loglevel=error");
         },
       },
-      {
-        message: "Generating bot invite link...",
-        action: () => {
-          const client = new Discord.Client();
-          client.once("ready", () => {
-            console.log(
-              `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
-            );
-          });
-          client
-            .login(token)
-            .catch(() =>
-              console.log(
-                "Bot invite link was not generated due to the given invalid bot token."
-              )
-            );
-        },
-      },
-      {
-        message: `Done!
-
-Start by running:
-\t$ cd ${name}/
-\t$ npm start`,
-        action: () => {},
-      },
     ];
+
+    let steps;
+    if (fs.existsSync(directory)) {
+      const updateAnswer = await qoa.prompt([
+        {
+          type: "confirm",
+          query: `Directory '${directory}' already exists. Do you want to update it?`,
+          handle: "update",
+          accept: "y",
+          deny: "n",
+        },
+      ]);
+      console.log();
+
+      if (!updateAnswer.update) {
+        throw `Error: '${directory}' already exists.\nQuitting...`;
+      }
+
+      steps = updateSteps;
+    } else {
+      steps = cleanInstallSteps;
+    }
 
     const [, , ...args] = process.argv;
     const isDryRun = args[0] === "--dry-run";
@@ -128,5 +133,23 @@ Start by running:
         action();
       }
     });
+
+    console.log("Generating bot invite link...");
+    const client = new Discord.Client();
+    client.once("ready", () => {
+      console.log(
+        `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
+      );
+    });
+
+    client
+      .login(token)
+      .catch(() =>
+        console.log(
+          "Bot invite link was not generated due to the given invalid bot token."
+        )
+      );
+
+    console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`);
   })
   .catch(console.error);
