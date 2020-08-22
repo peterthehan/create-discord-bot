@@ -137,6 +137,7 @@ qoa
     });
 
     if (!isUpdate) {
+      console.log();
       console.log("Generating bot invite link...");
       const client = new Discord.Client();
       await client
@@ -151,6 +152,7 @@ qoa
             "Bot invite link was not generated ...due to the given invalid bot token."
           )
         );
+      console.log();
     }
 
     console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`);
