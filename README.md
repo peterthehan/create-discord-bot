@@ -17,6 +17,7 @@ Create Discord bots using a simple widget-based framework.
   - [Command widget](#command-widget)
   - [Widget conventions](#widget-conventions)
 - [Widgets](#widgets)
+- [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
 
 ## Getting started
@@ -98,7 +99,9 @@ The following widgets can be used by this framework by adding them into the [src
 
 ## Updating
 
-By running `npx peterthehan/create-discord-bot` and using the same name as your Discord bot you can update your project to use the latest template.
+Update your bot's core files to the latest version in this project by running `npx peterthehan/create-discord-bot` and using the same name as your existing Discord bot when asked for the application name. This will update:
+- [src/index.js](https://github.com/peterthehan/create-discord-bot/blob/master/app/src/index.js)
+- [src/core](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/core)
 
 ## Troubleshooting
 

@@ -145,7 +145,7 @@ qoa
             `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
           );
         });
-  
+
         await client
           .login(token)
           .catch(() =>
@@ -154,7 +154,8 @@ qoa
             )
           );
       }
-    })().then(() => console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`))
-
+    })().then(() =>
+      console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`)
+    );
   })
   .catch(console.error);
