@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
+import { Client } from 'discord.js';
 import * as types from './types';
 
 const { execSync } = require("child_process");
 const path = require("path");
-const Discord = require("discord.js");
 const fs = require("fs-extra");
 const qoa = require("qoa");
 const validate = require("validate-npm-package-name");
@@ -141,7 +141,7 @@ qoa
     if (!isUpdate) {
       console.log();
       console.log("Generating bot invite link...");
-      const client = new Discord.Client();
+      const client: Client = new Client();
       await client
         .login(token)
         .then(() =>
