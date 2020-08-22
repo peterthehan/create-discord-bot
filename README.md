@@ -102,8 +102,8 @@ The following widgets can be used by this framework by adding them into the [src
 ## Updating
 
 Update your bot's core files to the latest version in this project by running `npx peterthehan/create-discord-bot` and using the same name as your existing Discord bot when asked for the application name. This will update:
-- [src/index.js](https://github.com/peterthehan/create-discord-bot/blob/master/app/src/index.js)
-- [src/core](https://github.com/peterthehan/create-discord-bot/tree/master/app/src/core)
+- [src/index.js](./app/src/index.js)
+- [src/core](./app/src/core)
 
 ## Troubleshooting
 
