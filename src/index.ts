@@ -11,7 +11,7 @@ import types from "./declarations/types";
 
 const validatePackageName: interfaces.ValidationFunction = require("validate-npm-package-name");
 
-const appDirectory: string = "app";
+const appDirectory: string = path.join(__dirname, "../app");
 const appPackage: types.Package = require(path.resolve(
   path.join(appDirectory, "package.json")
 ));
