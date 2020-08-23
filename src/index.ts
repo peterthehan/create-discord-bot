@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 
-import { Client } from 'discord.js';
-import fs from 'fs-extra';
-import prompts from 'prompts';
-import * as types from './types';
+import { Client } from "discord.js";
+import fs from "fs-extra";
+import prompts from "prompts";
+import * as types from "./types";
 
 const { execSync } = require("child_process");
 const path = require("path");
 const validatePackageName: types.ValidationFunction = require("validate-npm-package-name");
 
 const appDirectory: string = "app";
-const appPackage: types.Package = require(path.resolve(path.join(appDirectory, "package.json")));
-const appToken: { token: string; } = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
+const appPackage: types.Package = require(path.resolve(
+  path.join(appDirectory, "package.json")
+));
+const appToken: { token: string } = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
 
 const utilityPackage: types.Package = require(path.join("../", "package.json"));
 const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
@@ -161,4 +163,5 @@ prompts(questions)
     console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`);
 
     process.exit(0);
-  }).catch(console.error);
+  })
+  .catch(console.error);

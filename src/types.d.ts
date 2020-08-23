@@ -15,12 +15,12 @@ export declare type Package = {
   description?: string;
   keywords?: string[];
   main?: string;
-  repository?: {type: string, url: string};
+  repository?: { type: string; url: string };
   scripts?: any;
   dependencies?: any;
   devDependencies?: any;
   private?: boolean;
 };
 export declare interface ValidationFunction {
-  (name: string): ValidationResult
+  (name: string): ValidationResult;
 }
