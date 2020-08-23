@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Client } from 'discord.js';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import * as types from './types';
 
 const { execSync } = require("child_process");
