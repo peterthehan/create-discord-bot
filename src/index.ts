@@ -6,7 +6,7 @@ import fs from "fs-extra";
 import path from "path";
 import prompts from "prompts";
 
-import interfaces from './interfaces'
+import interfaces from "./interfaces";
 import types from "./types";
 
 const validatePackageName: interfaces.ValidationFunction = require("validate-npm-package-name");
@@ -50,7 +50,7 @@ const questions: prompts.PromptObject<string>[] = [
   },
 ];
 prompts(questions)
-  .then(async (answers: {name: string; token: string; }) => {
+  .then(async (answers: { name: string; token: string }) => {
     console.log();
     const { name, token } = answers;
 

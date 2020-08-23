@@ -1,5 +1,5 @@
-import types from './types';
+import types from "./types";
 
 export declare interface ValidationFunction {
-    (name: string): types.ValidationResult;
+  (name: string): types.ValidationResult;
 }
