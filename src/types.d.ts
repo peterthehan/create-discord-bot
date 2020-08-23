@@ -21,6 +21,3 @@ export declare type Package = {
   devDependencies?: any;
   private?: boolean;
 };
-export declare interface ValidationFunction {
-  (name: string): ValidationResult;
-}
