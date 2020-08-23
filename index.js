@@ -4,8 +4,8 @@ const { execSync } = require("child_process");
 const path = require("path");
 const Discord = require("discord.js");
 const fs = require("fs-extra");
-const qoa = require("qoa");
-const validate = require("validate-npm-package-name");
+const prompts = require("prompts");
+const validatePackageName = require("validate-npm-package-name");
 
 const appDirectory = path.join(__dirname, "app");
 const appPackage = require(path.join(appDirectory, "package.json"));
@@ -23,27 +23,30 @@ ${utilityNameAndVersion}`);
 
 const questions = [
   {
-    type: "input",
-    query: `Application name: (${appPackage.name})`,
-    handle: "name",
+    type: "text",
+    name: "name",
+    initial: appPackage.name,
+    validate: (name) => {
+      const { validForNewPackages, errors, warnings } = validatePackageName(
+        name
+      );
+      return (
+        validForNewPackages || `Error: ${(errors || warnings).join(", ")}.`
+      );
+    },
+    message: "Application name?",
   },
   {
-    type: "secure",
-    query: `Discord bot token: (${appToken.token})`,
-    handle: "token",
+    type: "password",
+    name: "token",
+    initial: appToken.token,
+    message: "Discord bot token?",
   },
 ];
-qoa
-  .prompt(questions)
+prompts(questions)
   .then(async (answers) => {
     console.log();
-    const name = answers.name || appPackage.name;
-    const token = answers.token || appToken.token;
-
-    const validationResult = validate(name);
-    if (!validationResult.validForNewPackages && validationResult.errors) {
-      throw `Error: ${validationResult.errors.join(", ")}.\nQuitting...`;
-    }
+    const { name, token } = answers;
 
     const directory = path.resolve(name);
 
@@ -106,13 +109,11 @@ qoa
 
     let steps;
     if (isUpdate) {
-      const updateAnswer = await qoa.prompt([
+      const updateAnswer = await prompts([
         {
           type: "confirm",
-          query: `Directory '${directory}' already exists. Do you want to update it?`,
-          handle: "update",
-          accept: "y",
-          deny: "n",
+          name: "update",
+          message: `Directory '${directory}' already exists. Do you want to update it?`,
         },
       ]);
       console.log();
