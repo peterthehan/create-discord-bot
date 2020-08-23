@@ -6,8 +6,8 @@ import fs from "fs-extra";
 import path from "path";
 import prompts from "prompts";
 
-import interfaces from "./interfaces";
-import types from "./types";
+import interfaces from "./declarations/interfaces";
+import types from "./declarations/types";
 
 const validatePackageName: interfaces.ValidationFunction = require("validate-npm-package-name");
 
