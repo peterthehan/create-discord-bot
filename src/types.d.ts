@@ -12,6 +12,7 @@ export declare type Package = {
   name: string;
   version: string;
   license: string;
+  bin?: (string | object);
   description?: string;
   keywords?: string[];
   main?: string;
