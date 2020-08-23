@@ -34,7 +34,7 @@ create-discord-bot/
 
 The project is largely grouped into 3 parts:
 
-1. The **utility script** - this is what is being run with the `npx` command.
+1. The **utility script** - this is the script that is being run with the `npx` command.
 
    - `create-discord-bot/index.js`
 
@@ -43,6 +43,6 @@ The project is largely grouped into 3 parts:
    - `create-discord-bot/app/src/core/`
    - `create-discord-bot/app/src/index.js`
 
-3. The **command widget** - this is widget provided to bootstrap command-making.
+3. The **command widget** - this is the widget used to bootstrap command-making.
 
    - `create-discord-bot/app/src/widgets/command`
