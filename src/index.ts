@@ -2,13 +2,13 @@
 
 import { Client } from "discord.js";
 import fs from "fs-extra";
+import path from "path";
 import prompts from "prompts";
 
 import interfaces from './interfaces'
 import types from "./types";
 
 const { execSync } = require("child_process");
-const path = require("path");
 const validatePackageName: interfaces.ValidationFunction = require("validate-npm-package-name");
 
 const appDirectory: string = "app";
