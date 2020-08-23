@@ -5,8 +5,8 @@ export declare type Step = {
 export declare type ValidationResult = {
   validForOldPackages: boolean;
   validForNewPackages: boolean;
-  errors?: any[];
-  warnings?: any[];
+  errors?: string[];
+  warnings?: string[];
 };
 export declare type Package = {
   name: string;
