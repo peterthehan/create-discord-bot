@@ -2,11 +2,11 @@
 
 import { Client } from 'discord.js';
 import fs from 'fs-extra';
+import prompts from 'prompts';
 import * as types from './types';
 
 const { execSync } = require("child_process");
 const path = require("path");
-const prompts = require("prompts");
 const validatePackageName: types.ValidationFunction = require("validate-npm-package-name");
 
 const appDirectory: string = "app";
@@ -23,7 +23,7 @@ Press ^C at any time to quit.
 
 ${utilityNameAndVersion}`);
 
-const questions: object[] = [
+const questions: prompts.PromptObject<string>[] = [
   {
     type: "text",
     name: "name",
