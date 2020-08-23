@@ -7,7 +7,7 @@ import * as types from './types';
 const { execSync } = require("child_process");
 const path = require("path");
 const prompts = require("prompts");
-const validatePackageName = require("validate-npm-package-name");
+const validatePackageName: types.ValidationFunction = require("validate-npm-package-name");
 
 const appDirectory: string = "app";
 const appPackage: types.Package = require(path.resolve(path.join(appDirectory, "package.json")));

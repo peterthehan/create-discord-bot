@@ -6,6 +6,7 @@ export declare type ValidationResult = {
   validForOldPackages: boolean;
   validForNewPackages: boolean;
   errors?: any[];
+  warnings?: any[];
 };
 export declare type Package = {
   name: string;
@@ -20,3 +21,6 @@ export declare type Package = {
   devDependencies?: any;
   private?: boolean;
 };
+export declare interface ValidationFunction {
+  (name: string): ValidationResult
+}
