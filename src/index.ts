@@ -50,7 +50,7 @@ const questions: prompts.PromptObject<string>[] = [
   },
 ];
 prompts(questions)
-  .then(async (answers) => {
+  .then(async (answers: {name: string; token: string; }) => {
     console.log();
     const { name, token } = answers;
 
