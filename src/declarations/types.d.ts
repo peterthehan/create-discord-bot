@@ -1,6 +1,8 @@
+import interfaces from './interfaces';
+
 export declare type Step = {
   message: string;
-  action: Function;
+  action: interfaces.StepAction;
 };
 export declare type ValidationResult = {
   validForOldPackages: boolean;
