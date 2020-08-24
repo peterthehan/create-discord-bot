@@ -15,7 +15,7 @@ const appDirectory: string = path.join(__dirname, "../app");
 const appPackage: types.Package = require(path.resolve(
   path.join(appDirectory, "package.json")
 ));
-const appToken: { token: string } = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
+const appToken: string = "DISCORD_BOT_TOKEN_PLACEHOLDER";
 
 const utilityPackage: types.Package = require(path.join("../", "package.json"));
 const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
@@ -45,7 +45,7 @@ const questions: prompts.PromptObject<string>[] = [
   {
     type: "password",
     name: "token",
-    initial: appToken.token,
+    initial: appToken,
     message: "Discord bot token?",
   },
 ];
@@ -95,7 +95,7 @@ prompts(questions)
       {
         message: "Writing token.json...",
         action: () => {
-          const newToken = { ...appToken, token };
+          const newToken = { token };
           fs.writeFileSync(
             path.join(directory, "token.json"),
             `${JSON.stringify(newToken, null, 2)}\n`
