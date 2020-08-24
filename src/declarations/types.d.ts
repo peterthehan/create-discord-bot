@@ -1,4 +1,4 @@
-import interfaces from './interfaces';
+import interfaces from "./interfaces";
 
 export declare type Step = {
   message: string;
