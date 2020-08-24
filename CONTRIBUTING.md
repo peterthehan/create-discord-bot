@@ -2,6 +2,14 @@
 
 Welcome! Please take a moment to review this document in order to make the contribution process straightforward and effective for everyone involved.
 
+## Table of contents
+
+- [Quick overview](#quick-overview)
+- [Communication](#communication)
+- [Project overview](#project-overview)
+  - [Folder structure](#folder-structure)
+  - [Project descriptions](#project-descriptions)
+
 ## Quick overview
 
 1. Go to [Projects](https://github.com/peterthehan/create-discord-bot/projects/1) and check the issues under the `To do` column.
@@ -18,7 +26,9 @@ Welcome! Please take a moment to review this document in order to make the contr
 - Communication should adhere to this project's [Code of Conduct](./CODE_OF_CONDUCT.md).
 - This project's Discord server is: https://discord.gg/WjEFnzC
 
-## Folder structure
+## Project overview
+
+### Folder structure
 
 ```
 create-discord-bot/
@@ -33,9 +43,9 @@ create-discord-bot/
 
 > Some files and directories are omitted for brevity.
 
-## Project overview
+### Project descriptions
 
-The project is largely grouped into 3 parts:
+The project is grouped into 3 components:
 
 1. The **utility script** - this is the script that is being run with the `npx` command.
 
@@ -50,7 +60,7 @@ The project is largely grouped into 3 parts:
 
    - `create-discord-bot/app/src/widgets/command`
 
-A diagram of how the **core bot** loads and handles widgets.
+A diagram of how the **core bot** loads and handles widgets:
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/peterthehan/assets/master/repositories/create-discord-bot/widget-diagram.png" title="Widget diagram" alt="Widget diagram" />
