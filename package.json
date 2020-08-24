@@ -31,13 +31,13 @@
   "bin": "ts-node src/index.ts",
   "scripts": {
     "bot": "node app/src/index.js",
+    "build": "npx tsc",
     "check": "npx eslint . && prettier --no-config --check .",
     "dry": "ts-node src/index.ts --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
     "lint": "npx eslint .",
     "start": "ts-node src/index.ts",
     "utility": "ts-node src/index.ts",
-    "build": "npx tsc"
   },
   "dependencies": {
     "discord.js": "^12.3.1",
