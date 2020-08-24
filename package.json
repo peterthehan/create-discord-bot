@@ -30,12 +30,13 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "bot": "node ./app/src/index.js",
+    "bot": "node app/src/index.js",
     "check": "prettier --no-config --check .",
-    "dry": "node ./index.js --dry-run",
-    "format": "prettier --no-config --write .",
-    "start": "node ./index.js",
-    "utility": "node ./index.js"
+    "dry": "node index.js --dry-run",
+    "format": "npx eslint --fix . && prettier --no-config --write .",
+    "lint": "npx eslint .",
+    "start": "node index.js",
+    "utility": "node index.js"
   },
   "dependencies": {
     "discord.js": "^12.3.1",
@@ -44,6 +45,7 @@
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
+    "eslint": "^7.7.0",
     "prettier": "^2.0.5"
   }
 }
