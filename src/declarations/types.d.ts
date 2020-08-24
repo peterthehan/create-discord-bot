@@ -14,13 +14,13 @@ export declare type Package = {
   name: string;
   version: string;
   license: string;
-  bin?: string | object;
+  bin?: string | Record<string, string>;
   description?: string;
   keywords?: string[];
   main?: string;
   repository?: { type: string; url: string };
-  scripts?: any;
-  dependencies?: any;
-  devDependencies?: any;
+  scripts?: Record<string, string>;
+  dependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
   private?: boolean;
 };
