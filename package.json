@@ -30,7 +30,7 @@
   "main": "src/index.ts",
   "bin": "ts-node src/index.ts",
   "scripts": {
-    "bot": "node ./app/src/index.js",
+    "bot": "node app/src/index.js",
     "check": "prettier --no-config --check .",
     "dry": "ts-node ./src/index.ts --dry-run",
     "format": "prettier --no-config --write .",
@@ -50,6 +50,7 @@
     "@types/fs-extra": "^9.0.1",
     "@types/node": "^14.6.0",
     "@types/prompts": "^2.0.8",
+    "eslint": "^7.7.0",
     "prettier": "^2.0.5"
   }
 }
