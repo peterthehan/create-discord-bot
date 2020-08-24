@@ -50,7 +50,7 @@ npm start
 
 Verify the bot is working by using the `.ping` command.
 
-🎉 You're ready to create your own Discord bot! 🎉
+You're ready to create your own Discord bot! 🎉
 
 ## Documentation
 

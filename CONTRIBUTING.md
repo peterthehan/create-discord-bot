@@ -27,7 +27,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 > Run `npm run format` and ensure all checks are passing before requesting a review!
 
-4. Address any review comments and when everything checks out your feature will be merged, congrats and thanks!
+4. Address any review comments and when everything checks out your feature will be merged, congrats and thanks! 🎉
 
 ### Scripts
 
