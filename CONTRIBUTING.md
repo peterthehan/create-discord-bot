@@ -14,7 +14,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 ## Communication
 
-- Communication should occur under issues and pull requests where possible. This ensures there is a clear paper trail of referable discussion and ideas for old and new contributors alike.
+- Communication should occur under [issues](https://github.com/peterthehan/create-discord-bot/issues) and [pull requests](https://github.com/peterthehan/create-discord-bot/pulls) where possible. This ensures there is a clear paper trail of referable discussion and ideas for old and new contributors alike.
 - Communication should adhere to this project's [Code of Conduct](./CODE_OF_CONDUCT.md).
 - This project's Discord server is: https://discord.gg/WjEFnzC
 
