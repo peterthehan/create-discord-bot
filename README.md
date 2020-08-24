@@ -44,7 +44,7 @@ Create Discord bots using a simple widget-based framework.
 
 ```
 npx peterthehan/create-discord-bot
-cd my-discord-bot
+cd my-discord-bot/
 npm start
 ```
 
@@ -59,7 +59,7 @@ You're ready to create your own Discord bot! 🎉
 Update your core bot files to the latest version in this project by running `npx peterthehan/create-discord-bot` and entering the same name as your existing Discord bot when asked for the application name. This will update:
 
 - [src/index.js](./app/src/index.js)
-- [src/core](./app/src/core)
+- [src/core/](./app/src/core)
 
 ### Command widget
 
@@ -67,7 +67,7 @@ Update your core bot files to the latest version in this project by running `npx
 
 ### Widget conventions
 
-- All widgets **must** live under the [src/widgets](./app/src/widgets) folder.
+- All widgets **must** live under the [src/widgets/](./app/src/widgets) folder.
 - All widgets **must** have a `handlers` folder.
 - A `handlers` folder can **only** contain event handler files.
 - All event handler files **must** be named exactly the same as the events found on the [Client](https://discord.js.org/#/docs/main/master/class/Client) page.
@@ -95,7 +95,7 @@ src/
 
 ## Widgets
 
-The following widgets can be used by this framework by adding them into the [src/widgets](./app/src/widgets) folder:
+The following widgets can be used by this framework by adding them into the [src/widgets/](./app/src/widgets) folder:
 
 - [https://github.com/peterthehan/discord-active-role-bot](https://github.com/peterthehan/discord-active-role-bot)
 - [https://github.com/peterthehan/discord-audit-log-bot](https://github.com/peterthehan/discord-audit-log-bot)
