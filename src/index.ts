@@ -15,10 +15,13 @@ const appDirectory: string = path.join(__dirname, "../app");
 const appPackage: types.Package = require(path.resolve(
   path.join(appDirectory, "package.json")
 ));
-const appToken: string = "DISCORD_BOT_TOKEN_PLACEHOLDER";
+const appToken = "DISCORD_BOT_TOKEN_PLACEHOLDER";
 
-const utilityPackage: types.Package = require(path.join(__dirname, "../package.json"));
-const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
+const utilityPackage: types.Package = require(path.join(
+  __dirname,
+  "../package.json"
+));
+const utilityNameAndVersion = `${utilityPackage.name} v${utilityPackage.version}`;
 
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
 
