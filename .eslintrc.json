@@ -1,22 +1,24 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
   "env": {
-    "commonjs": true,
-    "es2020": true,
-    "node": true
+      "commonjs": true,
+      "es2020": true,
+      "node": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018
+      "ecmaVersion": 2018
   },
+  "plugins": [
+      "@typescript-eslint"
+  ],
   "rules": {
-    "no-console": "off",
-    "curly": "warn",
-    "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/no-inferrable-types": 1
+      "@typescript-eslint/no-inferrable-types": 1,
+      "@typescript-eslint/no-var-requires": 0,
+      "curly": "warn",
+      "no-console": "off"
   }
 }
