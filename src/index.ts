@@ -17,7 +17,7 @@ const appPackage: types.Package = require(path.resolve(
 ));
 const appToken: string = "DISCORD_BOT_TOKEN_PLACEHOLDER";
 
-const utilityPackage: types.Package = require(path.join("../", "package.json"));
+const utilityPackage: types.Package = require(path.join(__dirname, "../package.json"));
 const utilityNameAndVersion: string = `${utilityPackage.name} v${utilityPackage.version}`;
 
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
@@ -55,6 +55,8 @@ prompts(questions)
     const { name, token } = answers;
 
     const directory: string = path.resolve(name);
+
+    let steps: types.Step[];
 
     const updateSteps: types.Step[] = [
       {
@@ -111,7 +113,6 @@ prompts(questions)
       },
     ];
 
-    let steps: types.Step[];
     const isUpdate = fs.existsSync(directory);
 
     if (isUpdate) {
