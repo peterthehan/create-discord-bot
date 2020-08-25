@@ -15,11 +15,6 @@
     "@typescript-eslint/no-var-requires": "off",
     "curly": "warn",
     "no-console": "off",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": true
-      }
-    ]
+    "sort-imports": "error"
   }
 }
