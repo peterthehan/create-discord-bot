@@ -16,8 +16,8 @@
       "@typescript-eslint"
   ],
   "rules": {
-      "@typescript-eslint/no-inferrable-types": 1,
-      "@typescript-eslint/no-var-requires": 0,
+      "@typescript-eslint/no-inferrable-types": "warn",
+      "@typescript-eslint/no-var-requires": "off",
       "curly": "warn",
       "no-console": "off"
   }
