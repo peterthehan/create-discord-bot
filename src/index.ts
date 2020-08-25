@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
+// eslint-disable-next-line sort-imports
 import { Client } from "discord.js";
 import fs from "fs-extra";
 import path from "path";
 import prompts from "prompts";
 
+// eslint-disable-next-line sort-imports
 import interfaces from "./declarations/interfaces";
 import types from "./declarations/types";
 
@@ -58,8 +60,6 @@ prompts(questions)
     const { name, token } = answers;
 
     const directory: string = path.resolve(name);
-
-    let steps: types.Step[];
 
     const updateSteps: types.Step[] = [
       {
@@ -118,6 +118,7 @@ prompts(questions)
 
     const isUpdate = fs.existsSync(directory);
 
+    let steps: types.Step[];
     if (isUpdate) {
       const updateAnswer = await prompts([
         {
