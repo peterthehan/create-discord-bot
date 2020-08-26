@@ -1,17 +1,28 @@
 #!/usr/bin/env node
 
-const { execSync } = require("child_process");
-const path = require("path");
-const Discord = require("discord.js");
-const fs = require("fs-extra");
-const prompts = require("prompts");
-const validatePackageName = require("validate-npm-package-name");
+import { execSync } from "child_process";
+// eslint-disable-next-line sort-imports
+import { Client } from "discord.js";
+import fs from "fs-extra";
+import path from "path";
+import prompts from "prompts";
 
-const appDirectory = path.join(__dirname, "app");
-const appPackage = require(path.join(appDirectory, "package.json"));
-const appToken = { token: "DISCORD_BOT_TOKEN_PLACEHOLDER" };
+// eslint-disable-next-line sort-imports
+import interfaces from "./declarations/interfaces";
+import types from "./declarations/types";
 
-const utilityPackage = require(path.join(__dirname, "package.json"));
+const validatePackageName: interfaces.ValidationFunction = require("validate-npm-package-name");
+
+const appDirectory: string = path.join(__dirname, "../app");
+const appPackage: types.Package = require(path.resolve(
+  path.join(appDirectory, "package.json")
+));
+const appToken = "DISCORD_BOT_TOKEN_PLACEHOLDER";
+
+const utilityPackage: types.Package = require(path.join(
+  __dirname,
+  "../package.json"
+));
 const utilityNameAndVersion = `${utilityPackage.name} v${utilityPackage.version}`;
 
 console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
@@ -21,7 +32,7 @@ Press ^C at any time to quit.
 
 ${utilityNameAndVersion}`);
 
-const questions = [
+const questions: prompts.PromptObject<string>[] = [
   {
     type: "text",
     name: "name",
@@ -39,18 +50,18 @@ const questions = [
   {
     type: "password",
     name: "token",
-    initial: appToken.token,
+    initial: appToken,
     message: "Discord bot token?",
   },
 ];
 prompts(questions)
-  .then(async (answers) => {
+  .then(async (answers: { name: string; token: string }) => {
     console.log();
     const { name, token } = answers;
 
-    const directory = path.resolve(name);
+    const directory: string = path.resolve(name);
 
-    const updateSteps = [
+    const updateSteps: types.Step[] = [
       {
         message: `Updating core files in '${name}'...`,
         action: () => {
@@ -62,7 +73,7 @@ prompts(questions)
         },
       },
     ];
-    const cleanInstallSteps = [
+    const cleanInstallSteps: types.Step[] = [
       {
         message: `Creating directory '${name}'...`,
         action: () => fs.mkdirSync(directory),
@@ -89,7 +100,7 @@ prompts(questions)
       {
         message: "Writing token.json...",
         action: () => {
-          const newToken = { ...appToken, token };
+          const newToken = { token };
           fs.writeFileSync(
             path.join(directory, "token.json"),
             `${JSON.stringify(newToken, null, 2)}\n`
@@ -107,7 +118,7 @@ prompts(questions)
 
     const isUpdate = fs.existsSync(directory);
 
-    let steps;
+    let steps: types.Step[];
     if (isUpdate) {
       const updateAnswer = await prompts([
         {
@@ -128,7 +139,7 @@ prompts(questions)
     }
 
     const [, , ...args] = process.argv;
-    const isDryRun = args[0] === "--dry-run";
+    const isDryRun: boolean = args[0] === "--dry-run";
 
     steps.forEach(({ message, action }) => {
       console.log(message);
@@ -140,7 +151,7 @@ prompts(questions)
     if (!isUpdate) {
       console.log();
       console.log("Generating bot invite link...");
-      const client = new Discord.Client();
+      const client: Client = new Client();
       await client
         .login(token)
         .then(() =>
