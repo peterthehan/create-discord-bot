@@ -4,12 +4,14 @@ export declare type Step = {
   message: string;
   action: interfaces.StepAction;
 };
+
 export declare type ValidationResult = {
   validForOldPackages: boolean;
   validForNewPackages: boolean;
   errors?: string[];
   warnings?: string[];
 };
+
 export declare type Package = {
   name: string;
   version: string;
