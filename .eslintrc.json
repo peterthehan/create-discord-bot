@@ -4,17 +4,12 @@
     "es2020": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "parser": "@typescript-eslint/parser",
+  "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": 2018
   },
-  "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-inferrable-types": "warn",
-    "@typescript-eslint/no-var-requires": "off",
-    "curly": "warn",
     "no-console": "off",
-    "sort-imports": "error"
+    "curly": "warn"
   }
 }
