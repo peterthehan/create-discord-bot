@@ -1,3 +1,4 @@
 app/node_modules/
 app/token.json
+dist/
 node_modules/
