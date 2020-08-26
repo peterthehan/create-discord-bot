@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "target": "ESNext",
-    "moduleResolution": "node",
+    "esModuleInterop": true,
     "module": "CommonJS",
-    "esModuleInterop": true
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "target": "ESNext"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": ["src/**/*"]
 }
