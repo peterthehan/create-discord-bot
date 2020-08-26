@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node-script
 
 import { execSync } from "child_process";
 // eslint-disable-next-line sort-imports

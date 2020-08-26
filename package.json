@@ -27,17 +27,17 @@
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
-  "main": "src/index.ts",
-  "bin": "ts-node src/index.ts",
+  "main": "src/cli-bootstrap.js",
+  "bin": "src/cli-bootstrap.js",
   "scripts": {
     "bot": "node app/src/index.js",
     "build": "npx tsc",
     "check": "prettier --no-config --check .",
-    "dry": "ts-node src/index.ts --dry-run",
+    "dry": "node src/cli-bootstrap.js --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
     "lint": "npx eslint .",
-    "start": "ts-node src/index.ts",
-    "utility": "ts-node src/index.ts"
+    "start": "node src/cli-bootstrap.js",
+    "utility": "node src/cli-bootstrap.js"
   },
   "dependencies": {
     "discord.js": "^12.3.1",
