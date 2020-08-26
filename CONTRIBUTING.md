@@ -54,16 +54,16 @@ index.js
 
 The project is grouped into 3 components:
 
-1. The **utility script** - this is the script that is being run with the `npx` command.
+1. The **utility script** - the script that is being run with the `npx peterthehan/create-discord-bot` command.
 
-   - `index.js`
+   - `src/index.ts`
 
-2. The **core bot** - this is the framework that drives everything under `widgets`.
+2. The **core bot** - the framework that drives everything under `widgets/`.
 
    - `app/src/core/`
    - `app/src/index.js`
 
-3. The **command widget** - this is the widget used to bootstrap command-making.
+3. The **command widget** - the widget used to bootstrap command-making.
 
    - `app/src/widgets/command/`
 
