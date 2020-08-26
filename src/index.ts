@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node-script
+#!/usr/bin/env ts-node
 
 import { Client } from "discord.js";
 import { execSync } from "child_process";
