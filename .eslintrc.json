@@ -15,6 +15,6 @@
     "@typescript-eslint/no-var-requires": "off",
     "curly": "warn",
     "no-console": "off",
-    "sort-imports": "warn"
+    "sort-imports": "error"
   }
 }
