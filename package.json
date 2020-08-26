@@ -37,7 +37,7 @@
     "format": "npx eslint --fix . && prettier --no-config --write .",
     "lint": "npx eslint .",
     "start": "ts-node src/index.ts",
-    "utility": "ts-node src/index.ts"
+    "utility": "node src/.ts"
   },
   "dependencies": {
     "discord.js": "^12.3.1",
