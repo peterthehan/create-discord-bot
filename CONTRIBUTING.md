@@ -32,6 +32,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 ### Scripts
 
 - `npm run bot` - runs the **core bot**.
+- `npm run build` - compiles the **utility script** using `tsconfig.json`.
 - `npm run dry` - runs the **utility script** but only prints the command line messages without actually creating a bot template.
 - `npm run format` - first fixes ESLint issues and then runs Prettier across the entire project.
 - `npm start` / `npm run utility` - runs the **utility script** and creates a bot template.
