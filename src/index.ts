@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node-script
 
 import { Client } from "discord.js";
 import { execSync } from "child_process";
@@ -10,10 +10,10 @@ import types from "./declarations/types";
 const validatePackageName: interfaces.ValidationFunction = require("validate-npm-package-name");
 
 const appDirectory: string = path.join(__dirname, "../app");
-const appPackage: types.Package = require(path.resolve(
-  path.join(appDirectory, "package.json")
+const appPackage: types.Package = require(path.join(
+  appDirectory,
+  "package.json"
 ));
-const appToken = "DISCORD_BOT_TOKEN_PLACEHOLDER";
 
 const utilityPackage: types.Package = require(path.join(
   __dirname,
@@ -46,7 +46,7 @@ const questions: prompts.PromptObject<string>[] = [
   {
     type: "password",
     name: "token",
-    initial: appToken,
+    initial: "DISCORD_BOT_TOKEN_PLACEHOLDER",
     message: "Discord bot token?",
   },
 ];
