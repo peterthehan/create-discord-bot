@@ -9,7 +9,7 @@ const child_process_1 = require("child_process");
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const path_1 = __importDefault(require("path"));
 const prompts_1 = __importDefault(require("prompts"));
-const validatePackageName = require("validate-npm-package-name");
+const validate_npm_package_name_1 = __importDefault(require("validate-npm-package-name"));
 const appDirectory = path_1.default.join(__dirname, "../app");
 const appPackage = require(path_1.default.join(appDirectory, "package.json"));
 const utilityPackage = require(path_1.default.join(__dirname, "../package.json"));
@@ -26,7 +26,7 @@ const questions = [
         name: "name",
         initial: appPackage.name,
         validate: (name) => {
-            const { validForNewPackages, errors, warnings } = validatePackageName(name);
+            const { validForNewPackages, errors, warnings } = validate_npm_package_name_1.default(name);
             return (validForNewPackages || `Error: ${(errors || warnings).join(", ")}.`);
         },
         message: "Application name?",

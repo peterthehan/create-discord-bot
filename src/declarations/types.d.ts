@@ -5,13 +5,6 @@ export declare type Step = {
   action: interfaces.StepAction;
 };
 
-export declare type ValidationResult = {
-  validForNewPackages: boolean;
-  validForOldPackages: boolean;
-  errors?: string[];
-  warnings?: string[];
-};
-
 export declare type Package = {
   name: string;
   version: string;
