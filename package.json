@@ -27,23 +27,22 @@
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
-  "main": "src/index.ts",
-  "bin": "src/index.ts",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
   "scripts": {
     "bot": "node app/src/index.js",
     "build": "npx tsc",
     "check": "prettier --no-config --check .",
-    "dry": "ts-node src/index.ts --dry-run",
+    "dry": "node dist/index.js --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
     "lint": "npx eslint .",
-    "start": "ts-node src/index.ts",
-    "utility": "node src/.ts"
+    "start": "node dist/index.js",
+    "utility": "node dist/index.js"
   },
   "dependencies": {
     "discord.js": "^12.3.1",
     "fs-extra": "^9.0.1",
     "prompts": "^2.3.2",
-    "ts-node": "^9.0.0",
     "typescript": "^4.0.2",
     "validate-npm-package-name": "^3.0.0"
   },

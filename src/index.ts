@@ -1,5 +1,3 @@
-#!/usr/bin/env ts-node-script
-
 import { Client } from "discord.js";
 import { execSync } from "child_process";
 import fs from "fs-extra";
