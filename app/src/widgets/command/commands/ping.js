@@ -9,7 +9,6 @@ module.exports = new CommandBuilder()
   .setDeletable(false)
   .setCooldown(10)
   .setDisabled(false)
-  // eslint-disable-next-line no-unused-vars
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   .setExecute(async (message, user, args) => {
     await message.channel.send(`🏓 ${Math.round(message.client.ws.ping)} ms`);
