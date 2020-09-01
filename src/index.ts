@@ -8,7 +8,7 @@ import prompts from "prompts";
 import types from "./declarations/types";
 import validatePackageName from "validate-npm-package-name";
 
-const appDirectory: boolean = path.join(__dirname, "../app");
+const appDirectory: string = path.join(__dirname, "../app");
 const appPackage: types.Package = require(path.join(
   appDirectory,
   "package.json"
