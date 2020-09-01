@@ -32,6 +32,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 ### Scripts
 
 - `npm run bot` - runs the **core bot**.
+- `npm run build` - compiles the **utility script** using `tsconfig.json`.
 - `npm run dry` - runs the **utility script** but only prints the command line messages without actually creating a bot template.
 - `npm run format` - first fixes ESLint issues and then runs Prettier across the entire project.
 - `npm start` / `npm run utility` - runs the **utility script** and creates a bot template.
@@ -45,7 +46,8 @@ app/
     widgets/
       command/
     index.js
-index.js
+src/
+  index.ts
 ```
 
 > Some files and directories are omitted for brevity.
@@ -54,16 +56,16 @@ index.js
 
 The project is grouped into 3 components:
 
-1. The **utility script** - this is the script that is being run with the `npx` command.
+1. The **utility script** - the script that is being run with the `npx peterthehan/create-discord-bot` command.
 
-   - `index.js`
+   - `src/index.ts`
 
-2. The **core bot** - this is the framework that drives everything under `widgets`.
+2. The **core bot** - the framework that drives everything under `widgets/`.
 
    - `app/src/core/`
    - `app/src/index.js`
 
-3. The **command widget** - this is the widget used to bootstrap command-making.
+3. The **command widget** - the widget used to bootstrap command-making.
 
    - `app/src/widgets/command/`
 
