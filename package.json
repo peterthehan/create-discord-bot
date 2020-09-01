@@ -32,6 +32,7 @@
   "scripts": {
     "bot": "node app/src/index.js",
     "build": "npx tsc",
+    "build:dry": "npx tsc --noEmit",
     "check": "prettier --no-config --check .",
     "dry": "node dist/index.js --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
