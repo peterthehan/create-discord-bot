@@ -106,7 +106,7 @@ prompts(questions)
         message: "Installing modules...",
         action: () => {
           process.chdir(directory);
-          execSync("npm i --loglevel=error");
+          execSync("npm ci --loglevel=error");
         },
       },
     ];
