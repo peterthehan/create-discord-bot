@@ -46,7 +46,8 @@ app/
     widgets/
       command/
     index.js
-index.js
+src/
+  index.ts
 ```
 
 > Some files and directories are omitted for brevity.
