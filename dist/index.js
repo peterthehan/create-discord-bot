@@ -84,7 +84,7 @@ prompts_1.default(questions)
             message: "Installing modules...",
             action: () => {
                 process.chdir(directory);
-                child_process_1.execSync("npm i --loglevel=error");
+                child_process_1.execSync("npm ci --loglevel=error");
             },
         },
     ];
