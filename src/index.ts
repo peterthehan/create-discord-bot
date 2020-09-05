@@ -14,13 +14,13 @@ const appPackage: types.Package = require(path.join(
   "package.json"
 ));
 
-const utilityPackage: types.Package = require(path.join(
+const { name, version }: types.Package = require(path.join(
   __dirname,
   "../package.json"
 ));
-const utilityNameAndVersion = `${utilityPackage.name} v${utilityPackage.version}`;
+const utilityNameAndVersion = `${name} v${version}`;
 
-console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
+console.log(`This utility will walk you through creating a ${name} application.
 
 Press ENTER to use the default.
 Press ^C at any time to quit.

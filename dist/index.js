@@ -12,9 +12,9 @@ const prompts_1 = __importDefault(require("prompts"));
 const validate_npm_package_name_1 = __importDefault(require("validate-npm-package-name"));
 const appDirectory = path_1.default.join(__dirname, "../app");
 const appPackage = require(path_1.default.join(appDirectory, "package.json"));
-const utilityPackage = require(path_1.default.join(__dirname, "../package.json"));
-const utilityNameAndVersion = `${utilityPackage.name} v${utilityPackage.version}`;
-console.log(`This utility will walk you through creating a ${utilityPackage.name} application.
+const { name, version } = require(path_1.default.join(__dirname, "../package.json"));
+const utilityNameAndVersion = `${name} v${version}`;
+console.log(`This utility will walk you through creating a ${name} application.
 
 Press ENTER to use the default.
 Press ^C at any time to quit.
