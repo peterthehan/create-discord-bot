@@ -1,0 +1,16 @@
+{
+  "env": {
+    "commonjs": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "curly": "warn",
+    "no-console": "off",
+    "sort-imports": "error"
+  }
+}
