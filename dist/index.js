@@ -4,12 +4,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const discord_js_1 = require("discord.js");
 const child_process_1 = require("child_process");
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const path_1 = __importDefault(require("path"));
 const prompts_1 = __importDefault(require("prompts"));
 const validate_npm_package_name_1 = __importDefault(require("validate-npm-package-name"));
+const getApplicationId = (token) => {
+    try {
+        const response = child_process_1.execSync(`curl -s -X GET -H "Authorization: Bot ${token}" "https://discordapp.com/api/oauth2/applications/@me"`).toString();
+        const parsedResponse = JSON.parse(response);
+        return parsedResponse.id || null;
+    }
+    catch (error) {
+        return null;
+    }
+};
 const appDirectory = path_1.default.join(__dirname, "../app");
 const appPackage = require(path_1.default.join(appDirectory, "package.json"));
 const { name, version } = require(path_1.default.join(__dirname, "../package.json"));
@@ -112,11 +121,13 @@ prompts_1.default(questions)
     if (!isUpdate) {
         console.log();
         console.log("Generating bot invite link...");
-        const client = new discord_js_1.Client();
-        await client
-            .login(token)
-            .then(() => console.log(`Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`))
-            .catch(() => console.warn("Bot invite link was not generated due to the given bot token being invalid."));
+        const applicationId = getApplicationId(token);
+        if (applicationId) {
+            console.log(`Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${applicationId}`);
+        }
+        else {
+            console.warn("Bot invite link was not generated due to the given bot token being invalid.");
+        }
         console.log();
     }
     console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`);
