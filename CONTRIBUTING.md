@@ -33,7 +33,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 #### GitHub Actions
 
-- `npm run action:build` - checks that typescript code compiles.
+- `npm run action:build` - checks that the typescript code compiles.
 - `npm run action:check` - checks that the project complies with Prettier.
 - `npm run action:lint` - checks that the project complies with ESLint.
 
