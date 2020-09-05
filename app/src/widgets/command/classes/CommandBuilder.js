@@ -8,7 +8,7 @@ module.exports = class CommandBuilder {
     this.deletable = false;
     this.cooldown = Infinity;
     this.disabled = true;
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    // eslint-disable-next-line
     this.execute = async () => {};
   }
 
