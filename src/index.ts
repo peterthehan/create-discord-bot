@@ -1,20 +1,17 @@
 #!/usr/bin/env node
 
+import { Answers, Package, Step } from "./declarations/types";
 import { Client } from "discord.js";
 import { execSync } from "child_process";
 import fs from "fs-extra";
 import path from "path";
 import prompts from "prompts";
-import types from "./declarations/types";
 import validateName from "validate-npm-package-name";
 
 const appDirectory: string = path.join(__dirname, "../app");
-const appPackage: types.Package = require(path.join(
-  appDirectory,
-  "package.json"
-));
+const appPackage: Package = require(path.join(appDirectory, "package.json"));
 
-const { name, version }: types.Package = require(path.join(
+const { name, version }: Package = require(path.join(
   __dirname,
   "../package.json"
 ));
@@ -48,11 +45,11 @@ const questions: prompts.PromptObject<string>[] = [
   },
 ];
 prompts(questions)
-  .then(async ({ name, token }: types.Answers) => {
+  .then(async ({ name, token }: Answers) => {
     console.log();
     const directory: string = path.resolve(name);
 
-    const updateSteps: types.Step[] = [
+    const updateSteps: Step[] = [
       {
         message: `Updating core files in '${name}'...`,
         action: () => {
@@ -64,7 +61,7 @@ prompts(questions)
         },
       },
     ];
-    const cleanInstallSteps: types.Step[] = [
+    const cleanInstallSteps: Step[] = [
       {
         message: `Creating directory '${name}'...`,
         action: () => fs.mkdirSync(directory),
@@ -106,7 +103,7 @@ prompts(questions)
         },
       },
     ];
-    let steps: types.Step[];
+    let steps: Step[];
 
     const isUpdate = fs.existsSync(directory);
     if (isUpdate) {
