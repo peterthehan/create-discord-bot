@@ -37,7 +37,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 - `npm run action:check` - checks that the project complies with Prettier.
 - `npm run action:lint` - checks that the project complies with ESLint.
 
-> Not intended to be used while developing.
+> These scripts are not intended to be used while developing.
 
 #### Bot
 
