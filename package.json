@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.8.2",
+  "version": "3.9.0",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
@@ -30,15 +30,15 @@
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "scripts": {
-    "bot": "node app/src/index.js",
+    "action:build": "npx tsc --noEmit",
+    "action:check": "prettier --no-config --check .",
+    "action:lint": "npx eslint .",
+    "bot:dev": "nodemon app/src/index.js",
+    "bot:start": "node app/src/index.js",
     "build": "npx tsc",
-    "build:dry": "npx tsc --noEmit",
-    "check": "prettier --no-config --check .",
     "dry": "node dist/index.js --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
-    "lint": "npx eslint .",
-    "start": "node dist/index.js",
-    "utility": "node dist/index.js"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "discord.js": "^12.3.1",
@@ -54,6 +54,7 @@
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "eslint": "^7.8.1",
+    "nodemon": "^2.0.4",
     "prettier": "^2.1.1",
     "typescript": "^4.0.2"
   }

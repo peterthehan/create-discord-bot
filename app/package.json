@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "dev": "nodemon src/index.js",
+    "format": "npx eslint --fix . && prettier --no-config --write .",
     "start": "node src/index.js"
   },
   "dependencies": {
     "discord.js": "github:discordjs/discord.js#master"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.1"
   }
 }
