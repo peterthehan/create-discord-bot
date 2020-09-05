@@ -70,10 +70,10 @@ prompts(questions)
         message: "Creating boilerplate...",
         action: () => {
           fs.copySync(appDirectory, directory);
-          // fs.writeFileSync(
-          //   path.join(directory, ".gitignore"),
-          //   "node_modules/\ntoken.json\n"
-          // );
+          fs.writeFileSync(
+            path.join(directory, ".gitignore"),
+            "node_modules/\ntoken.json\n"
+          );
         },
       },
       {

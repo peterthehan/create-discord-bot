@@ -60,10 +60,7 @@ prompts_1.default(questions)
             message: "Creating boilerplate...",
             action: () => {
                 fs_extra_1.default.copySync(appDirectory, directory);
-                // fs.writeFileSync(
-                //   path.join(directory, ".gitignore"),
-                //   "node_modules/\ntoken.json\n"
-                // );
+                fs_extra_1.default.writeFileSync(path_1.default.join(directory, ".gitignore"), "node_modules/\ntoken.json\n");
             },
         },
         {
