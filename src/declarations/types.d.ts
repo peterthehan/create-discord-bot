@@ -1,10 +1,5 @@
 import interfaces from "./interfaces";
 
-export declare type Answers = {
-  name: string;
-  token: string;
-};
-
 export declare type Package = {
   name: string;
   version: string;
@@ -16,5 +11,6 @@ export declare type Package = {
 
 export declare type Step = {
   message: string;
+  ignoreDry?: boolean;
   action: interfaces.StepAction;
 };
