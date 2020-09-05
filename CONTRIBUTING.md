@@ -51,7 +51,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 #### Utility
 
-- `npm run build` - compiles the **utility script** using `tsconfig.json`.
+- `npm run build` - compiles typescript code using `tsconfig.json`.
 - `npm run format` - first fixes ESLint issues and then runs Prettier across the entire project.
 
 ### Folder structure
