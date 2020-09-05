@@ -39,9 +39,8 @@ const questions = [
     },
 ];
 prompts_1.default(questions)
-    .then(async (answers) => {
+    .then(async ({ name, token }) => {
     console.log();
-    const { name, token } = answers;
     const directory = path_1.default.resolve(name);
     const updateSteps = [
         {
@@ -88,8 +87,8 @@ prompts_1.default(questions)
             },
         },
     ];
-    const isUpdate = fs_extra_1.default.existsSync(directory);
     let steps;
+    const isUpdate = fs_extra_1.default.existsSync(directory);
     if (isUpdate) {
         const updateAnswer = await prompts_1.default([
             {
