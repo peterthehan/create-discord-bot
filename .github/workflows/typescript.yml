@@ -24,4 +24,4 @@ jobs:
       - name: Run TypeScript compile check
         run: |
           npm ci
-          npm run build:dry
+          npm run action:build

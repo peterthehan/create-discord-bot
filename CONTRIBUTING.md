@@ -31,11 +31,29 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 ### Scripts
 
-- `npm run bot` - runs the **core bot**.
-- `npm run build` - compiles the **utility script** using `tsconfig.json`.
+#### GitHub Actions
+
+- `npm run action:build` - checks that typescript code compiles.
+- `npm run action:check` - checks that the project complies with Prettier.
+- `npm run action:lint` - checks that the project complies with ESLint.
+
+> Not intended to be used while developing.
+
+#### Bot
+
+- `npm run bot:dev` - runs the **core bot** using `nodemon`.
+- `npm run bot:start` - runs the **core bot** using `node`.
+
+#### Script
+
 - `npm run dry` - runs the **utility script** but only prints the command line messages without actually creating a bot template.
+
+- `npm start` - runs the **utility script** and creates a bot template.
+
+#### Utility
+
+- `npm run build` - compiles the **utility script** using `tsconfig.json`.
 - `npm run format` - first fixes ESLint issues and then runs Prettier across the entire project.
-- `npm start` / `npm run utility` - runs the **utility script** and creates a bot template.
 
 ### Folder structure
 
