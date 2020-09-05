@@ -1,12 +1,24 @@
 #!/usr/bin/env node
 
 import { Answers, Package, Step } from "./declarations/types";
-import { Client } from "discord.js";
 import { execSync } from "child_process";
 import fs from "fs-extra";
 import path from "path";
 import prompts from "prompts";
 import validateName from "validate-npm-package-name";
+
+const getApplicationId = (token: string): string | null => {
+  try {
+    const response: string = execSync(
+      `curl -s -X GET -H "Authorization: Bot ${token}" "https://discordapp.com/api/oauth2/applications/@me"`
+    ).toString();
+    const parsedResponse = JSON.parse(response);
+
+    return parsedResponse.id || null;
+  } catch (error) {
+    return null;
+  }
+};
 
 const appDirectory: string = path.join(__dirname, "../app");
 const appPackage: Package = require(path.join(appDirectory, "package.json"));
@@ -137,19 +149,12 @@ prompts(questions)
     if (!isUpdate) {
       console.log();
       console.log("Generating bot invite link...");
-      const client: Client = new Client();
-      await client
-        .login(token)
-        .then(() =>
-          console.log(
-            `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${client.user.id}`
-          )
-        )
-        .catch(() =>
-          console.warn(
-            "Bot invite link was not generated due to the given bot token being invalid."
-          )
-        );
+      const applicationId = getApplicationId(token);
+      console.log(
+        applicationId
+          ? `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${applicationId}`
+          : "Bot invite link was not generated due to the given bot token being invalid."
+      );
       console.log();
     }
 
