@@ -122,12 +122,9 @@ prompts_1.default(questions)
         console.log();
         console.log("Generating bot invite link...");
         const applicationId = getApplicationId(token);
-        if (applicationId) {
-            console.log(`Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${applicationId}`);
-        }
-        else {
-            console.warn("Bot invite link was not generated due to the given bot token being invalid.");
-        }
+        console.log(applicationId
+            ? `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${applicationId}`
+            : "Bot invite link was not generated due to the given bot token being invalid.");
         console.log();
     }
     console.log(`Done!\n\nStart by running:\n\t$ cd ${name}/\n\t$ npm start`);
