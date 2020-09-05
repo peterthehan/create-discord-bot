@@ -13,3 +13,8 @@ export declare type Package = {
   dependencies?: Record<string, string>;
   devDependencies?: Record<string, string>;
 };
+
+export declare type Answers = {
+  name: string;
+  token: string;
+};

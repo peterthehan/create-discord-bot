@@ -6,7 +6,7 @@ import fs from "fs-extra";
 import path from "path";
 import prompts from "prompts";
 import types from "./declarations/types";
-import validatePackageName from "validate-npm-package-name";
+import validate from "validate-npm-package-name";
 
 const appDirectory: string = path.join(__dirname, "../app");
 const appPackage: types.Package = require(path.join(
@@ -33,9 +33,7 @@ const questions: prompts.PromptObject<string>[] = [
     name: "name",
     initial: appPackage.name,
     validate: (name) => {
-      const { validForNewPackages, errors, warnings } = validatePackageName(
-        name
-      );
+      const { validForNewPackages, errors, warnings } = validate(name);
       return (
         validForNewPackages || `Error: ${(errors || warnings).join(", ")}.`
       );
@@ -50,10 +48,8 @@ const questions: prompts.PromptObject<string>[] = [
   },
 ];
 prompts(questions)
-  .then(async (answers: { name: string; token: string }) => {
+  .then(async ({ name, token }: types.Answers) => {
     console.log();
-    const { name, token } = answers;
-
     const directory: string = path.resolve(name);
 
     const updateSteps: types.Step[] = [
