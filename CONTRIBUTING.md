@@ -47,7 +47,6 @@ Welcome! Please take a moment to review this document in order to make the contr
 #### Script
 
 - `npm run dry` - runs the **utility script** but only prints the command line messages without actually creating a bot template.
-
 - `npm start` - runs the **utility script** and creates a bot template.
 
 #### Utility
