@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "dev": "nodemon src/index.js",
+    "format": "npx eslint --fix . && prettier --no-config --write .",
     "start": "node src/index.js"
   },
   "dependencies": {
