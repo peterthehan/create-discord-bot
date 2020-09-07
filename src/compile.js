@@ -35,4 +35,4 @@ function compile(fileNames, options) {
 }
 
 compile(["index.ts"], require("../tsconfig.json").compilerOptions);
-require("../dist/index.js");
+require("./dist/index.js");
