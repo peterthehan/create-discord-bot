@@ -27,8 +27,8 @@
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
-  "main": "dist/index.js",
-  "bin": "dist/index.js",
+  "main": "src/compile.js",
+  "bin": "src/compile.js",
   "scripts": {
     "action:build": "npx tsc --noEmit",
     "action:check": "prettier --no-config --check .",
@@ -41,20 +41,20 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "fs-extra": "^9.0.1",
-    "prompts": "^2.3.2",
-    "validate-npm-package-name": "^3.0.0"
-  },
-  "devDependencies": {
     "@types/fs-extra": "^9.0.1",
     "@types/node": "^14.6.4",
     "@types/prompts": "^2.0.8",
     "@types/validate-npm-package-name": "^3.0.0",
+    "fs-extra": "^9.0.1",
+    "prompts": "^2.3.2",
+    "typescript": "^4.0.2",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "eslint": "^7.8.1",
     "nodemon": "^2.0.4",
-    "prettier": "^2.1.1",
-    "typescript": "^4.0.2"
+    "prettier": "^2.1.1"
   }
 }
