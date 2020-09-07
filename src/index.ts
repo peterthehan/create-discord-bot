@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node-script
 
 import { Package, Step } from "./declarations/types";
 import { execSync } from "child_process";

@@ -27,8 +27,8 @@
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
-  "main": "dist/index.js",
-  "bin": "dist/index.js",
+  "main": "src/index.ts",
+  "bin": "src/index.ts",
   "scripts": {
     "action:build": "npx tsc --noEmit",
     "action:check": "prettier --no-config --check .",
@@ -55,6 +55,7 @@
     "eslint": "^7.8.1",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.1",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   }
 }
