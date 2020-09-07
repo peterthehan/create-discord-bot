@@ -34,5 +34,5 @@ function compile(fileNames, options) {
     process.exit(exitCode);*/
 }
 
-compile(["index.ts"], require("../tsconfig.json").compilerOptions);
-require("./dist/index.js");
+compile(["./index.ts"], require("../tsconfig.json").compilerOptions);
+require("../dist/index.js");
