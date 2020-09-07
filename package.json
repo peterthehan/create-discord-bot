@@ -41,13 +41,13 @@
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@types/node": "^14.6.4",
     "fs-extra": "^9.0.1",
     "prompts": "^2.3.2",
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.1",
+    "@types/node": "^14.6.4",
     "@types/prompts": "^2.0.8",
     "@types/validate-npm-package-name": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
