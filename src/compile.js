@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const ts = require("typescript");
 
 function compile(fileNames, options) {
