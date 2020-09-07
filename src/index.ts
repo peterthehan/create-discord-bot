@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Package, Step } from "./declarations/types";
 import { execSync } from "child_process";
 import fs from "fs-extra";
