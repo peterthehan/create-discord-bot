@@ -36,9 +36,9 @@
     "bot:dev": "nodemon app/src/index.js",
     "bot:start": "node app/src/index.js",
     "build": "npx tsc",
-    "dry": "node dist/index.js --dry-run",
+    "dry": "ts-node src/index.ts --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
-    "start": "node dist/index.js"
+    "start": "ts-node src/index.ts"
   },
   "dependencies": {
     "@types/node": "^14.6.4",
