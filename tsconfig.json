@@ -4,7 +4,8 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "outDir": "./dist",
-    "target": "ESNext"
+    "target": "ESNext",
+    "types": ["node"]
   },
   "exclude": ["node_modules", "**/*.spec.ts"],
   "include": ["src/**/*"]
