@@ -98,7 +98,7 @@ prompts([
             fs.copySync(appDir, dir);
             fs.writeFileSync(
               path.join(dir, ".gitignore"),
-              "node_modules/\ntoken.json\n"
+              "node_modules/\ntoken.json\ndist/"
             );
           },
         },
