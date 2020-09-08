@@ -1,10 +1,10 @@
 import { Client } from 'discord.js';
 
+import loadWidgetListeners from './core/loadWidgetListeners';
 import token from './config';
 
 const client = new Client();
-
-require("./core/loadWidgetListeners")(client);
+loadWidgetListeners(client);
 
 client.login(token).catch((error) => {
   console.error(error);
