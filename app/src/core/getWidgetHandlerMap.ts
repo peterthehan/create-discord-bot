@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+import fs from 'fs';
+import path from 'path';
 
 const getFilenames = (filePath) =>
   fs
@@ -20,7 +20,7 @@ const groupByHandlerName = (handlerMap, { handlerName, handler }) => {
   return handlerMap;
 };
 
-module.exports = () =>
+export default () =>
   getFilenames("../widgets")
     .map(getHandlerFilePath)
     .flatMap(getHandlers)

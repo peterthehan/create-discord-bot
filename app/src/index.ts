@@ -1,5 +1,6 @@
-const { Client } = require("discord.js");
-const { token } = require("./config");
+import { Client } from 'discord.js';
+
+import token from './config';
 
 const client = new Client();
 
