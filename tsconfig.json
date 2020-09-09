@@ -6,6 +6,6 @@
     "outDir": "./dist",
     "target": "ESNext"
   },
-  "exclude": ["node_modules", "**/*.spec.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts", "app/**/*"],
   "include": ["src/**/*"]
 }

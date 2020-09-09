@@ -1,14 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 
-const getFilenames = (filePath) =>
+const getFilenames = (filePath: string): string[] =>
   fs
     .readdirSync(path.resolve(__dirname, filePath))
     .map((filename) => filename.replace(/\.[^/.]+$/, ""));
 
-const getHandlerFilePath = (widgetName) => `../widgets/${widgetName}/handlers`;
+const getHandlerFilePath = (widgetName: string): string => `../widgets/${widgetName}/handlers`;
 
-const getHandlers = (handlerFilePath) =>
+const getHandlers = (handlerFilePath: string) =>
   getFilenames(handlerFilePath).map((handlerName) => ({
     handlerName,
     handler: require(`${handlerFilePath}/${handlerName}`),
