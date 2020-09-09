@@ -41,6 +41,7 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "fs-extra": "^9.0.1",
     "prompts": "^2.3.2",
     "validate-npm-package-name": "^3.0.0"
