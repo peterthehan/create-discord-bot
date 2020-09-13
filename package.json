@@ -72,7 +72,7 @@
     "*.ts": [
       "npx eslint --fix",
       "prettier --no-config --write",
-      "npx tsc --p ../tsconfig.json",
+      "npx tsc -p ../tsconfig.json",
       "git add dist/"
     ]
   }
