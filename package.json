@@ -65,6 +65,6 @@
     }
   },
   "lint-staged": {
-    "**/*.ts": ["npx eslint --fix", "prettier --no-config --write", "tsc", "git add dist"]
+    "*.ts": ["npx eslint --fix", "prettier --no-config --write", "tsc", "git add dist"]
   }
 }
