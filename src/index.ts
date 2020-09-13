@@ -40,7 +40,7 @@ prompts([
     type: "text",
     name: "name",
     initial: appPackage.name,
-    validate: (name) => {
+    validate: (name: string) => {
       const { validForNewPackages, errors, warnings } = validateName(name);
       return (
         validForNewPackages || `Error: ${(errors || warnings).join(", ")}.`
