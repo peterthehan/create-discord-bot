@@ -65,6 +65,17 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["npx eslint --fix", "prettier --no-config --write", "npx tsc", "git add dist/"]
+    "*.md": [
+      "prettier --no-config --write"
+    ],
+    "*.json": [
+      "prettier --no-config --write"
+    ],
+    "*.ts": [
+      "npx eslint --fix",
+      "prettier --no-config --write",
+      "npx tsc",
+      "git add dist/"
+    ]
   }
 }
