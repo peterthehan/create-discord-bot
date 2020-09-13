@@ -53,8 +53,27 @@
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "eslint": "^7.8.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.1",
     "typescript": "^4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,md,yml}": [
+      "npx eslint --fix",
+      "prettier --no-config --write"
+    ],
+    "*.ts": [
+      "npx eslint --fix",
+      "prettier --no-config --write",
+      "npx tsc --esModuleInterop -t ESNext -m CommonJS --moduleResolution node --outDir ../dist",
+      "git add dist/"
+    ]
   }
 }
