@@ -72,7 +72,7 @@
     "*.ts": [
       "npx eslint --fix",
       "prettier --no-config --write",
-      "npx tsc --esModuleInterop -m CommonJS --moduleResolution node --outDir ../dist",
+      "npx tsc --esModuleInterop -t ESNext -m CommonJS --moduleResolution node --outDir ../dist",
       "git add dist/"
     ]
   }
