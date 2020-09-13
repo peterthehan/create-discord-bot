@@ -65,7 +65,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,md}": [
+    "*.{js,json,md,yml}": [
       "npx eslint --fix",
       "prettier --no-config --write"
     ],
