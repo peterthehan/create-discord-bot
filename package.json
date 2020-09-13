@@ -63,5 +63,8 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/*.ts": ["npx eslint --fix", "prettier --no-config --write", "tsc", "git add dist"]
   }
 }
