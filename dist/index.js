@@ -23,12 +23,7 @@ const appDir = path_1.default.join(__dirname, "../app");
 const appPackage = require(path_1.default.join(appDir, "package.json"));
 const { name, version } = require(path_1.default.join(__dirname, "../package.json"));
 const utilityNameAndVersion = `${name} v${version}`;
-console.log(`This utility will walk you through creating a ${name} application.
-
-Press ENTER to use the default.
-Press ^C at any time to quit.
-
-${utilityNameAndVersion}`);
+console.log(`This utility will walk you through creating a ${name} application.\n\nPress ENTER to use the default.\nPress ^C at any time to quit.\n\n${utilityNameAndVersion}`);
 prompts_1.default([
     {
         type: "text",
