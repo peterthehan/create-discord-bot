@@ -3,7 +3,7 @@ const Executable = require("../classes/Executable");
 
 module.exports = () => {
   Message.prototype.isFromTextChannel = function () {
-    return this.channel.type === "text";
+    return this.channel.isTextChannel();
   };
 
   Message.prototype.isUserMessage = function () {
