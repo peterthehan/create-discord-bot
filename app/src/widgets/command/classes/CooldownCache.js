@@ -32,18 +32,17 @@ module.exports = class CooldownCache {
     setTimeout(() => delete cooldownCache[key], cooldownInSeconds);
   }
 
-  static isOnCooldown(user, command) {
-    if (user.isOwner()) {
-      return false;
-    }
-
+  static isOnCooldown(message, user, command) {
     const key = getCooldownKey(user, command);
     if (!(key in cooldownCache)) {
       return false;
     }
 
     const cooldownRemaining = getCooldownRemaining(cooldownCache[key]);
-    user.send(`${command.name}: ${cooldownRemaining}s cooldown remaining`);
+    const cooldownMessage = `${user}, ${command.name}: ${cooldownRemaining}s cooldown remaining`;
+    user
+      .send(cooldownMessage)
+      .catch(() => message.channel.send(cooldownMessage));
 
     return true;
   }
