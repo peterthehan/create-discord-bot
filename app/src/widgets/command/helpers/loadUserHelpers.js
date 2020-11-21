@@ -12,8 +12,8 @@ module.exports = () => {
     return !this.bot && !this.system;
   };
 
-  User.prototype.isOnCooldown = function (command) {
-    return CooldownCache.isOnCooldown(this, command);
+  User.prototype.isOnCooldown = function (message, command) {
+    return CooldownCache.isOnCooldown(message, this, command);
   };
 
   User.prototype.startCooldown = function (command) {

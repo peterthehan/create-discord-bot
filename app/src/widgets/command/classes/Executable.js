@@ -26,7 +26,7 @@ module.exports = class Executable {
       (!this.command.guildOnly || this.message.isFromTextChannel()) &&
       (!this.command.requireArgs || this.args.length) &&
       !this.command.disabled &&
-      !this.user.isOnCooldown(this.command)
+      !this.user.isOnCooldown(this.message, this.command)
     );
   }
 
