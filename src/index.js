@@ -1,15 +1,44 @@
 #!/usr/bin/env node
+//@ts-check
 
-import { Package, Step } from "./declarations/types";
-import { execSync } from "child_process";
-import fs from "fs-extra";
-import path from "path";
-import prompts from "prompts";
-import validateName from "validate-npm-package-name";
+const { execSync } = require("child_process");
+const fs = require("fs-extra");
+const path = require("path");
+const prompts = require("prompts");
+const validateName = require("validate-npm-package-name");
 
-const getApplicationId = (token: string): string | null => {
+/**
+ * @typedef {() => void} StepAction
+ */
+
+/**
+ * @typedef {Object} Package
+ * @property {string} name
+ * @property {string} version
+ * @property {string} description
+ * @property {Record<string, string>} scripts
+ * @property {Record<string, string>} dependencies
+ * @property {Record<string, string>} devDependencies
+ */
+
+/**
+ * @typedef {Object & { isDry: boolean; }} Step
+ * @property {string} message
+ * @property {StepAction} action
+ */
+
+/**
+ * @function
+ * @param {string} token
+ * @returns {string | null} applicationId
+ */
+const getApplicationId = (token) => {
   try {
-    const response: string = execSync(
+    /**
+     *
+     * @type {string}
+     */
+    const response = execSync(
       `curl -s -X GET -H "Authorization: Bot ${token}" "https://discordapp.com/api/oauth2/applications/@me"`
     ).toString();
     const parsedResponse = JSON.parse(response);
@@ -19,13 +48,15 @@ const getApplicationId = (token: string): string | null => {
     return null;
   }
 };
-
-const appDir: string = path.join(__dirname, "../app");
-const appPackage: Package = require(path.join(appDir, "package.json"));
-const { name, version }: Package = require(path.join(
-  __dirname,
-  "../package.json"
-));
+/**
+ * @type {string}
+ */
+const appDir = path.join(__dirname, "../app");
+/**
+ * @type {Package}
+ */
+const appPackage = require(path.join(appDir, "package.json"));
+const { name, version } = require(path.join(__dirname, "../package.json"));
 const utilityNameAndVersion = `${name} v${version}`;
 
 console.log(`This utility will walk you through creating a ${name} application.
@@ -40,7 +71,7 @@ prompts([
     type: "text",
     name: "name",
     initial: appPackage.name,
-    validate: (name: string) => {
+    validate: (name) => {
       const { validForNewPackages, errors, warnings } = validateName(name);
       return (
         validForNewPackages || `Error: ${(errors || warnings).join(", ")}.`
@@ -49,13 +80,22 @@ prompts([
     message: "Application name?",
   },
 ])
-  .then(async ({ name }: { name: string }) => {
-    const dir: string = path.resolve(name);
-    const isUpdate: boolean = fs.existsSync(dir);
-    let steps: Step[];
+  .then(async ({ name }) => {
+    /**
+     * @type {string}
+     */
+    const dir = path.resolve(name);
+    /**
+     * @type {boolean}
+     */
+    const isUpdate = fs.existsSync(dir);
+    /**
+     * @type {Step[]}
+     */
+    let steps;
 
     if (isUpdate) {
-      const { update }: { update: boolean } = await prompts([
+      const { update } = await prompts([
         {
           type: "confirm",
           name: "update",
@@ -78,7 +118,7 @@ prompts([
         },
       ];
     } else {
-      const { token }: { token: string } = await prompts([
+      const { token } = await prompts([
         {
           type: "password",
           name: "token",
@@ -144,7 +184,7 @@ prompts([
     }
 
     const [, , ...args] = process.argv;
-    const isDryRun: boolean = args[0] === "--dry-run";
+    const isDryRun = args[0] === "--dry-run";
 
     console.log();
     steps.forEach(({ message, ignoreDry, action }) => {

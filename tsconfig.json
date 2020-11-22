@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "module": "CommonJS",
     "moduleResolution": "node",
-    "outDir": "./dist",
-    "target": "ESNext"
+    "module": "CommonJS",
+    "target": "ESNext",
+    "sourceMap": false,
+    "declaration": false,
+    "allowJs": true
   },
-  "exclude": ["node_modules", "**/*.spec.ts"],
-  "include": ["src/**/*"]
+  "exclude": ["app/**/*"]
 }
