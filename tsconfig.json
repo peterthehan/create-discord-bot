@@ -3,8 +3,6 @@
     "moduleResolution": "node",
     "module": "CommonJS",
     "target": "ESNext",
-    "sourceMap": false,
-    "declaration": false,
     "allowJs": true
   },
   "exclude": ["app/**/*"]
