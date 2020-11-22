@@ -35,7 +35,6 @@
     "action:lint": "npx eslint .",
     "bot:dev": "nodemon app/src/index.js",
     "bot:start": "node app/src/index.js",
-    "build": "npx tsc",
     "dry": "node src/index.js --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
     "start": "node src/index.js"
@@ -68,15 +67,9 @@
     "*.{md}": [
       "prettier --no-config --write"
     ],
-    "*.{js,json,yml}": [
+    "*.{js,json,yml,ts}": [
       "npx eslint --fix",
       "prettier --no-config --write"
-    ],
-    "*.ts": [
-      "npx eslint --fix",
-      "prettier --no-config --write",
-      "npx tsc --esModuleInterop -t ESNext -m CommonJS --moduleResolution node --outDir ../dist",
-      "git add dist/"
     ]
   }
 }

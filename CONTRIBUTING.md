@@ -4,12 +4,18 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 ## Table of contents
 
-- [Communication](#communication)
-- [Project](#project)
-  - [Quick overview](#quick-overview)
-  - [Scripts](#scripts)
-  - [Folder structure](#folder-structure)
-  - [Component descriptions](#component-descriptions)
+- [Contributing](#contributing)
+  - [Table of contents](#table-of-contents)
+  - [Communication](#communication)
+  - [Project](#project)
+    - [Quick overview](#quick-overview)
+    - [Scripts](#scripts)
+      - [GitHub Actions](#github-actions)
+      - [Bot](#bot)
+      - [Script](#script)
+      - [Utility](#utility)
+    - [Folder structure](#folder-structure)
+    - [Component descriptions](#component-descriptions)
 
 ## Communication
 
@@ -51,7 +57,6 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 #### Utility
 
-- `npm run build` - compiles typescript code using `tsconfig.json`.
 - `npm run format` - first fixes ESLint issues and then runs Prettier across the entire project.
 
 ### Folder structure
@@ -64,7 +69,7 @@ app/
       command/
     index.js
 src/
-  index.ts
+  index.js
 ```
 
 > Some files and directories are omitted for brevity.
@@ -75,7 +80,7 @@ The project is grouped into 3 components:
 
 1. The **utility script** - the script that is being run with the `npx peterthehan/create-discord-bot` command.
 
-   - `src/index.ts`
+   - `src/index.js`
 
 2. The **core bot** - the framework that drives everything under `widgets/`.
 
