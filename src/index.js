@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-//@ts-check
+// @ts-check
 
 const { execSync } = require("child_process");
 const fs = require("fs-extra");
