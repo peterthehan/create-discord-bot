@@ -35,7 +35,6 @@ const validateName = require("validate-npm-package-name");
 const getApplicationId = (token) => {
   try {
     /**
-     *
      * @type {string}
      */
     const response = execSync(
