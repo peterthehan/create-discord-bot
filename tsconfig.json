@@ -5,5 +5,5 @@
     "target": "ESNext",
     "allowJs": true
   },
-  "exclude": ["app/**/*"]
+  "exclude": ["app/**/*", "node_modules"]
 }
