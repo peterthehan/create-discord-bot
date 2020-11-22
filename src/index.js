@@ -22,7 +22,7 @@ const validateName = require("validate-npm-package-name");
  */
 
 /**
- * @typedef {Object & { isDry: boolean; }} Step
+ * @typedef {Object & { ignoreDry?: boolean; }} Step
  * @property {string} message
  * @property {StepAction} action
  */
