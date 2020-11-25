@@ -22,9 +22,10 @@ const validateName = require("validate-npm-package-name");
  */
 
 /**
- * @typedef {Object & { ignoreDry?: boolean; }} Step
+ * @typedef {Object} Step
  * @property {string} message
  * @property {StepAction} action
+ * @property {boolean} ignoreDry
  */
 
 /**
@@ -114,6 +115,7 @@ prompts([
             fs.copySync(`${appDir}/src/core`, `${dir}/src/core`);
             fs.copySync(`${appDir}/src/index.js`, `${dir}/src/index.js`);
           },
+          ignoreDry: false,
         },
       ];
     } else {
@@ -130,6 +132,7 @@ prompts([
         {
           message: `Creating directory '${name}'...`,
           action: () => fs.mkdirSync(dir),
+          ignoreDry: false,
         },
         {
           message: "Creating boilerplate...",
@@ -140,6 +143,7 @@ prompts([
               "node_modules/\ntoken.json\n"
             );
           },
+          ignoreDry: false,
         },
         {
           message: "Updating package.json...",
@@ -151,6 +155,7 @@ prompts([
               `${JSON.stringify(newPackage, null, 2)}\n`
             );
           },
+          ignoreDry: false,
         },
         {
           message: "Writing token.json...",
@@ -159,6 +164,7 @@ prompts([
               path.join(dir, "token.json"),
               `${JSON.stringify({ token }, null, 2)}\n`
             ),
+          ignoreDry: false,
         },
         {
           message: "Installing modules...",
@@ -166,6 +172,7 @@ prompts([
             process.chdir(dir);
             execSync("npm ci");
           },
+          ignoreDry: false,
         },
         {
           message: "\nGenerating bot invite link...",
