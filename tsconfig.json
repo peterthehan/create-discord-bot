@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
+    "allowJs": true,
     "module": "CommonJS",
-    "target": "ESNext",
-    "allowJs": true
+    "moduleResolution": "node",
+    "target": "ESNext"
   },
   "exclude": ["app/**/*", "node_modules"]
 }
