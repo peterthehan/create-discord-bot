@@ -71,7 +71,7 @@ prompts([
     type: "text",
     name: "name",
     initial: appPackage.name,
-    validate: (name) => {
+    validate: (/** @type {string} */ name) => {
       const { validForNewPackages, errors, warnings } = validateName(name);
       return (
         validForNewPackages || `Error: ${(errors || warnings).join(", ")}.`
@@ -80,19 +80,10 @@ prompts([
     message: "Application name?",
   },
 ])
-  .then(async ({ name }) => {
-    /**
-     * @type {string}
-     */
+  .then(async (/** @type {{ name: string; }} */ { name }) => {
     const dir = path.resolve(name);
-    /**
-     * @type {boolean}
-     */
     const isUpdate = fs.existsSync(dir);
-    /**
-     * @type {Step[]}
-     */
-    let steps;
+    let /** @type {Step[]} */ steps;
 
     if (isUpdate) {
       const { update } = await prompts([
