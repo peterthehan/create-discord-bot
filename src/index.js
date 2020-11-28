@@ -87,6 +87,7 @@ prompts([
     let steps;
 
     if (isUpdate) {
+      /** @type {{ update: boolean; }}  */
       const { update } = await prompts([
         {
           type: "confirm",
@@ -111,6 +112,7 @@ prompts([
         },
       ];
     } else {
+      /** @type {{ token: string; }} */
       const { token } = await prompts([
         {
           type: "password",
