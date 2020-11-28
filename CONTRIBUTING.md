@@ -4,18 +4,16 @@ Welcome! Please take a moment to review this document in order to make the contr
 
 ## Table of contents
 
-- [Contributing](#contributing)
-  - [Table of contents](#table-of-contents)
-  - [Communication](#communication)
-  - [Project](#project)
-    - [Quick overview](#quick-overview)
-    - [Scripts](#scripts)
-      - [GitHub Actions](#github-actions)
-      - [Bot](#bot)
-      - [Script](#script)
-      - [Utility](#utility)
-    - [Folder structure](#folder-structure)
-    - [Component descriptions](#component-descriptions)
+- [Communication](#communication)
+- [Project](#project)
+  - [Quick overview](#quick-overview)
+  - [Scripts](#scripts)
+    - [GitHub Actions](#github-actions)
+    - [Bot](#bot)
+    - [Script](#script)
+    - [Utility](#utility)
+  - [Folder structure](#folder-structure)
+  - [Component descriptions](#component-descriptions)
 
 ## Communication
 
