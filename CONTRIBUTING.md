@@ -24,7 +24,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 ## Quick overview
 
 1. Go to [Projects](https://github.com/peterthehan/create-discord-bot/projects/1) and check the issues under the `To do` column.
-2. Make a comment in the issue you wish to work on to check if it's appropriate to work on as well as to check whether someone else is already working on it or not.
+2. Make a comment in the issue you wish to work on to check if it's appropriate to work on as well as to check if someone else is already working on it or not.
 3. Fork the repository, add your feature to a branch, and push and open a pull request.
 
    > Run `npm run format` and ensure all checks are passing before requesting a review!
