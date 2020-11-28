@@ -11,8 +11,8 @@ Create Discord bots using a simple widget-based framework.
 ## Table of contents
 
 - [Getting started](#getting-started)
-  - [Setup bot](#setup-bot)
   - [Create bot](#create-bot)
+  - [Create project](#create-project)
 - [Documentation](#documentation)
   - [Updating](#updating)
   - [Command widget](#command-widget)
@@ -23,25 +23,23 @@ Create Discord bots using a simple widget-based framework.
 
 ## Getting started
 
-### Setup bot
+### Create bot
 
 1. Go to Discord's [Developer Portal](https://discord.com/developers/applications).
 2. Create a new application.
 3. Go to the bot tab and add a bot user to your application.
 
-   > Take note of your bot's token. You will need this in the next section.
+   > Take note of the bot token on this page, you will need this in the next section.
 
-   > A Discord bot's token is not the same as its client ID.
+   > Keep your token and any file containing it **private**. If it ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
-   > Keep your token and any file containing it **private**. If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
-
-### Create bot
+### Create project
 
 ```
 npx peterthehan/create-discord-bot
 ```
 
-Follow the instructions given by the utility and verify the bot is working by using the `.ping` command.
+Follow the instructions given by the utility. Once the bot is running, verify the setup by using the `.ping` command.
 
 You're ready to create your own Discord bot! 🎉
 
