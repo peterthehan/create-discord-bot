@@ -56,6 +56,7 @@ const appDir = path.join(__dirname, "../app");
  * @type {Package}
  */
 const appPackage = require(path.join(appDir, "package.json"));
+/** @type {Package} */
 const { name, version } = require(path.join(__dirname, "../package.json"));
 const utilityNameAndVersion = `${name} v${version}`;
 
