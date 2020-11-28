@@ -39,10 +39,8 @@ module.exports = class CooldownCache {
     }
 
     const cooldownRemaining = getCooldownRemaining(cooldownCache[key]);
-    const cooldownMessage = `${user}, ${command.name}: ${cooldownRemaining}s cooldown remaining`;
-    user
-      .send(cooldownMessage)
-      .catch(() => message.channel.send(cooldownMessage));
+    const cooldownMessage = `${command.name}: ${cooldownRemaining}s cooldown remaining`;
+    user.send(cooldownMessage).catch(() => message.reply(cooldownMessage));
 
     return true;
   }

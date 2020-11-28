@@ -7,24 +7,17 @@ module.exports = () => {
   };
 
   Message.prototype.isUserMessage = function () {
-    return !this.system;
+    return !this.system && this.author && this.author.isUser();
   };
 
   Message.prototype.isCommand = function () {
     return this.client.prefixRegExp.test(this.content);
   };
 
-  Message.prototype.getCommand = function (commandString) {
-    return (
-      this.client.commands.get(commandString) ||
-      this.client.commands.find((command) => command.aliases.has(commandString))
-    );
-  };
-
   Message.prototype.createExecutable = function () {
     const args = this.content.replace(this.client.prefixRegExp, "").split(/ +/);
-    const commandString = args.shift().toLowerCase();
-    const command = this.getCommand(commandString);
+    const commandName = args.shift().toLowerCase();
+    const command = this.client.getCommand(commandName);
 
     return new Executable(this, this.author, command, args);
   };
