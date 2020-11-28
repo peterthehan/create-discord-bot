@@ -83,7 +83,8 @@ prompts([
   .then(async (/** @type {{ name: string; }} */ { name }) => {
     const dir = path.resolve(name);
     const isUpdate = fs.existsSync(dir);
-    let /** @type {Step[]} */ steps;
+    /** @type {Step[]} */
+    let steps;
 
     if (isUpdate) {
       const { update } = await prompts([
