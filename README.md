@@ -29,7 +29,7 @@ Create Discord bots using a simple widget-based framework.
 2. Create a new application.
 3. Go to the bot tab and add a bot user to your application.
 
-   > Take note of the bot token on this page, you will need this in the next section.
+   > Take note of the bot token on this page—you will need it in the next section.
 
    > Keep your token and any file containing it **private**. If it ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
