@@ -1,7 +1,6 @@
 const CommandBuilder = require("../classes/CommandBuilder");
 
 module.exports = new CommandBuilder()
-  .setName("ping")
   .setAliases(["p", "pong"])
   .setOwnersOnly(false)
   .setGuildOnly(false)

@@ -31,9 +31,9 @@ module.exports = class Executable {
   }
 
   async execute() {
-    this.log();
-    this.user.startCooldown(this.command);
     await this.command.execute(this.message, this.user, this.args);
+    this.user.startCooldown(this.command);
+    this.log();
   }
 
   isDeletable() {

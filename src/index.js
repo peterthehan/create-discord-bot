@@ -35,11 +35,9 @@ const validateName = require("validate-npm-package-name");
  */
 const getApplicationId = (token) => {
   try {
-    /**
-     * @type {string}
-     */
+    /** @type {string} */
     const response = execSync(
-      `curl -s -X GET -H "Authorization: Bot ${token}" "https://discordapp.com/api/oauth2/applications/@me"`
+      `curl -s -X GET -H "Authorization: Bot ${token}" "https://discord.com/api/oauth2/applications/@me"`
     ).toString();
     const parsedResponse = JSON.parse(response);
 
@@ -48,13 +46,9 @@ const getApplicationId = (token) => {
     return null;
   }
 };
-/**
- * @type {string}
- */
+/** @type {string} */
 const appDir = path.join(__dirname, "../app");
-/**
- * @type {Package}
- */
+/** @type {Package} */
 const appPackage = require(path.join(appDir, "package.json"));
 /** @type {Package} */
 const { name, version } = require(path.join(__dirname, "../package.json"));
@@ -81,14 +75,14 @@ prompts([
     message: "Application name?",
   },
 ])
-  .then(async (/** @type {{ name: string; }} */ { name }) => {
+  .then(async (/** @type {{ name: string }} */ { name }) => {
     const dir = path.resolve(name);
     const isUpdate = fs.existsSync(dir);
     /** @type {Step[]} */
     let steps;
 
     if (isUpdate) {
-      /** @type {{ update: boolean; }}  */
+      /** @type {{ update: boolean }}  */
       const { update } = await prompts([
         {
           type: "confirm",
@@ -113,7 +107,7 @@ prompts([
         },
       ];
     } else {
-      /** @type {{ token: string; }} */
+      /** @type {{ token: string }} */
       const { token } = await prompts([
         {
           type: "password",
@@ -176,8 +170,8 @@ prompts([
             const applicationId = getApplicationId(token);
             console.log(
               applicationId
-                ? `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${applicationId}`
-                : "The given bot token was invalid so no link was generated."
+                ? `Invite your bot: https://discord.com/oauth2/authorize?scope=bot&client_id=${applicationId}`
+                : "The given bot token was invalid so no invite link was generated."
             );
           },
         },
