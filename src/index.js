@@ -16,9 +16,9 @@ const validateName = require("validate-npm-package-name");
  * @property {string} name
  * @property {string} version
  * @property {string} description
- * @property {Record<string, string> | undefined | null} scripts
- * @property {Record<string, string> | undefined | null} dependencies
- * @property {Record<string, string> | undefined | null} devDependencies
+ * @property {Record<string, string>} [scripts]
+ * @property {Record<string, string>} [dependencies]
+ * @property {Record<string, string>} [devDependencies]
  */
 
 /**
