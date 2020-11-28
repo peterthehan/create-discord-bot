@@ -6,9 +6,9 @@ module.exports = (client) => {
   const commands = new Collection();
   fs.readdirSync(path.resolve(__dirname, "../commands"))
     .map((filename) => filename.split(".").slice(0, -1).join("."))
-    .forEach((filename) => {
-      const command = require(`../commands/${filename}`)
-        .setName(filename)
+    .forEach((filenameWithoutExtension) => {
+      const command = require(`../commands/${filenameWithoutExtension}`)
+        .setName(filenameWithoutExtension)
         .build();
       commands.set(command.name, command);
     });
