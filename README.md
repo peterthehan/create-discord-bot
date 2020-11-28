@@ -1,6 +1,6 @@
 # Create Discord Bot
 
-[![Discord](https://discordapp.com/api/guilds/258167954913361930/embed.png)](https://discord.gg/WjEFnzC) [![Twitter Follow](https://img.shields.io/twitter/follow/peterthehan.svg?style=social)](https://twitter.com/peterthehan)
+[![Discord](https://discord.com/api/guilds/258167954913361930/embed.png)](https://discord.gg/WjEFnzC) [![Twitter Follow](https://img.shields.io/twitter/follow/peterthehan.svg?style=social)](https://twitter.com/peterthehan)
 
 Create Discord bots using a simple widget-based framework.
 
@@ -25,30 +25,23 @@ Create Discord bots using a simple widget-based framework.
 
 ### Setup bot
 
-1. Go to Discord's [Developer Portal](https://discordapp.com/developers/applications).
+1. Go to Discord's [Developer Portal](https://discord.com/developers/applications).
 2. Create a new application.
-
-> Take note of your bot's client ID. You will need this to invite your bot to a server.
-
 3. Go to the bot tab and add a bot user to your application.
 
-> Take note of your bot's token. You will need this in the next section.
+   > Take note of your bot's token. You will need this in the next section.
 
-4. Invite your bot to a server using: [https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER](https://discordapp.com/oauth2/authorize?scope=bot&client_id=DISCORD_BOT_CLIENT_ID_PLACEHOLDER)
+   > A Discord bot's token is not the same as its client ID.
 
-> Alternatively, `npx peterthehan/create-discord-bot` will generate a bot invite link for you when you create a bot project and you provide a valid bot token.
-
-> A Discord bot's client ID is not the same as its token. Keep your token and any file containing it **private**. If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
+   > Keep your token and any file containing it **private**. If your token ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
 ### Create bot
 
 ```
 npx peterthehan/create-discord-bot
-cd my-discord-bot/
-npm start
 ```
 
-Verify the bot is working by using the `.ping` command.
+Follow the instructions given by the utility and verify the bot is working by using the `.ping` command.
 
 You're ready to create your own Discord bot! 🎉
 
@@ -116,7 +109,7 @@ The following widgets can be used by this framework by adding them into the [src
 Visit for more help or information!
 
 <a href="https://discord.gg/WjEFnzC">
-  <img src="https://discordapp.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord server invite" alt="Discord server invite" />
+  <img src="https://discord.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord server invite" alt="Discord server invite" />
 </a>
 
 ## Contributing

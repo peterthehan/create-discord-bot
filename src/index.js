@@ -39,7 +39,7 @@ const getApplicationId = (token) => {
      * @type {string}
      */
     const response = execSync(
-      `curl -s -X GET -H "Authorization: Bot ${token}" "https://discordapp.com/api/oauth2/applications/@me"`
+      `curl -s -X GET -H "Authorization: Bot ${token}" "https://discord.com/api/oauth2/applications/@me"`
     ).toString();
     const parsedResponse = JSON.parse(response);
 
@@ -176,7 +176,7 @@ prompts([
             const applicationId = getApplicationId(token);
             console.log(
               applicationId
-                ? `Invite your bot: https://discordapp.com/oauth2/authorize?scope=bot&client_id=${applicationId}`
+                ? `Invite your bot: https://discord.com/oauth2/authorize?scope=bot&client_id=${applicationId}`
                 : "The given bot token was invalid so no link was generated."
             );
           },
