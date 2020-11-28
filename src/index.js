@@ -1,15 +1,44 @@
 #!/usr/bin/env node
+// @ts-check
 
-import { Package, Step } from "./declarations/types";
-import { execSync } from "child_process";
-import fs from "fs-extra";
-import path from "path";
-import prompts from "prompts";
-import validateName from "validate-npm-package-name";
+const { execSync } = require("child_process");
+const fs = require("fs-extra");
+const path = require("path");
+const prompts = require("prompts");
+const validateName = require("validate-npm-package-name");
 
-const getApplicationId = (token: string): string | null => {
+/**
+ * @typedef {() => void} StepAction
+ */
+
+/**
+ * @typedef {Object} Package
+ * @property {string} name
+ * @property {string} version
+ * @property {string} description
+ * @property {Record<string, string>} [scripts]
+ * @property {Record<string, string>} [dependencies]
+ * @property {Record<string, string>} [devDependencies]
+ */
+
+/**
+ * @typedef {Object} Step
+ * @property {string} message
+ * @property {StepAction} action
+ * @property {boolean} ignoreDry
+ */
+
+/**
+ * @function
+ * @param {string} token
+ * @returns {string | null} applicationId
+ */
+const getApplicationId = (token) => {
   try {
-    const response: string = execSync(
+    /**
+     * @type {string}
+     */
+    const response = execSync(
       `curl -s -X GET -H "Authorization: Bot ${token}" "https://discordapp.com/api/oauth2/applications/@me"`
     ).toString();
     const parsedResponse = JSON.parse(response);
@@ -19,13 +48,16 @@ const getApplicationId = (token: string): string | null => {
     return null;
   }
 };
-
-const appDir: string = path.join(__dirname, "../app");
-const appPackage: Package = require(path.join(appDir, "package.json"));
-const { name, version }: Package = require(path.join(
-  __dirname,
-  "../package.json"
-));
+/**
+ * @type {string}
+ */
+const appDir = path.join(__dirname, "../app");
+/**
+ * @type {Package}
+ */
+const appPackage = require(path.join(appDir, "package.json"));
+/** @type {Package} */
+const { name, version } = require(path.join(__dirname, "../package.json"));
 const utilityNameAndVersion = `${name} v${version}`;
 
 console.log(`This utility will walk you through creating a ${name} application.
@@ -40,7 +72,7 @@ prompts([
     type: "text",
     name: "name",
     initial: appPackage.name,
-    validate: (name: string) => {
+    validate: (/** @type {string} */ name) => {
       const { validForNewPackages, errors, warnings } = validateName(name);
       return (
         validForNewPackages || `Error: ${(errors || warnings).join(", ")}.`
@@ -49,13 +81,15 @@ prompts([
     message: "Application name?",
   },
 ])
-  .then(async ({ name }: { name: string }) => {
-    const dir: string = path.resolve(name);
-    const isUpdate: boolean = fs.existsSync(dir);
-    let steps: Step[];
+  .then(async (/** @type {{ name: string; }} */ { name }) => {
+    const dir = path.resolve(name);
+    const isUpdate = fs.existsSync(dir);
+    /** @type {Step[]} */
+    let steps;
 
     if (isUpdate) {
-      const { update }: { update: boolean } = await prompts([
+      /** @type {{ update: boolean; }}  */
+      const { update } = await prompts([
         {
           type: "confirm",
           name: "update",
@@ -75,10 +109,12 @@ prompts([
             fs.copySync(`${appDir}/src/core`, `${dir}/src/core`);
             fs.copySync(`${appDir}/src/index.js`, `${dir}/src/index.js`);
           },
+          ignoreDry: false,
         },
       ];
     } else {
-      const { token }: { token: string } = await prompts([
+      /** @type {{ token: string; }} */
+      const { token } = await prompts([
         {
           type: "password",
           name: "token",
@@ -91,6 +127,7 @@ prompts([
         {
           message: `Creating directory '${name}'...`,
           action: () => fs.mkdirSync(dir),
+          ignoreDry: false,
         },
         {
           message: "Creating boilerplate...",
@@ -101,6 +138,7 @@ prompts([
               "node_modules/\ntoken.json\n"
             );
           },
+          ignoreDry: false,
         },
         {
           message: "Updating package.json...",
@@ -112,6 +150,7 @@ prompts([
               `${JSON.stringify(newPackage, null, 2)}\n`
             );
           },
+          ignoreDry: false,
         },
         {
           message: "Writing token.json...",
@@ -120,6 +159,7 @@ prompts([
               path.join(dir, "token.json"),
               `${JSON.stringify({ token }, null, 2)}\n`
             ),
+          ignoreDry: false,
         },
         {
           message: "Installing modules...",
@@ -127,6 +167,7 @@ prompts([
             process.chdir(dir);
             execSync("npm ci");
           },
+          ignoreDry: false,
         },
         {
           message: "\nGenerating bot invite link...",
@@ -144,7 +185,7 @@ prompts([
     }
 
     const [, , ...args] = process.argv;
-    const isDryRun: boolean = args[0] === "--dry-run";
+    const isDryRun = args[0] === "--dry-run";
 
     console.log();
     steps.forEach(({ message, ignoreDry, action }) => {

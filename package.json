@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.10.1",
+  "version": "3.10.2",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
@@ -27,18 +27,17 @@
     "email": "peter.han.9493@gmail.com",
     "url": "https://github.com/peterthehan"
   },
-  "main": "dist/index.js",
-  "bin": "dist/index.js",
+  "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "action:build": "npx tsc --noEmit",
     "action:check": "prettier --no-config --check .",
     "action:lint": "npx eslint .",
     "bot:dev": "nodemon app/src/index.js",
     "bot:start": "node app/src/index.js",
-    "build": "npx tsc",
-    "dry": "node dist/index.js --dry-run",
+    "dry": "node src/index.js --dry-run",
     "format": "npx eslint --fix . && prettier --no-config --write .",
-    "start": "node dist/index.js"
+    "start": "node src/index.js"
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
@@ -68,15 +67,9 @@
     "*.{md}": [
       "prettier --no-config --write"
     ],
-    "*.{js,json,yml}": [
+    "*.{js,json,yml,ts}": [
       "npx eslint --fix",
       "prettier --no-config --write"
-    ],
-    "*.ts": [
-      "npx eslint --fix",
-      "prettier --no-config --write",
-      "npx tsc --esModuleInterop -t ESNext -m CommonJS --moduleResolution node --outDir ../dist",
-      "git add dist/"
     ]
   }
 }
