@@ -171,7 +171,7 @@ prompts([
             console.log(
               applicationId
                 ? `Invite your bot: https://discord.com/oauth2/authorize?scope=bot&client_id=${applicationId}`
-                : "The given bot token was invalid so no link was generated."
+                : "The given bot token was invalid so no invite link was generated."
             );
           },
         },
