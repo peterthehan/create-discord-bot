@@ -5,8 +5,8 @@ Welcome! Please take a moment to review this document in order to make the contr
 ## Table of contents
 
 - [Communication](#communication)
+- [Quick overview](#quick-overview)
 - [Project](#project)
-  - [Quick overview](#quick-overview)
   - [Folder structure](#folder-structure)
   - [Component descriptions](#component-descriptions)
   - [Scripts](#scripts)
@@ -21,9 +21,7 @@ Welcome! Please take a moment to review this document in order to make the contr
 - Communication should occur under [issues](https://github.com/peterthehan/create-discord-bot/issues) and [pull requests](https://github.com/peterthehan/create-discord-bot/pulls) when and where possible. This ensures there is a clear paper trail of referable discussion and ideas for old and new contributors alike.
 - This project's Discord server is: https://discord.gg/WjEFnzC
 
-## Project
-
-### Quick overview
+## Quick overview
 
 1. Go to [Projects](https://github.com/peterthehan/create-discord-bot/projects/1) and check the issues under the `To do` column.
 2. Make a comment in the issue you wish to work on to check whether or not someone else is already working on it and to check if it's appropriate to work on.
@@ -32,6 +30,8 @@ Welcome! Please take a moment to review this document in order to make the contr
    > Run `npm run format` and ensure all checks are passing before requesting a review!
 
 4. Address any review comments and when everything checks out your feature will be merged, congrats and thanks! 🎉
+
+## Project
 
 ### Folder structure
 
