@@ -33,6 +33,11 @@ Create Discord bots using a simple widget-based framework.
 
    > Keep your token and any file containing it **private**. If it ever leaks or you suspect it may have leaked, simply `regenerate` a new token to invalidate your compromised token.
 
+4. In the bot tab, scroll down to the `Privileged Gateway Intents` section and enable the toggles for both `Presence Intent` and `Server Members Intent`. More details on `Gateway Intents` can be found here:
+
+   - [Gateway Update FAQ](https://support-dev.discord.com/hc/en-us/articles/360056426994)
+   - [Privileged Intents](https://discord.com/developers/docs/topics/gateway#privileged-intents)
+
 ### Create project
 
 ```
