@@ -100,6 +100,7 @@ The following widgets can be used by this framework by adding them into the [src
 - [https://github.com/peterthehan/discord-emoji-log-bot](https://github.com/peterthehan/discord-emoji-log-bot)
 - [https://github.com/peterthehan/discord-reaction-role-bot](https://github.com/peterthehan/discord-reaction-role-bot)
 - [https://github.com/peterthehan/discord-starboard-bot](https://github.com/peterthehan/discord-starboard-bot)
+- [https://github.com/peterthehan/discord-superactive-role-bot](https://github.com/peterthehan/discord-superactive-role-bot)
 - [https://github.com/peterthehan/discord-twitter-bot](https://github.com/peterthehan/discord-twitter-bot)
 
 ## Troubleshooting
