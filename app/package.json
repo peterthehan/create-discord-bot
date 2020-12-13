@@ -8,11 +8,11 @@
     "start": "node src/index.js"
   },
   "dependencies": {
-    "discord.js": "github:discordjs/discord.js#master"
+    "discord.js": "^12.5.1"
   },
   "devDependencies": {
-    "eslint": "^7.8.1",
-    "nodemon": "^2.0.4",
-    "prettier": "^2.1.1"
+    "eslint": "^7.15.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
   }
 }
