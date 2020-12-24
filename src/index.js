@@ -8,7 +8,7 @@ const prompts = require("prompts");
 const validateName = require("validate-npm-package-name");
 
 /**
- * @typedef {() => void} StepAction
+ * @typedef {function():void} action
  */
 
 /**
@@ -24,7 +24,7 @@ const validateName = require("validate-npm-package-name");
 /**
  * @typedef {Object} Step
  * @property {string} message
- * @property {StepAction} action
+ * @property {action} action
  * @property {boolean} ignoreDry
  */
 
