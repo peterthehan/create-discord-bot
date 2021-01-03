@@ -3,6 +3,7 @@
     "allowJs": true,
     "module": "CommonJS",
     "moduleResolution": "node",
+    "noEmit": true,
     "target": "ESNext"
   },
   "exclude": ["app/**/*", "node_modules"]

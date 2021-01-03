@@ -1,6 +1,6 @@
 {
   "name": "create-discord-bot",
-  "version": "3.10.4",
+  "version": "3.11.0",
   "description": "Create Discord bots using a simple widget-based framework.",
   "keywords": [
     "discord",
@@ -45,14 +45,14 @@
     "validate-npm-package-name": "^3.0.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.5",
-    "@types/node": "^14.14.13",
+    "@types/fs-extra": "^9.0.6",
+    "@types/node": "^14.14.19",
     "@types/prompts": "^2.0.9",
     "@types/validate-npm-package-name": "^3.0.2",
-    "@typescript-eslint/eslint-plugin": "^3.10.1",
-    "@typescript-eslint/parser": "^3.10.1",
-    "eslint": "^7.15.0",
-    "husky": "^4.3.5",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.17.0",
+    "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "nodemon": "^2.0.6",
     "prettier": "^2.2.1",
@@ -67,7 +67,7 @@
     "*.{md}": [
       "prettier --no-config --write"
     ],
-    "*.{js,json,yml,ts}": [
+    "*.{js,json,ts,yml}": [
       "npx eslint --fix",
       "prettier --no-config --write"
     ]

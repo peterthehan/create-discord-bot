@@ -129,7 +129,7 @@ prompts([
             fs.copySync(appDir, dir);
             fs.writeFileSync(
               path.join(dir, ".gitignore"),
-              "node_modules/\ntoken.json\n"
+              "node_modules/\n.env\n"
             );
           },
           ignoreDry: false,
@@ -147,11 +147,11 @@ prompts([
           ignoreDry: false,
         },
         {
-          message: "Writing token.json...",
+          message: "Writing .env...",
           action: () =>
             fs.writeFileSync(
-              path.join(dir, "token.json"),
-              `${JSON.stringify({ token }, null, 2)}\n`
+              path.join(dir, ".env"),
+              `DISCORD_BOT_TOKEN=${token}`
             ),
           ignoreDry: false,
         },
