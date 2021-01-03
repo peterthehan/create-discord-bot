@@ -4,9 +4,14 @@ const runHandlers = (handlers, ...eventArguments) =>
   handlers.forEach((handler) => handler(...eventArguments));
 
 module.exports = (client) => {
-  const { ready, ...widgetHandlerMap } = getWidgetHandlerMap();
+  process
+    .on("unhandledRejection", console.error)
+    .on("uncaughtException", (error) => {
+      console.error(error);
+      process.exit(1);
+    });
 
-  process.on("unhandledRejection", console.warn);
+  const { ready, ...widgetHandlerMap } = getWidgetHandlerMap();
   client.once("ready", () => runHandlers(ready, client));
 
   Object.keys(widgetHandlerMap).forEach((handlerName) =>

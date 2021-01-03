@@ -12,7 +12,7 @@ Create Discord bots using a simple widget-based framework.
 
 - [Getting started](#getting-started)
   - [Create bot](#create-bot)
-  - [Create project](#create-project)
+  - [Create application](#create-application)
 - [Documentation](#documentation)
   - [Updating](#updating)
   - [Command widget](#command-widget)
@@ -38,7 +38,7 @@ Create Discord bots using a simple widget-based framework.
    - [Gateway Update FAQ](https://support-dev.discord.com/hc/en-us/articles/360056426994)
    - [Privileged Intents](https://discord.com/developers/docs/topics/gateway#privileged-intents)
 
-### Create project
+### Create application
 
 ```
 npx peterthehan/create-discord-bot
