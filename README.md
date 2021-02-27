@@ -44,7 +44,7 @@ Create Discord bots using a simple widget-based framework.
 npx peterthehan/create-discord-bot
 ```
 
-Follow the instructions given by the utility. Once the bot is running, verify the setup by using the `.ping` command.
+Follow the instructions given by the utility. Once the bot is running, verify the setup is working by sending the `.ping` command on Discord. If there are issues, check [Troubleshooting](#troubleshooting) for tips.
 
 You're ready to create your own Discord bot! 🎉
 
@@ -105,6 +105,7 @@ The following widgets can be used by this framework by adding them into the [src
 
 ## Troubleshooting
 
+- Remove bots that may conflict in functionality, e.g. multiple reaction role bots.
 - Use [Git Bash](https://git-scm.com/downloads) instead of the Command Prompt (cmd.exe) if you are on Windows.
 - `npm -v` to check if your npm version supports npx (v5.2+).
 - `node -v` to check if you have the latest LTS version of Node.js (v12+).
