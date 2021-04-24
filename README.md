@@ -44,9 +44,15 @@ Create Discord bots using a simple widget-based framework.
 npx peterthehan/create-discord-bot
 ```
 
-Follow the instructions given by the utility. Once the bot is running, verify the setup is working by sending the `.ping` command on Discord. If there are issues, check [Troubleshooting](#troubleshooting) for tips.
+1. Run the npx command and follow the instructions given by the utility.
+
+   > It will look like the GIF above for reference.
+
+2. Once the bot is running, verify the setup was successful by sending the `.ping` command on Discord. If there are issues, check [Troubleshooting](#troubleshooting) for tips.
 
 You're ready to create your own Discord bot! 🎉
+
+If you were directed to follow the instructions found here from another README, return back there now and continue with the setup. Feel free to continue reading for more information.
 
 ## Documentation
 
@@ -107,9 +113,21 @@ The following widgets can be used by this framework by adding them into the [src
 
 - Remove bots that may conflict in functionality, e.g. multiple reaction role bots.
 - Use [Git Bash](https://git-scm.com/downloads) instead of the Command Prompt (cmd.exe) if you are on Windows.
-- `npm -v` to check if your npm version supports npx (v5.2+).
-- `node -v` to check if you have the latest LTS version of Node.js (v12+).
-- `npm install` if running the application outputs `Error: Cannot find module '...'`.
+- Check if your npm version supports npx by running `npm -v` (v5.2+).
+- Check if you have the latest LTS version of Node.js by running `node -v` (v12+).
+- If running the npx command yields the error message below, check that you have git installed by running `git --version`.
+
+  ```
+  npm ERR! code ENOENT
+  npm ERR! syscall spawn git
+  npm ERR! path git
+  npm ERR! errno -4058
+  npm ERR! enoent Error while executing:
+  npm ERR! enoent undefined ls-remote -h -t
+  ...
+  ```
+
+- If running the application outputs `Error: Cannot find module '...'`, try running `npm install` in the project.
 
 Visit for more help or information!
 
