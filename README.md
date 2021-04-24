@@ -116,7 +116,6 @@ The following widgets can be used by this framework by adding them into the [src
 - Check if your npm version supports npx by running `npm -v` (v5.2+).
 - Check if you have the latest LTS version of Node.js by running `node -v` (v12+).
 - If running the npx command yields the error message below, check that you have git installed by running `git --version`.
-
   ```
   npm ERR! code ENOENT
   npm ERR! syscall spawn git
@@ -126,7 +125,6 @@ The following widgets can be used by this framework by adding them into the [src
   npm ERR! enoent undefined ls-remote -h -t
   ...
   ```
-
 - If running the application outputs `Error: Cannot find module '...'`, try running `npm install` in the project.
 
 Visit for more help or information!
