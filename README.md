@@ -54,7 +54,7 @@ npx peterthehan/create-discord-bot
 
 You're ready to create your own Discord bot! 🎉
 
-If you were directed to follow the instructions found here from another README, return back there now and continue with the setup. Feel free to continue reading for more information.
+If you were directed to follow the instructions found here from another `README`, return back there now and continue with the setup. Feel free to continue reading for more information.
 
 ## Documentation
 
