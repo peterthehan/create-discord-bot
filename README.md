@@ -44,9 +44,11 @@ Create Discord bots using a simple widget-based framework.
 npx peterthehan/create-discord-bot
 ```
 
-1. Run the npx command and follow the instructions given by the utility.
+1. Run the npx command above and follow the instructions given by the utility.
 
    > It will look like the GIF above for reference.
+
+   > If you choose not to provide your bot token during the setup, you can always add it at a later time. Open the .env file at the root of the project to set your bot token value.
 
 2. Once the bot is running, verify the setup was successful by sending the `.ping` command on Discord. If there are issues, check [Troubleshooting](#troubleshooting) for tips.
 
