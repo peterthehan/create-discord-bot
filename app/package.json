@@ -8,12 +8,12 @@
     "start": "node src/index.js"
   },
   "dependencies": {
-    "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.17.0",
-    "nodemon": "^2.0.6",
-    "prettier": "^2.2.1"
+    "eslint": "^7.26.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0"
   }
 }
