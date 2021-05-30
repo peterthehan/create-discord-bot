@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "discord.js": "^12.5.3",
-    "dotenv": "^9.0.1"
+    "dotenv": "^9.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
+    "eslint": "^7.27.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.0"
   }
