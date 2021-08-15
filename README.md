@@ -45,7 +45,7 @@ A module-based Discord bot template.
    mv .env.example .env
    ```
 
-3. Open the `.env` file and add your Discord bot token value.
+3. Open the `.env` file and add your Discord bot token.
 
 4. Finally, run the following command to start the bot:
 
@@ -79,9 +79,12 @@ The following bots can be used by this template by adding them into the [/src/bo
 
 - Remove bots in your server that may conflict in functionality, e.g. multiple reaction role bots.
 - Use [Git Bash](https://git-scm.com/downloads) instead of the Command Prompt (cmd.exe) if you are on Windows.
-- Check that your `npm` version is `>=7.0.0` by running `npm -v`.
-- Check that your `node` version is `>=16.6.0` by running `node -v`.
-- If running the application outputs `Error: Cannot find module '...'`, try running `npm i` in the project directory.
+- Check that your:
+  - `npm` version is `>=7.0.0` by running `npm -v`.
+  - `node` version is `>=16.6.0` by running `node -v`.
+- If running the application outputs:
+  - `Error: Cannot find module '...'`, try running `npm i` in the project directory.
+  - `DiscordAPIError: Missing Permissions`, verify your bot has the correct `Manage` permissions.
 
 Visit for more help or information!
 
