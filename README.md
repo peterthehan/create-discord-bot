@@ -53,7 +53,7 @@ A module-based Discord bot template.
    npm start
    ```
 
-   Verify the bot is running properly by sending messages in your server. The bot should log your messages in your terminal. If there are issues, check [Troubleshooting](#troubleshooting) for tips.
+   Verify the bot is running properly by sending messages in your server. The bot should log these messages in your terminal. If there are any issues, check [Troubleshooting](#troubleshooting).
 
 You're ready to create your own Discord bot! 🎉
 
@@ -80,8 +80,8 @@ The following bots can be used by this template by adding them into the [/src/bo
 - Remove bots in your server that may conflict in functionality, e.g. multiple reaction role bots.
 - Use [Git Bash](https://git-scm.com/downloads) instead of the Command Prompt (cmd.exe) if you are on Windows.
 - Check that your:
-  - `npm` version is `>=7.0.0` by running `npm -v`.
   - `node` version is `>=16.6.0` by running `node -v`.
+  - `npm` version is `>=7.0.0` by running `npm -v`.
 - If running the application outputs:
   - `Error: Cannot find module '...'`, try running `npm i` in the project directory.
   - `DiscordAPIError: Missing Permissions`, verify your bot has the correct `Manage` permissions.
