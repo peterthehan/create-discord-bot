@@ -91,7 +91,3 @@ Visit for more help or information!
 <a href="https://discord.gg/WjEFnzC">
   <img src="https://discord.com/api/guilds/258167954913361930/embed.png?style=banner2" title="Discord server invite" alt="Discord server invite" />
 </a>
-
-## Contributing
-
-Read the [Contributing](./.github/CONTRIBUTING.md) documentation to get started!
