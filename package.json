@@ -1,7 +1,7 @@
 {
   "name": "create-discord-bot",
   "version": "1.0.0",
-  "description": "A simple module-based Discord bot template.",
+  "description": "A module-based Discord bot template.",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rm -rf ./dist && npx tsc",
