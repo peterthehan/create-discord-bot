@@ -1,20 +1,10 @@
 {
-  "env": {
-    "commonjs": true,
-    "es2020": true,
-    "node": true
-  },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "root": true,
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2018
-  },
   "plugins": ["@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/no-inferrable-types": "warn",
-    "@typescript-eslint/no-var-requires": "off",
-    "curly": "warn",
-    "no-console": "off",
-    "sort-imports": "error"
-  }
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ]
 }
