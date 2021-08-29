@@ -1,75 +1,30 @@
 {
   "name": "create-discord-bot",
-  "version": "3.11.2",
-  "description": "Create Discord bots using a simple widget-based framework.",
-  "keywords": [
-    "discord",
-    "bot",
-    "discord-bot",
-    "framework",
-    "template",
-    "widget",
-    "nodejs",
-    "discordjs"
-  ],
-  "homepage": "https://github.com/peterthehan/create-discord-bot",
-  "bugs": {
-    "url": "https://github.com/peterthehan/create-discord-bot/issues",
-    "email": "peter.han.9493@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/peterthehan/create-discord-bot.git"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Peter Han",
-    "email": "peter.han.9493@gmail.com",
-    "url": "https://github.com/peterthehan"
-  },
-  "main": "src/index.js",
-  "bin": "src/index.js",
+  "version": "1.0.0",
+  "description": "A module-based Discord bot template.",
+  "main": "./dist/index.js",
   "scripts": {
-    "action:build": "npx tsc --noEmit",
-    "action:check": "prettier --no-config --check .",
-    "action:lint": "npx eslint .",
-    "bot:dev": "nodemon app/src/index.js",
-    "bot:start": "node app/src/index.js",
-    "dry": "node src/index.js --dry-run",
-    "format": "npx eslint --fix . && prettier --no-config --write .",
-    "start": "node src/index.js"
+    "build": "rm -rf ./dist && npx tsc",
+    "lint": "npx eslint --fix .",
+    "start": "npm run build && node ./dist/index.js"
   },
   "dependencies": {
-    "fs-extra": "^9.1.0",
-    "prompts": "^2.4.1",
-    "validate-npm-package-name": "^3.0.0"
+    "discord-bot-core-client": "^0.0.4",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.11",
-    "@types/node": "^14.17.1",
-    "@types/prompts": "^2.0.12",
-    "@types/validate-npm-package-name": "^3.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.25.0",
-    "@typescript-eslint/parser": "^4.25.0",
-    "eslint": "^7.27.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.3.0",
-    "typescript": "^4.3.2"
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node": "^16.6.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{md}": [
-      "prettier --no-config --write"
-    ],
-    "*.{js,json,ts,yml}": [
-      "npx eslint --fix",
-      "prettier --no-config --write"
-    ]
+  "engines": {
+    "node": ">=16.6.0",
+    "npm": ">=7.0.0"
   }
 }
