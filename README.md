@@ -74,7 +74,6 @@ The following bots can be used by this template by adding them into the [/src/bo
 - [discord-cron-bot](https://github.com/peterthehan/discord-cron-bot)
 - [discord-dad-bot](https://github.com/peterthehan/discord-dad-bot)
 - [discord-dynamic-voice-channels-bot](https://github.com/peterthehan/discord-dynamic-voice-channels-bot)
-- [discord-emoji-log-bot](https://github.com/peterthehan/discord-emoji-log-bot)
 - [discord-reaction-role-bot](https://github.com/peterthehan/discord-reaction-role-bot)
 - [discord-starboard-bot](https://github.com/peterthehan/discord-starboard-bot)
 - [discord-superactive-role-bot](https://github.com/peterthehan/discord-superactive-role-bot)
