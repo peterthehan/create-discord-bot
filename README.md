@@ -44,7 +44,7 @@ A module-based Discord bot template.
    npm i
    ```
 
-2. Run the following command to rename the `.env` file:
+2. Run the following command to rename the existing `.env.example` file to `.env`:
 
    ```
    mv .env.example .env
